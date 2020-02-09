@@ -44,6 +44,11 @@ public class Register extends AppCompatActivity {
         confpass = findViewById(R.id.et_confpass_register);
         btnReg = findViewById(R.id.btn_register);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,18 +56,21 @@ public class Register extends AppCompatActivity {
                 check1 = pass.getText().toString();
                 check2 = confpass.getText().toString();
                 if(check1.equals(check2)){
+                   //Registering user if passwords match
                     fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                         //logging in user in the background to get his details
                             fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                 @Override
                                 public void onSuccess(AuthResult authResult) {
-
                                     Toast.makeText(Register.this, "Registration Successfull", Toast.LENGTH_LONG).show();
                                     dbref = FirebaseDatabase.getInstance().getReference("_user_");
+                                 //Storing user's details in Realtime database
                                     User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
                                     dbref.child(fbAuth.getUid()).setValue(u);
                                     fbAuth.signOut();
+                                 //returning to Login page
                                     Intent i = new Intent(Register.this, MainActivity.class);
                                     startActivity(i);
                                 }
@@ -75,6 +83,7 @@ public class Register extends AppCompatActivity {
 
             }
         });
-
     }
+
 }
+
