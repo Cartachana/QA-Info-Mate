@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_timetable"
+    tools:context=".Timetable">
+
+    <TextView
+        android:id="@+id/tv_title_timetable"
+        android:layout_width="170dp"
+        android:layout_height="57dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginRight="120dp"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Timetable"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#F8F8F8"
+        android:textColorLink="#E91E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_logOut_timetable"
+        android:layout_width="60dp"
+        android:layout_height="29dp"
+        android:clickable="true"
+        android:text="Log Out"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/tv_user_timetable"
+        android:layout_width="62dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="4dp"
+        android:clickable="true"
+        android:text="User"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/tv_pageTitle_timetable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BsC Computing Technologies\n2019/2020 Group A"
+        android:textColor="#040404"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="366dp"
+        android:layout_height="290dp"
+        android:background="#CCC"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:stretchColumns="0"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Day"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_G02r1c2_timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:clickable="true"
+                android:text="R: G02"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_G02r1c3_timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:clickable="true"
+                android:text="R: G02"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Break"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_LG0104r1c5_timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:clickable="true"
+                android:text="R: LG1-04 Lab"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="09:30-11:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="11:30-13:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="13:30-14:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="14:30-16:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:text="W\nE\nD"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Mobile App\nDesign and\nDevelopment"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Network \nDesign and\nTroubleshooting"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\n\nLunch"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Network\nDesign and\nTroubleshooting"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="(Lecture)"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="(Lecture)"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="(Seminar)"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                android:textStyle="italic" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Tendai\nMhlanga"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Mohammed\nHassan"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Mohammed\nHassan"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp"
+            android:textSize="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Day"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_102r10c2_timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:clickable="true"
+                android:text="R: 102 Dual"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_G02r10c3_timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:clickable="true"
+                android:text="R: G02"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Break"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/tv_G02r10c5_timetable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:clickable="true"
+                android:text="R: G02"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="09:30-11:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="11:30-13:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="13:30-14:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="14:30-16:30"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="F\nR\nI"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Mobile App\nDesign and\nDevelopment"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="User\nExperience\nDesign"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\n\nLunch"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="User\nExperience\nDesign"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp"
+            android:textSize="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="(Seminar)"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="(Lecture)"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="(Seminar)"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp"
+                android:textStyle="italic" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#CCC"
+            android:paddingRight="1dp"
+            android:paddingBottom="1dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Tendai\nMhlanga"
+                android:textAlignment="center"
+
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Hassan\nBaajour"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" "
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
+                android:text="Hassan\nBaajour"
+                android:textAlignment="center"
+
+                android:textColor="#000000"
+                android:textSize="12dp" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="    To view the location of your class room please press on the\n  room you are interested in\n     Your timetable is recurring every week for the entire semester,\n  excepting for Bank Holidays and breaks, to view the dates"
+        android:textColor="#040404"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <TextView
+        android:id="@+id/tv_press_floor_maps_timetable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:text="  please press here"
+        android:textColor="#040404"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/iv_library_bottom_timetable"
+        android:layout_width="54dp"
+        android:layout_height="45dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.988"
+        app:srcCompat="@drawable/library_small" />
+
+    <ImageView
+        android:id="@+id/iv_forum_bottom_timetable"
+        android:layout_width="65dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="468dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945"
+        app:srcCompat="@drawable/forum_small" />
+
+    <ImageView
+        android:id="@+id/iv_market_bottom_timetable"
+        android:layout_width="53dp"
+        android:layout_height="41dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.982"
+        app:srcCompat="@drawable/market_small" />
+
+    <ImageView
+        android:id="@+id/iv_moodle_bottom_timetable"
+        android:layout_width="39dp"
+        android:layout_height="42dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981"
+        app:srcCompat="@drawable/moodle_small" />
+
+    <ImageView
+        android:id="@+id/iv_help_bottom_timetable"
+        android:layout_width="60dp"
+        android:layout_height="49dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.948"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.992"
+        app:srcCompat="@drawable/help_small" />
+
+    <ImageView
+        android:id="@+id/iv_dashboard_bottom_timetable"
+        android:layout_width="47dp"
+        android:layout_height="33dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977"
+        app:srcCompat="@drawable/dashboard_icon" />
+
+    <![CDATA[
+
+    />
+
+
+]]>
+</androidx.constraintlayout.widget.ConstraintLayout>
