@@ -9,11 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.sql.Time;
+
 public class Dashboard extends AppCompatActivity {
 
     //
     private TextView logOut, studentName;
     private Button   timetable, library, forum, market, moodle, help;
+    private Intent i;
+    private FirebaseAuth fbAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +36,20 @@ public class Dashboard extends AppCompatActivity {
         market=findViewById(R.id.btn_market_dashboard);
         moodle=findViewById(R.id.btn_moodle_dashboard);
         help=findViewById(R.id.btn_help_dashboard);
+        fbAuth = FirebaseAuth.getInstance();
 
+        studentName.setText(Session.LiveSession.user.getFname());
         //set  OnClickListener on buttons to trigger events, such that the user will navigate through different activities
 
         // set an event on Log Out TextView where the user is logged out and redirected to the main Login activity
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToMainActivity();
-                //log out user - null
+                fbAuth.signOut();
+                //TEMPORARY INNER CLASS EMPTIED
+                Session.LiveSession.user = null;
+                navigateTo(MainActivity.class);
+
             }
 
         });
@@ -48,7 +59,8 @@ public class Dashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //call method to navigate to the Timetable activity
-                navigateToTimetable();
+                //navigateToTimetable();
+                navigateTo(Timetable.class);
             }
         });
 
@@ -104,25 +116,30 @@ public class Dashboard extends AppCompatActivity {
 
     //declare method to navigate to the Main Activity
 
-    private void navigateToMainActivity()
+    public void navigateToMainActivity()
     {
-        Intent logOut = new Intent(this, MainActivity.class);
-        startActivity(logOut);
+        i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
 
     //declare method to navigate to the Timetable Activity
 
-    private void navigateToTimetable()
+    /*public void navigateToTimetable()
     {
-        Intent timetable = new Intent(this, Timetable.class);
-        startActivity(timetable);
+        i = new Intent(this, Timetable.class);
+        startActivity(i);
+    }*/
+
+    public void navigateToMoodle()
+    {
+        i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
+        startActivity(i);
     }
 
-    private void navigateToMoodle()
-    {
-        Intent moodleBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
-        startActivity(moodleBrowser);
+    public void navigateTo(Class goTo){
+        i = new Intent(this, goTo);
+        startActivity(i);
     }
 
     /* these will be made public once the other activities are created
@@ -130,31 +147,31 @@ public class Dashboard extends AppCompatActivity {
 
 
     //declare method to navigate to the Library Activity
-    private void navigateToLibrary()
+    public void navigateToLibrary()
     {
-        Intent library = new Intent(this, Library.class);
-        startActivity(library);
+        i = new Intent(this, Library.class);
+        startActivity(i);
     }
 
     //declare method to navigate to the Forum Activity
-    private void navigateToForum()
+    public void navigateToForum()
     {
-        Intent forum = new Intent(this, Forum.class);
-        startActivity(forum);
+        i = new Intent(this, Forum.class);
+        startActivity(i);
     }
 
     //declare method to navigate to the Market Activity
-    private void navigateToMarket()
+    public void navigateToMarket()
     {
-        Intent market= new Intent(this, Market.class);
-        startActivity(market);
+        i = new Intent(this, Market.class);
+        startActivity(i);
     }
 
     //declare method to navigate to the Help Activity
-    private void navigateToHelp()
+    public void navigateToHelp()
     {
-        Intent help = new Intent(this, Help.class);
-        startActivity(help);
+        i = new Intent(this, Help.class);
+        startActivity(i);
     }
 
      */

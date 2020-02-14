@@ -9,9 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Timetable"></activity>
-        <activity android:name=".Dashboard" />
-        <activity android:name=".Register" />
+        <activity android:name=".Timetable"
+            android:theme="@style/HiddenTitleTheme"></activity>
+        <activity android:name=".Dashboard"
+            android:theme="@style/HiddenTitleTheme"/>
+        <activity android:name=".Register"
+            android:theme="@style/HiddenTitleTheme"/>
         <activity android:name=".MainActivity"
             android:theme="@style/HiddenTitleTheme">
             <intent-filter>

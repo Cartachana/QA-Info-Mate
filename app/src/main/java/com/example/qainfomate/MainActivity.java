@@ -79,9 +79,11 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 if(Session.LiveSession.user != null)
                                 {
-                                    Toast.makeText(MainActivity.this, Session.LiveSession.user.getFname() + " " + Session.LiveSession.user.getSname(), Toast.LENGTH_LONG).show();
+                                    Toast.makeText(MainActivity.this, Session.LiveSession.user.getFname() + " " +
+                                            "" + Session.LiveSession.user.getSname() + " " + "Logged in", Toast.LENGTH_LONG).show();
                                     i = new Intent(MainActivity.this, Dashboard.class);
                                     startActivity(i);
+
                                 } else{
                                     fbAuth.signOut();
                                 }
