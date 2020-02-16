@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText id, email, pass;
     private Button btnLogin;
-    private TextView register;
+    private TextView register, please;
     private FirebaseAuth fbAuth;
     private Query dbref;
     private Intent i;
@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         pass = findViewById(R.id.et_pass_main);
         btnLogin = findViewById(R.id.btn_Login_main);
         register = findViewById(R.id.tv_reg_main);
+        please = findViewById(R.id.tv_please_main);
         fbAuth = FirebaseAuth.getInstance();
 
     }
@@ -52,16 +53,10 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //HERE THE APP WILL NOT THE USER LEAVE EMPTY FIELDS NOTIFY WHICH FIELD IS EMPTY
-                if(id.getText().toString().isEmpty()) {
-                    id.setError("This field cannot be empty!");
-                    id.setBackgroundResource(R.drawable.error_back);
-                }else if(email.getText().toString().isEmpty()) {
-                    email.setError("This field cannot be empty!");
-                    email.setBackgroundResource(R.drawable.error_back);
-                }else if (pass.getText().toString().isEmpty()){
-                    pass.setError("This field cannot be empty!");
-                    pass.setBackgroundResource(R.drawable.error_back);
+                //HERE THE APP WILL NOT THE USER LEAVE EMPTY FIELDS and will notify the user to fill
+                if(id.getText().toString().isEmpty()||email.getText().toString().isEmpty()||pass.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please fill in all fields!", Toast.LENGTH_LONG).show();
+                    please.setVisibility(View.VISIBLE);
                 }
 
                 else{
@@ -70,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
 
+                        //attempted STUDENT ID will be captured and compared with database
                         ValueEventListener listener = new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -83,8 +79,10 @@ public class MainActivity extends AppCompatActivity {
                                             "" + Session.LiveSession.user.getSname() + " " + "Logged in", Toast.LENGTH_LONG).show();
                                     i = new Intent(MainActivity.this, Dashboard.class);
                                     startActivity(i);
-
+                            //if the ID does not match the email
                                 } else{
+                                    please.setText("Wrong Student ID entered");
+                                    please.setVisibility(View.VISIBLE);
                                     fbAuth.signOut();
                                 }
                             }
@@ -94,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         };
-
+                        //here the entered ID and the ID in the database will be compared using the "listener"
                         dbref = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("stuID").equalTo(id.getText().toString());
                         dbref.addListenerForSingleValueEvent(listener);
                     }
@@ -102,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         //TO CODE depending on the log in problem for now I will leave a toast of nonexistant user
-                        Toast.makeText(MainActivity.this, "Wrong Credentials.\n Have you registered?", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Wrong Credentials.\nHave you registered?", Toast.LENGTH_LONG).show();
                     }
                 });
             }}

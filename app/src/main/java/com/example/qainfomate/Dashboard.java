@@ -73,63 +73,9 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        /* these will be added once the other activities will be created
 
-
-        //when clicked, the user will be directed to the Library activity
-        library.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //call method navigateToLibrary
-                navigateToLibrary();
-            }
-        });
-
-        //when clicked, the user will be directed to the Forum activity
-        forum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //call method navigateToForum
-                navigateToForum();
-            }
-        });
-
-        //when clicked, the user will be directed to the Market activity
-        market.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //call method navigateToMarket
-                navigateToMarket();
-            }
-        });
-
-         //when clicked, the user will be directed to Help activity
-        help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //call method navigateToHelp
-                navigateToHelp();
-            }
-        });
-        */
     }
 
-    //declare method to navigate to the Main Activity
-
-    public void navigateToMainActivity()
-    {
-        i = new Intent(this, MainActivity.class);
-        startActivity(i);
-    }
-
-
-    //declare method to navigate to the Timetable Activity
-
-    /*public void navigateToTimetable()
-    {
-        i = new Intent(this, Timetable.class);
-        startActivity(i);
-    }*/
 
     public void navigateToMoodle()
     {
@@ -141,40 +87,6 @@ public class Dashboard extends AppCompatActivity {
         i = new Intent(this, goTo);
         startActivity(i);
     }
-
-    /* these will be made public once the other activities are created
-
-
-
-    //declare method to navigate to the Library Activity
-    public void navigateToLibrary()
-    {
-        i = new Intent(this, Library.class);
-        startActivity(i);
-    }
-
-    //declare method to navigate to the Forum Activity
-    public void navigateToForum()
-    {
-        i = new Intent(this, Forum.class);
-        startActivity(i);
-    }
-
-    //declare method to navigate to the Market Activity
-    public void navigateToMarket()
-    {
-        i = new Intent(this, Market.class);
-        startActivity(i);
-    }
-
-    //declare method to navigate to the Help Activity
-    public void navigateToHelp()
-    {
-        i = new Intent(this, Help.class);
-        startActivity(i);
-    }
-
-     */
 
 
 }

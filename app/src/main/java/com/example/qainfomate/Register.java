@@ -25,7 +25,7 @@ public class Register extends AppCompatActivity {
     private EditText stuID, fn, sn, em, pass, confpass;
     private String check1, check2;
     private Button btnReg;
-    private TextView tvLogin;
+    private TextView error;
     //Declare object of Firebase Auth
     private FirebaseAuth fbAuth;
     private DatabaseReference dbref;
@@ -44,6 +44,7 @@ public class Register extends AppCompatActivity {
         pass = findViewById(R.id.et_pass_register);
         confpass = findViewById(R.id.et_confpass_register);
         btnReg = findViewById(R.id.btn_register);
+        error = findViewById(R.id.tv_error_register);
 
     }
 
@@ -54,39 +55,47 @@ public class Register extends AppCompatActivity {
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                check1 = pass.getText().toString();
-                check2 = confpass.getText().toString();
-                if(check1.equals(check2)){
-                   //Registering user if passwords match
-                    fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                         //logging in user in the background to get his details
-                            fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                @Override
-                                public void onSuccess(AuthResult authResult) {
-                                    Toast.makeText(Register.this, "Registration Successfull", Toast.LENGTH_LONG).show();
-                                    dbref = FirebaseDatabase.getInstance().getReference("_user_");
-                                 //Storing user's details in Realtime database
-                                    User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
-                                    dbref.child(fbAuth.getUid()).setValue(u);
-                                    fbAuth.signOut();
-                                 //returning to Login page
-                                    Intent i = new Intent(Register.this, MainActivity.class);
-                                    startActivity(i);
-                                }
-                            });
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Register.this, e.toString(), Toast.LENGTH_LONG).show();
-                        }
-                    });
+                if(stuID.getText().toString().isEmpty()||fn.getText().toString().isEmpty()||sn.getText().toString().isEmpty()||em.getText().toString().isEmpty()||pass.getText().toString().isEmpty()||confpass.getText().toString().isEmpty()) {
+                    error.setText("Please fill in all fields!!");
+                    error.setVisibility(View.VISIBLE);
                 }else{
-                    Toast.makeText(Register.this, "Passwords do not match", Toast.LENGTH_LONG).show();
-                }
+                    check1 = pass.getText().toString();
+                    check2 = confpass.getText().toString();
+                    if (check1.equals(check2)) {
+                        //Registering user if passwords match
+                        fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                //logging in user in the background to get his details
+                                fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                    @Override
+                                    public void onSuccess(AuthResult authResult) {
+                                        Toast.makeText(Register.this, "Registration Successfull", Toast.LENGTH_LONG).show();
+                                        dbref = FirebaseDatabase.getInstance().getReference("_user_");
+                                        //Storing user's details in Realtime database
+                                        User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
+                                        dbref.child(fbAuth.getUid()).setValue(u);
+                                        fbAuth.signOut();
+                                        //returning to Login page
+                                        Intent i = new Intent(Register.this, MainActivity.class);
+                                        startActivity(i);
+                                    }
+                                });
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                error.setText(e.toString());
+                                error.setVisibility(View.VISIBLE);
+                               //Toast.makeText(Register.this, e.toString(), Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    } else {
+                        error.setText("Passwords do not Match!");
+                        error.setVisibility(View.VISIBLE);
+                    }
 
+                }
             }
         });
     }
