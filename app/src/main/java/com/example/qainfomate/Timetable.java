@@ -50,13 +50,13 @@ public class Timetable extends AppCompatActivity {
             }
         });
   /*
+        //navigate user to Ground floor map
         G02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(GroundFloor.class);
             }
         });
-
-
+        //navigate to Lower Ground floor map
         LG1_04.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
