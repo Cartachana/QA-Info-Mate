@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_user_timetable"
+        android:id="@+id/tv_user_dashboard"
         android:layout_width="62dp"
         android:layout_height="27dp"
         android:layout_marginBottom="4dp"

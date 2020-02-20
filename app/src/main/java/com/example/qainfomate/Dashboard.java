@@ -16,7 +16,7 @@ import java.sql.Time;
 public class Dashboard extends AppCompatActivity {
 
     //
-    private TextView logOut, studentName;
+    private TextView user, logOut, studentName;
     private Button   timetable, library, forum, market, moodle, help;
     private Intent i;
     private FirebaseAuth fbAuth;
@@ -37,8 +37,11 @@ public class Dashboard extends AppCompatActivity {
         moodle=findViewById(R.id.btn_moodle_dashboard);
         help=findViewById(R.id.btn_help_dashboard);
         fbAuth = FirebaseAuth.getInstance();
+        user = findViewById(R.id.tv_user_dashboard);
 
-        studentName.setText(Session.LiveSession.user.getFname());
+        user.setText(Session.LiveSession.user.getFname());
+
+        studentName.setText(Session.LiveSession.user.getFname() + " " + Session.LiveSession.user.getSname());
         //set  OnClickListener on buttons to trigger events, such that the user will navigate through different activities
 
         // set an event on Log Out TextView where the user is logged out and redirected to the main Login activity
