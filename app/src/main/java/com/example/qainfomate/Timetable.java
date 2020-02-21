@@ -8,10 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
+import org.w3c.dom.Text;
+
 
 public class Timetable extends AppCompatActivity {
+   // private TextView g02_1, g02_2, lg104, f102, g02_3, g02_4;
 
     private TextView logOut, studentName, G02, LG1_04, F102;
     private ImageView dashboard, library, forum, market, moodle, help;
@@ -20,10 +22,10 @@ public class Timetable extends AppCompatActivity {
 
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timetable);
+
 
         //link our Java TextViews and Buttons to their XML counterparts
         logOut = findViewById(R.id.tv_logOut_timetable);
@@ -65,12 +67,14 @@ public class Timetable extends AppCompatActivity {
         });
   */
         //navigate user to Floor 1 map
-        F102.setOnClickListener(new View.OnClickListener() {
+        F102.setOnClickListener(new View.OnClickListener() {     
+
             @Override
             public void onClick(View v) {
                 navigateTo(Floor1.class);
             }
         });
+
         // direct the user to Dashboard
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override
