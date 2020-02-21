@@ -92,7 +92,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_reg_main"
-        app:srcCompat="@drawable/partnerships_logos_060120" />
+        app:srcCompat="@drawable/qapartners" />
 
     <TextView
         android:id="@+id/tv_please_main"
