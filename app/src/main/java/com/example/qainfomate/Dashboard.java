@@ -27,7 +27,6 @@ public class Dashboard extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         //link our Java TextViews and Buttons to their XML counterparts
-
         logOut=findViewById(R.id.tv_logOut_dashboard);
         studentName=findViewById(R.id.tv_user_name_dashboard);
         timetable=findViewById(R.id.btn_timetable_dashboard);
@@ -39,49 +38,73 @@ public class Dashboard extends AppCompatActivity {
         fbAuth = FirebaseAuth.getInstance();
         user = findViewById(R.id.tv_user_dashboard);
 
-        user.setText(Session.LiveSession.user.getFname());
+        user.setText(Session.LiveSession.user.getFname()); //displays the user currently logged in
 
-        studentName.setText(Session.LiveSession.user.getFname() + " " + Session.LiveSession.user.getSname());
-        //set  OnClickListener on buttons to trigger events, such that the user will navigate through different activities
+        studentName.setText(Session.LiveSession.user.getFname() + " " + Session.LiveSession.user.getSname()); //displays the user currently logged in
 
         // set an event on Log Out TextView where the user is logged out and redirected to the main Login activity
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fbAuth.signOut();
-                //TEMPORARY INNER CLASS EMPTIED
+                //temporary inner class emptied
                 Session.LiveSession.user = null;
                 navigateTo(MainActivity.class);
-
             }
 
         });
 
-        // when the user clicks on the Timetable button they will be directed to the Timetable activity
+        // direct the user to the Timetable activity
         timetable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //call method to navigate to the Timetable activity
-                //navigateToTimetable();
                 navigateTo(Timetable.class);
             }
         });
 
-        //when clicked, the user will be directed to an external browser to the Roehampton Moodle page
+        /*
+        // direct the user to the Library activity
+        library.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(Library.class);
+            }
+        });
+        //navigate the user to Forum
+        forum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(Forum.class);
+            }
+        });
+        //navigate the user to the Market activity
+        market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(Market.class);
+            }
+        });
+        //navigate user to the Help activity
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(Help.class);
+            }
+        });
+
+         */
+
+        //direct the user to an external browser to the Roehampton Moodle page
         moodle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //call navgateToMoodle method
                 navigateToMoodle();
             }
         });
 
-
     }
 
-
-    public void navigateToMoodle()
-    {
+    public void navigateToMoodle() {
         i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
         startActivity(i);
     }
