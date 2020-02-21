@@ -14,24 +14,35 @@
         android:layout_height="92dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="#cccc"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:stretchColumns="0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:background="#cccc"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="Day"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="10dp" />
+                android:textSize="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="R: G02"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -40,6 +51,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="R: G02"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -48,6 +61,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="Br"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -56,6 +71,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="R: LG1-04"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -65,11 +82,17 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="W"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -78,6 +101,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="09:30-11:30"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -86,6 +111,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="11:30-13:30"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -94,6 +121,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text=" "
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -102,6 +131,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="14:30-16:30"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -111,11 +142,17 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="E"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -124,6 +161,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="MADD"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -132,6 +171,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="NDT"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -140,6 +181,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text=" "
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -148,6 +191,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="NDT"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -158,11 +203,16 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="D"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -171,6 +221,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="L"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -180,6 +232,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="L"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -189,6 +243,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text=" "
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -197,6 +253,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="S"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -208,11 +266,16 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="Day"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -221,6 +284,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="R: 102"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -229,6 +294,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="R: G02"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -237,6 +304,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="Br"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -245,6 +314,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="R: G02"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -254,11 +325,16 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="F"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -267,6 +343,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="AM1"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -275,6 +353,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="AM2"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -283,6 +363,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="PM1"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -291,6 +373,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="PM2"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -300,11 +384,17 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="R"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -313,6 +403,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="MADD"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -321,6 +413,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="UXD"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -329,6 +423,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text=" "
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -337,6 +433,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:text="UXD"
                 android:textAlignment="center"
                 android:textColor="#000000"
@@ -347,12 +445,18 @@
 
         <TableRow
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+            android:layout_margin="1dp"
+            android:background="#CCC"
+            android:paddingRight="1dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="I"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="8dp" />
@@ -361,6 +465,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="S"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="8dp"
@@ -370,6 +476,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="L"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="8dp"
@@ -379,6 +487,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" "
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="8dp" />
@@ -387,6 +497,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="S"
+                android:layout_marginLeft="1dp"
+                android:background="#FFF"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="8dp"
@@ -405,9 +517,22 @@
         android:textColor="#F8F8F8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.005" />
+
+    <ImageButton
+        android:id="@+id/btn_back_watch_timetable"
+        android:layout_width="23dp"
+        android:layout_height="18dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.257"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout2"
+        app:layout_constraintVertical_bias="0.404"
+        app:srcCompat="?attr/homeAsUpIndicator" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
