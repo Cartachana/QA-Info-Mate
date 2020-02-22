@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/bg_dashboard"
+    tools:context=".View.MainActivity">
 
     <TextView
         android:id="@+id/tv_reg_main"
@@ -74,8 +75,8 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="213dp"
-        android:layout_height="99dp"
+        android:layout_width="103dp"
+        android:layout_height="88dp"
         android:layout_marginTop="76dp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,11 +99,12 @@
         android:id="@+id/tv_please_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:text="Please fill in all fields"
         android:textColor="@android:color/holo_red_dark"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 

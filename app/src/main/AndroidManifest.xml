@@ -9,21 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash"
-            android:theme="@style/HiddenTitleTheme"></activity>
+        <activity android:name=".Post_Book2"></activity>
         <activity
-            android:name=".Floor"
+            android:name=".Post_Book"
             android:theme="@style/HiddenTitleTheme" />
         <activity
-            android:name=".Timetable"
+            android:name=".View.Splash"
             android:theme="@style/HiddenTitleTheme" />
         <activity
-            android:name=".Dashboard"
+            android:name=".View.Floor"
             android:theme="@style/HiddenTitleTheme" />
         <activity
-            android:name=".Register"
+            android:name=".View.Timetable"
             android:theme="@style/HiddenTitleTheme" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".View.Dashboard"
+            android:theme="@style/HiddenTitleTheme" />
+        <activity
+            android:name=".View.Register"
+            android:theme="@style/HiddenTitleTheme" />
+        <activity
+            android:name=".View.MainActivity"
             android:theme="@style/HiddenTitleTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

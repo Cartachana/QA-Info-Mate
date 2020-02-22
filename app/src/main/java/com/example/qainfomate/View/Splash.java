@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.qainfomate.R;
 
 public class Splash extends AppCompatActivity {
 

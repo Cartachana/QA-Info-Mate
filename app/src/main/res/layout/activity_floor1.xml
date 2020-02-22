@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_dashboard"
-    tools:context=".Floor">
+    tools:context=".View.Floor">
 
     <ImageView
         android:id="@+id/img_floor1_floor1"

@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.qainfomate.Post_Book;
+import com.example.qainfomate.R;
+import com.example.qainfomate.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity {
@@ -60,6 +63,14 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+        //navigate the user to the Market activity
+        market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(Post_Book.class);
+            }
+        });
+
         /*
         // direct the user to the Library activity
         library.setOnClickListener(new View.OnClickListener() {
@@ -75,13 +86,7 @@ public class Dashboard extends AppCompatActivity {
                 navigateTo(Forum.class);
             }
         });
-        //navigate the user to the Market activity
-        market.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateTo(Market.class);
-            }
-        });
+
         //navigate user to the Help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.qainfomate.R;
+import com.example.qainfomate.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
 
