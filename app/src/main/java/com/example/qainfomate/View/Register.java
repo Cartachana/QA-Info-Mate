@@ -71,7 +71,7 @@ public class Register extends AppCompatActivity {
                                 fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        //Toast.makeText(Register.this, "Registration Successful", Toast.LENGTH_LONG).show();
+
                                         dbref = FirebaseDatabase.getInstance().getReference("_user_");
                                         //Storing user's details in Realtime database
                                         User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());

@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Post_Book2"></activity>
+        <activity android:name=".BookSale"
+            android:theme="@style/HiddenTitleTheme" />
         <activity
-            android:name=".Post_Book"
+            android:name=".View.Post_Book2"
+            android:theme="@style/HiddenTitleTheme" />
+        <activity
+            android:name=".View.Post_Book"
             android:theme="@style/HiddenTitleTheme" />
         <activity
             android:name=".View.Splash"

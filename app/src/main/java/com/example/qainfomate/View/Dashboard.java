@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.qainfomate.Post_Book;
+import com.example.qainfomate.BookSale;
 import com.example.qainfomate.R;
 import com.example.qainfomate.Session;
 import com.google.firebase.auth.FirebaseAuth;
@@ -67,7 +67,7 @@ public class Dashboard extends AppCompatActivity {
         market.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Post_Book.class);
+                navigateTo(BookSale.class);
             }
         });
 

@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,21 +8,21 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.qainfomate.View.MainActivity;
+import com.example.qainfomate.R;
+import com.example.qainfomate.Session;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
@@ -50,6 +50,14 @@ public class Post_Book extends AppCompatActivity {
         progress = findViewById(R.id.tv_progress_postBook);
         fbAuth = FirebaseAuth.getInstance();
         user.setText(Session.LiveSession.user.getFname()); //displays the user currently logged in
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Post_Book.this, Post_Book2.class);
+                startActivity(i);
+            }
+        });
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,16 +92,25 @@ public class Post_Book extends AppCompatActivity {
                         reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
-                                String url = uri.toString();
-                                String id = book_id;
-                                Intent i = new Intent(Post_Book.this, Post_Book2.class);
-                                i.putExtra("url", url);
-                                i.putExtra("id", id);
-                                startActivity(i);
+                                final String url = uri.toString();
+                                final String id = book_id;
+                                upload.setVisibility(View.INVISIBLE);
+                                next.setVisibility(View.VISIBLE);
+                                next.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent i = new Intent(Post_Book.this, Post_Book2.class);
+                                        i.putExtra("url", url);
+                                        i.putExtra("id", id);
+                                        startActivity(i);
+                                    }
+                                });
+
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(Post_Book.this, "IMAGE FAILED TO UPLOAD", Toast.LENGTH_LONG).show();
                             reference.delete();
                             }
                         });
@@ -108,10 +125,12 @@ public class Post_Book extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 101 && resultCode == RESULT_OK && data.getData() != null){
             Picasso.get().load(data.getData()).fit().into(imgBook);
-            upload.setVisibility(View.INVISIBLE);
-            next.setVisibility(View.VISIBLE);
+            imageUri = data.getData();
+
         }
     }
+
+
 
     private String getExt(Uri _imageUri){ //Returns file extension
         ContentResolver resolver = getContentResolver();
