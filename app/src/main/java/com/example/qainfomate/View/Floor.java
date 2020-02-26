@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.qainfomate.R;
-import com.example.qainfomate.Session;
+import com.example.qainfomate.Models.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Floor extends AppCompatActivity {

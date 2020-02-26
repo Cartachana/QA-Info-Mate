@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.Models;
 
 public class Book_for_Sale extends Book {
     private String stuId;

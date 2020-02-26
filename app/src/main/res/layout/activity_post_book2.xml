@@ -7,18 +7,30 @@
     android:background="@drawable/bg_dashboard"
     tools:context=".View.Post_Book2">
 
+    <TextView
+        android:id="@+id/tv_error_postbook2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text=""
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_desc_postbook2" />
+
     <Button
         android:id="@+id/btn_post_postbook2"
         android:layout_width="94dp"
         android:layout_height="46dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="28dp"
         android:background="@color/colorPrimaryDark"
         android:text="Post Book"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_category_postbook2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_error_postbook2" />
 
     <TextView
         android:id="@+id/hello4"
@@ -26,7 +38,7 @@
         android:layout_height="28dp"
         android:layout_marginTop="20dp"
         android:text="Please fill in your book's details"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +73,7 @@
         android:clickable="false"
         android:ems="10"
         android:text="Post Book"
-        android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
@@ -84,24 +96,25 @@
 
     <EditText
         android:id="@+id/et_desc_postbook2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="312dp"
+        android:layout_height="178dp"
         android:layout_marginTop="20dp"
         android:ems="10"
+        android:gravity="start|top"
         android:hint="Description"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_category_postbook2" />
+
+    <Spinner
+        android:id="@+id/sp_category_postbook2"
+        android:layout_width="213dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_author_postbook2" />
 
-    <Spinner
-        android:id="@+id/sp_category_postbook2"
-        android:layout_width="288dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_desc_postbook2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

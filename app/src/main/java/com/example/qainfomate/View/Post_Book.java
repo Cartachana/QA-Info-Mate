@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.qainfomate.R;
-import com.example.qainfomate.Session;
+import com.example.qainfomate.Models.Session;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -115,7 +115,7 @@ public class Post_Book extends AppCompatActivity {
                             }
                         });
                     }
-                });
+                }); // progress listener
             }
         });
     }

@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.Models;
 
 public abstract class Book {
     private String title, author, description, category, imageUrl;

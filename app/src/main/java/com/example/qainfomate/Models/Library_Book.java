@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.Models;
 
 public class Library_Book extends Book{
 }

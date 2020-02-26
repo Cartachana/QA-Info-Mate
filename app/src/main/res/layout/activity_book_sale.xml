@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_dashboard"
-    tools:context=".BookSale">
+    tools:context=".View.BookSale">
 
     <Button
         android:id="@+id/btn_sellBook_booksale"
@@ -36,6 +36,7 @@
         android:inputType="textPersonName"
         android:text="Books for Sale"
         android:textAlignment="center"
+        android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"

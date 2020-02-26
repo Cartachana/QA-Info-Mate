@@ -35,7 +35,7 @@ title __QAINFOMATE's Class Diagram__\n
   
 
   namespace com.example.qainfomate {
-    class com.example.qainfomate.User {
+    class com.example.qainfomate.Models.User {
         - email : String
         - fname : String
         - password : String
