@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.Models;
 
 public class User {
     private String stuID, fname, sname, email, password;

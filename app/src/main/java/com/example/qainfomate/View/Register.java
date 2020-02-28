@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.qainfomate.R;
+import com.example.qainfomate.Models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -70,14 +71,16 @@ public class Register extends AppCompatActivity {
                                 fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(Register.this, "Registration Successfull", Toast.LENGTH_LONG).show();
+
                                         dbref = FirebaseDatabase.getInstance().getReference("_user_");
                                         //Storing user's details in Realtime database
                                         User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
                                         dbref.child(fbAuth.getUid()).setValue(u);
                                         fbAuth.signOut();
-                                        //returning to Login page
-                                        Intent i = new Intent(Register.this, MainActivity.class);
+                                        //directing to splash page
+                                        Intent i = new Intent(Register.this, Splash.class);
+                                        i.putExtra("name", u.getFname());
+                                        i.putExtra("surname", u.getSname());
                                         startActivity(i);
                                     }
                                 });

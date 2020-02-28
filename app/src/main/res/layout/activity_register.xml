@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".View.Register">
 
     <TextView
         android:id="@+id/tv_title_register"
@@ -98,7 +98,7 @@
         android:id="@+id/btn_register"
         android:layout_width="85dp"
         android:layout_height="31dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorPrimaryDark"
         android:text="Register"
         android:textColor="@color/white"
@@ -107,21 +107,10 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_error_register" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="205dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginLeft="76dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/partnerships_logos_060120" />
-
-    <ImageView
         android:id="@+id/imageView"
         android:layout_width="126dp"
         android:layout_height="76dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.003"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,12 +134,24 @@
         android:id="@+id/tv_error_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="12dp"
         android:text="Passwords do not match"
         android:textColor="@android:color/holo_red_light"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_confpass_register" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_register"
+        app:srcCompat="@drawable/qapartners" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

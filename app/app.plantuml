@@ -9,25 +9,25 @@ title __APP's Class Diagram__\n
   
 
   namespace com.example.qainfomate {
-    class com.example.qainfomate.MainActivity {
+    class com.example.qainfomate.View.MainActivity {
     }
   }
   
 
   namespace com.example.qainfomate {
-    class com.example.qainfomate.Register {
+    class com.example.qainfomate.View.Register {
     }
   }
   
 
   namespace com.example.qainfomate {
-    class com.example.qainfomate.User {
+    class com.example.qainfomate.Models.User {
     }
   }
   
 
-  com.example.qainfomate.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
-  com.example.qainfomate.Register -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.qainfomate.View.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.qainfomate.View.Register -up-|> androidx.appcompat.app.AppCompatActivity
 
 
 right footer

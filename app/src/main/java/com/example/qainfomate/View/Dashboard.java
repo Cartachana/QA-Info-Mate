@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.qainfomate.R;
+import com.example.qainfomate.Models.Session;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.sql.Time;
 
 public class Dashboard extends AppCompatActivity {
 
     //
-    private TextView user, logOut, studentName;
+    private TextView logOut, studentName;
     private Button   timetable, library, forum, market, moodle, help;
     private Intent i;
     private FirebaseAuth fbAuth;
@@ -36,9 +36,9 @@ public class Dashboard extends AppCompatActivity {
         moodle=findViewById(R.id.btn_moodle_dashboard);
         help=findViewById(R.id.btn_help_dashboard);
         fbAuth = FirebaseAuth.getInstance();
-        user = findViewById(R.id.tv_user_dashboard);
 
-        user.setText(Session.LiveSession.user.getFname()); //displays the user currently logged in
+
+
 
         studentName.setText(Session.LiveSession.user.getFname() + " " + Session.LiveSession.user.getSname()); //displays the user currently logged in
 
@@ -62,6 +62,14 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
+        //navigate the user to the Market activity
+        market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(BookSale.class);
+            }
+        });
+
         /*
         // direct the user to the Library activity
         library.setOnClickListener(new View.OnClickListener() {
@@ -77,13 +85,7 @@ public class Dashboard extends AppCompatActivity {
                 navigateTo(Forum.class);
             }
         });
-        //navigate the user to the Market activity
-        market.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateTo(Market.class);
-            }
-        });
+
         //navigate user to the Help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override

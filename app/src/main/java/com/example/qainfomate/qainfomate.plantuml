@@ -3,7 +3,7 @@
 title __QAINFOMATE's Class Diagram__\n
 
   namespace com.example.qainfomate {
-    class com.example.qainfomate.MainActivity {
+    class com.example.qainfomate.View.MainActivity {
         - btnLogin : Button
         - email : EditText
         - fbAuth : FirebaseAuth
@@ -15,7 +15,7 @@ title __QAINFOMATE's Class Diagram__\n
   
 
   namespace com.example.qainfomate {
-    class com.example.qainfomate.Register {
+    class com.example.qainfomate.View.Register {
         - btnReg : Button
         - check1 : String
         - check2 : String
@@ -35,7 +35,7 @@ title __QAINFOMATE's Class Diagram__\n
   
 
   namespace com.example.qainfomate {
-    class com.example.qainfomate.User {
+    class com.example.qainfomate.Models.User {
         - email : String
         - fname : String
         - password : String
@@ -53,8 +53,8 @@ title __QAINFOMATE's Class Diagram__\n
   }
   
 
-  com.example.qainfomate.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
-  com.example.qainfomate.Register -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.qainfomate.View.MainActivity -up-|> androidx.appcompat.app.AppCompatActivity
+  com.example.qainfomate.View.Register -up-|> androidx.appcompat.app.AppCompatActivity
 
 
 right footer
