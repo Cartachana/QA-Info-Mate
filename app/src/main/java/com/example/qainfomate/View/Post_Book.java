@@ -130,15 +130,10 @@ public class Post_Book extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         final String url = uri.toString();
-                        next.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent i = new Intent(Post_Book.this, Post_Book2.class);
+                                                        Intent i = new Intent(Post_Book.this, Post_Book2.class);
                                 i.putExtra("url", url);
                                 i.putExtra("id", book_id);
                                 startActivity(i);
-                            }
-                        });
 
                     }
                 });
