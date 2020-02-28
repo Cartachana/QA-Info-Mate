@@ -31,7 +31,7 @@ public class Post_Book extends AppCompatActivity {
 
     TextView user, logOut, progress;
     ImageView imgBook;
-    Button next, upload;
+    Button next, upload, noimage;
     Uri imageUri; // to save the Image URI in a global variable so we can use it in other methods
     StorageReference sref; //to refer to our Firebase Storage Location
     FirebaseAuth fbAuth;
@@ -50,6 +50,7 @@ public class Post_Book extends AppCompatActivity {
         progress = findViewById(R.id.tv_progress_postBook);
         fbAuth = FirebaseAuth.getInstance();
         user.setText(Session.LiveSession.user.getFname()); //displays the user currently logged in
+        noimage = findViewById(R.id.btn_noimage_postBook);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,15 +112,39 @@ public class Post_Book extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(Post_Book.this, "IMAGE FAILED TO UPLOAD", Toast.LENGTH_LONG).show();
-                            reference.delete();
+                                reference.delete();
                             }
                         });
                     }
                 }); // progress listener
             }
         });
-    }
 
+        noimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
+                final StorageReference reference = sref.child("book.png");
+                final String book_id = dbref.push().getKey();
+                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        final String url = uri.toString();
+                        next.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i = new Intent(Post_Book.this, Post_Book2.class);
+                                i.putExtra("url", url);
+                                i.putExtra("id", book_id);
+                                startActivity(i);
+                            }
+                        });
+
+                    }
+                });
+            }
+        });
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
