@@ -42,6 +42,7 @@ public class Post_Book2 extends AppCompatActivity {
         url = extras.getString("url");
         id = extras.getString("id");
         spinner = findViewById(R.id.sp_category_postbook2);
+        error = findViewById(R.id.tv_error_postbook2);
 
         //Here I create an arraylist to send values to our Spinner (dropdown menu)
         final ArrayList<String> categories = new ArrayList<>();
@@ -58,13 +59,14 @@ public class Post_Book2 extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item, categories);
         spinner.setAdapter(spinnerAdapter);
 
-        if (title.getText().toString().isEmpty() || description.getText().toString().isEmpty() || author.getText().toString().isEmpty() || spinner.getSelectedItemId() == 0) {
-            error.setText("Please fill in all fields!!");
-            error.setVisibility(View.VISIBLE);
-        } else {
+
             post.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if (title.getText().toString().isEmpty() || description.getText().toString().isEmpty() || author.getText().toString().isEmpty() || spinner.getSelectedItemId() == 0) {
+                        error.setText("Please fill in all fields!!");
+                        error.setVisibility(View.VISIBLE);
+                    } else {
                     dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
                     Book_for_Sale bookfs = new Book_for_Sale(title.getText().toString(), author.getText().toString(),
                             description.getText().toString(), spinner.getSelectedItem().toString(), url,
@@ -73,8 +75,8 @@ public class Post_Book2 extends AppCompatActivity {
                     Toast.makeText(Post_Book2.this, "Book Successfully Posted", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(Post_Book2.this, BookSale.class);
                     startActivity(i);
-                }
+                }}
             });
-        }
+
     }
 }

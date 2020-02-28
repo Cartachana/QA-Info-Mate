@@ -46,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         please = findViewById(R.id.tv_please_main);
         fbAuth = FirebaseAuth.getInstance();
 
+        if(Session.LiveSession.user != null){
+            i = new Intent(MainActivity.this, Dashboard.class);
+            startActivity(i);
+        }
+
     }
 
     @Override
