@@ -1,4 +1,4 @@
-package com.example.qainfomate.View;
+package com.example.qainfomate.Models;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.squareup.picasso.Picasso;
 
@@ -41,7 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
                 holder.title.setText("Title: " + list.get(i).getTitle());
                 holder.author.setText("Author: " + list.get(i).getAuthor());
                 holder.category.setText("Category: " + list.get(i).getCategory());
-                holder.description.setText(list.get(i).getCategory());
+                holder.description.setText("Description: " + list.get(i).getDescription());
                 Picasso.get().load(list.get(i).getImageUrl()).fit().into(holder.bookimg);
             }
         }

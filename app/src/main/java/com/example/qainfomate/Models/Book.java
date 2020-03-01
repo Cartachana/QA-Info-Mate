@@ -3,8 +3,6 @@ package com.example.qainfomate.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
 public abstract class Book implements Parcelable {
     public String title, author, description, category, imageUrl, type;
 

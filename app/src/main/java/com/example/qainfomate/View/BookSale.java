@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.widget.Button;
 
+import com.example.qainfomate.Models.Adapter;
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;

@@ -37,11 +37,11 @@ public class Book_for_sale_detail extends AppCompatActivity {
         Book_for_Sale bfs = i.getParcelableExtra("BFS");
 
 
-        title.setText(bfs.getTitle());
-        author.setText(bfs.getAuthor());
-        cat.setText(bfs.getCategory());
-        desc.setText(bfs.getDescription());
-        sellerID.setText(bfs.getStuId());
+        title.setText("Title: " + bfs.getTitle());
+        author.setText("Author: " + bfs.getAuthor());
+        cat.setText("Category: " + bfs.getCategory());
+        desc.setText("Description: " + bfs.getDescription());
+        sellerID.setText("Seller ID: " + bfs.getStuId());
         Picasso.get().load(bfs.getImageUrl()).fit().into(bookImg);
 
         back.setOnClickListener(new View.OnClickListener() {
