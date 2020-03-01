@@ -38,9 +38,9 @@ public class Post_Book2 extends AppCompatActivity {
         description = findViewById(R.id.et_desc_postbook2);
         author = findViewById(R.id.et_author_postbook2);
         post = findViewById(R.id.btn_post_postbook2);
-        Bundle extras = getIntent().getExtras(); //to get extras from previous activity
-        url = extras.getString("url");
-        id = extras.getString("id");
+        //Bundle extras = getIntent().getExtras(); //to get extras from previous activity
+        //url = extras.getString("url");
+        //id = extras.getString("id");
         spinner = findViewById(R.id.sp_category_postbook2);
         error = findViewById(R.id.tv_error_postbook2);
 
@@ -69,7 +69,7 @@ public class Post_Book2 extends AppCompatActivity {
                     } else {
                     dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
                     Book_for_Sale bookfs = new Book_for_Sale(title.getText().toString(), author.getText().toString(),
-                            description.getText().toString(), spinner.getSelectedItem().toString(), url,
+                            description.getText().toString(), spinner.getSelectedItem().toString(), url, "BFS",
                             Session.LiveSession.user.getStuID(), true);
                     dbref.child(id).setValue(bookfs);
                     Toast.makeText(Post_Book2.this, "Book Successfully Posted", Toast.LENGTH_LONG).show();

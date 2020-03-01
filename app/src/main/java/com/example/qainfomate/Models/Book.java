@@ -1,18 +1,44 @@
 package com.example.qainfomate.Models;
 
-public abstract class Book {
-    private String title, author, description, category, imageUrl;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-    public Book(String title, String author, String description, String category, String imageUrl) {
+import java.io.Serializable;
+
+public abstract class Book implements Parcelable {
+    public String title, author, description, category, imageUrl, type;
+
+    public Book(String title, String author, String description, String category, String imageUrl, String type) {
         this.title = title;
         this.author = author;
         this.description = description;
         this.category = category;
         this.imageUrl = imageUrl;
+        this.type = type;
     }
 
     public Book() {
     }
+
+    protected Book(Parcel in) {
+        title = in.readString();
+        author = in.readString();
+        description = in.readString();
+        category = in.readString();
+        imageUrl = in.readString();
+        type = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(author);
+        dest.writeString(description);
+        dest.writeString(category);
+        dest.writeString(imageUrl);
+        dest.writeString(type);
+    }
+
 
     public String getTitle() {
         return title;
@@ -52,6 +78,14 @@ public abstract class Book {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
 
