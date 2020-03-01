@@ -80,8 +80,9 @@ public class BookSale extends AppCompatActivity {
             public FirebaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 return new FirebaseViewHolder(LayoutInflater.from(BookSale.this).inflate(R.layout.listitem_book_rec_view, parent, false));
             }
-        };
 
+        };
+booksRecView.addOnItemTouchListener(new RecyclerView.SimpleOnItemTouchListener());
 
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
