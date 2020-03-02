@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.qainfomate.Models.Adapter;
@@ -39,6 +40,14 @@ public class BookSale extends AppCompatActivity implements Adapter.Holder.recInt
         booksRecView.setLayoutManager(manager);
         dbref = FirebaseDatabase.getInstance().getReference().child("Books_for_Sale");
         dbref.addListenerForSingleValueEvent(listener);
+
+        sell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BookSale.this, Post_Book.class);
+                startActivity(i);
+            }
+        });
     }
 
         ValueEventListener listener = new ValueEventListener() {
