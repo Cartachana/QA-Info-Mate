@@ -4,49 +4,30 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.qainfomate.Models.Adapter;
 import com.example.qainfomate.Models.Book_for_Sale;
-import com.example.qainfomate.Models.FirebaseViewHolder;
 import com.example.qainfomate.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.squareup.picasso.Picasso;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class BookSale extends AppCompatActivity {
+public class BookSale extends AppCompatActivity implements Adapter.Holder.recInterface {
 
     private RecyclerView booksRecView;
+    RecyclerView.LayoutManager manager;
+    Adapter adapter;
     private Button sell;
-    private ArrayList<Book_for_Sale> arrayList;
-    private FirebaseRecyclerOptions<Book_for_Sale> options;
-    private FirebaseRecyclerAdapter<Book_for_Sale, FirebaseViewHolder> adapter;
+    private ArrayList<Book_for_Sale> list = new ArrayList<>();
     private DatabaseReference dbref;
-    private Bitmap icon;
-    private String URL;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        adapter.startListening();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        adapter.stopListening();
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,33 +36,10 @@ public class BookSale extends AppCompatActivity {
 
         booksRecView = findViewById(R.id.rv_books_booksale);
         sell = findViewById(R.id.btn_sellBook_booksale);
-        booksRecView.setHasFixedSize(true);
-        booksRecView.setLayoutManager(new LinearLayoutManager(this));
-        arrayList = new ArrayList<Book_for_Sale>();
+        manager = new LinearLayoutManager(BookSale.this);
+        booksRecView.setLayoutManager(manager);
         dbref = FirebaseDatabase.getInstance().getReference().child("Books_for_Sale");
-        dbref.keepSynced(true);
-        options = new FirebaseRecyclerOptions.Builder<Book_for_Sale>().setQuery(dbref, Book_for_Sale.class).build();
-
-        adapter = new FirebaseRecyclerAdapter<Book_for_Sale, FirebaseViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull FirebaseViewHolder holder, int i, @NonNull Book_for_Sale book_for_sale) {
-               if(book_for_sale.getAvaiable()==true){
-                   holder.title.setText("Title: " + book_for_sale.getTitle());
-                   holder.author.setText("Author: " + book_for_sale.getAuthor());
-                   holder.category.setText("Category: "+ book_for_sale.getCategory());
-                   holder.description.setText(book_for_sale.getCategory());
-                   URL = book_for_sale.getImageUrl();
-                   Picasso.get().load(URL).into(holder.bookimg);
-               }
-            }
-
-            @NonNull
-            @Override
-            public FirebaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new FirebaseViewHolder(LayoutInflater.from(BookSale.this).inflate(R.layout.listitem_book_rec_view, parent, false));
-            }
-        };
-
+        dbref.addListenerForSingleValueEvent(listener);
 
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,8 +48,30 @@ public class BookSale extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
 
-            booksRecView.setAdapter(adapter);
+        ValueEventListener listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dss: dataSnapshot.getChildren()){
+                    Book_for_Sale bfs = dss.getValue(Book_for_Sale.class);
+                    list.add(bfs);
+                }
+                adapter = new Adapter(list, BookSale.this);
+                booksRecView.setAdapter(adapter);
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+
+
+    @Override
+    public void onItemClick(int i) {
+        Intent intent = new Intent(BookSale.this, Book_for_sale_detail.class);
+        intent.putExtra("BFS", list.get(i));
+        startActivity(intent);
     }
 }
