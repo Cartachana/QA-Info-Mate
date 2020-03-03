@@ -1,8 +1,11 @@
 package com.example.qainfomate.Models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class Message {
+public class Message implements Parcelable {
     String IDfrom, IDto, bookTitle, message, date;
     Boolean isRead;
 
@@ -17,6 +20,28 @@ public class Message {
 
     public Message() {
     }
+
+    protected Message(Parcel in) {
+        IDfrom = in.readString();
+        IDto = in.readString();
+        bookTitle = in.readString();
+        message = in.readString();
+        date = in.readString();
+        byte tmpIsRead = in.readByte();
+        isRead = tmpIsRead == 0 ? null : tmpIsRead == 1;
+    }
+
+    public static final Creator<Message> CREATOR = new Creator<Message>() {
+        @Override
+        public Message createFromParcel(Parcel in) {
+            return new Message(in);
+        }
+
+        @Override
+        public Message[] newArray(int size) {
+            return new Message[size];
+        }
+    };
 
     public String getIDfrom() {
         return IDfrom;
@@ -64,5 +89,20 @@ public class Message {
 
     public void setBookTitle(String bookID) {
         this.bookTitle = bookID;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(IDfrom);
+        dest.writeString(IDto);
+        dest.writeString(bookTitle);
+        dest.writeString(message);
+        dest.writeString(date);
+        dest.writeByte((byte) (isRead == null ? 0 : isRead ? 1 : 2));
     }
 }

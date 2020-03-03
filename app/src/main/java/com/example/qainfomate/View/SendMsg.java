@@ -57,7 +57,12 @@ public class SendMsg extends Activity {
 
         Intent i = getIntent();
         final Book_for_Sale bfs = i.getParcelableExtra("BFS");
-        msgTo.setText("Message to: " + bfs.getStuId());
+        final Message mess = i.getParcelableExtra("MSG");
+        if(bfs!=null){msgTo.setText("Message to: " + bfs.getStuId());}
+        if(mess!=null){
+            msgTo.setText(("Message to: " + mess.getIDfrom()));
+
+        }
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +72,14 @@ public class SendMsg extends Activity {
                 }else{
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm", Locale.getDefault());
                     String time = sdf.format(new Date());
-                    Message message = new Message(Session.LiveSession.user.getStuID(), bfs.getStuId(),
+                    if(bfs!=null){Message message = new Message(Session.LiveSession.user.getStuID(), bfs.getStuId(),
                             bfs.getTitle(), msg.getText().toString(), time, false);
-                    dbref.push().setValue(message);
+                    dbref.push().setValue(message);}
+                    if(mess!=null){
+                        Message message = new Message(Session.LiveSession.user.getStuID(), mess.getIDfrom(),
+                                mess.getBookTitle(), msg.getText().toString(), time, false);
+                        dbref.push().setValue(message);
+                    }
                     Toast.makeText(SendMsg.this, "Message Sent", Toast.LENGTH_LONG).show();
                     finish();
 
