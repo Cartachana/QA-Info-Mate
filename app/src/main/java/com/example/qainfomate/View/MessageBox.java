@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.Models.Session;
@@ -24,6 +26,7 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
     private RecyclerView msgRecView;
     RecyclerView.LayoutManager manager;
     MessageAdapter msgAdapter;
+    private ImageView back;
 
     private ArrayList<Message> msgs = new ArrayList<>();
     private DatabaseReference dbref;
@@ -38,13 +41,21 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         msgRecView.setLayoutManager(manager);
         dbref = FirebaseDatabase.getInstance().getReference().child("Messages");
         dbref.addListenerForSingleValueEvent(listener);
+        back = findViewById(R.id.iv_back_msgBox);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             for (DataSnapshot dss : dataSnapshot.getChildren()) {
-                //
+                //FILTERS ONLY MESSAGES FOR THE CURRENT USER
                 if((dss.getValue(Message.class).getIDto()).equals(Session.LiveSession.user.getStuID())) {
                     Message bfs = dss.getValue(Message.class);
                     msgs.add(bfs);

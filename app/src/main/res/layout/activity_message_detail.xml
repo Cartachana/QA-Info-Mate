@@ -55,7 +55,7 @@
     <TextView
         android:id="@+id/tv_msg_msgDetail"
         android:layout_width="252dp"
-        android:layout_height="217dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
