@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.qainfomate.Models.Adapter;
+import com.example.qainfomate.Models.BookAdapter;
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;
@@ -20,12 +20,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class BookSale extends AppCompatActivity implements Adapter.Holder.recInterface {
+public class BookSale extends AppCompatActivity implements BookAdapter.Holder.recInterface {
 
     private RecyclerView booksRecView;
     RecyclerView.LayoutManager manager;
-    Adapter adapter;
-    private Button sell;
+    BookAdapter bookAdapter;
+    private Button sell, messages;
     private ArrayList<Book_for_Sale> list = new ArrayList<>();
     private DatabaseReference dbref;
 
@@ -36,6 +36,7 @@ public class BookSale extends AppCompatActivity implements Adapter.Holder.recInt
 
         booksRecView = findViewById(R.id.rv_books_booksale);
         sell = findViewById(R.id.btn_sellBook_booksale);
+        messages = findViewById(R.id.btn_messages_booksale);
         manager = new LinearLayoutManager(BookSale.this);
         booksRecView.setLayoutManager(manager);
         dbref = FirebaseDatabase.getInstance().getReference().child("Books_for_Sale");
@@ -48,6 +49,13 @@ public class BookSale extends AppCompatActivity implements Adapter.Holder.recInt
                 startActivity(i);
             }
         });
+        messages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(BookSale.this, MessageBox.class);
+                startActivity(i);
+            }
+        });
     }
 
         ValueEventListener listener = new ValueEventListener() {
@@ -57,8 +65,8 @@ public class BookSale extends AppCompatActivity implements Adapter.Holder.recInt
                     Book_for_Sale bfs = dss.getValue(Book_for_Sale.class);
                     list.add(bfs);
                 }
-                adapter = new Adapter(list, BookSale.this);
-                booksRecView.setAdapter(adapter);
+                bookAdapter = new BookAdapter(list, BookSale.this);
+                booksRecView.setAdapter(bookAdapter);
             }
 
             @Override

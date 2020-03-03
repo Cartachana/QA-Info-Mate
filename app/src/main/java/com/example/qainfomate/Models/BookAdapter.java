@@ -14,12 +14,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
 
     ArrayList<Book_for_Sale> list;
     Holder.recInterface listener;
 
-    public Adapter(ArrayList<Book_for_Sale> list, Holder.recInterface _listener) {
+    public BookAdapter(ArrayList<Book_for_Sale> list, Holder.recInterface _listener) {
         this.list = list;
         listener = _listener;
     }
