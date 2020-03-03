@@ -44,7 +44,8 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             for (DataSnapshot dss : dataSnapshot.getChildren()) {
-                if(dbref.child("idto").equals(Session.LiveSession.user.getStuID())) {
+                //
+                if((dss.getValue(Message.class).getIDto()).equals(Session.LiveSession.user.getStuID())) {
                     Message bfs = dss.getValue(Message.class);
                     msgs.add(bfs);
                 }
