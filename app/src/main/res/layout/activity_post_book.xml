@@ -41,8 +41,8 @@
 
     <Button
         android:id="@+id/btn_next_postbook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="139dp"
+        android:layout_height="49dp"
         android:layout_marginTop="60dp"
         android:background="@color/colorPrimaryDark"
         android:text="Next"
@@ -55,10 +55,10 @@
 
     <Button
         android:id="@+id/btn_upload_postbook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_width="145dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/roundbutton"
         android:text="Upload"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,10 +68,10 @@
 
     <Button
         android:id="@+id/btn_noimage_postBook"
-        android:layout_width="185dp"
-        android:layout_height="45dp"
+        android:layout_width="214dp"
+        android:layout_height="39dp"
         android:layout_marginTop="184dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/roundbutton"
         android:text="Upload with no Image"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,7 @@
         android:layout_marginTop="40dp"
         android:text="Please press the image below to\n upload your book image"
         android:gravity="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#040404"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +99,7 @@
         android:layout_marginTop="24dp"
         android:text="OR"
         android:gravity="center"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#040404"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
