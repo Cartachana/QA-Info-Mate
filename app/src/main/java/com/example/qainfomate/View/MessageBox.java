@@ -39,12 +39,6 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         dbref.addListenerForSingleValueEvent(listener);
     }
 
-    @Override
-    protected void onPostResume() {
-        super.onPostResume();
-        this.onCreate(null);
-    }
-
     ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
