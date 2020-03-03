@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.qainfomate.Models.Message;
+import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -43,8 +44,10 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             for (DataSnapshot dss : dataSnapshot.getChildren()) {
-                Message bfs = dss.getValue(Message.class);
-                msgs.add(bfs);
+                if(dbref.child("idto").equals(Session.LiveSession.user.getStuID())) {
+                    Message bfs = dss.getValue(Message.class);
+                    msgs.add(bfs);
+                }
             }
             msgAdapter = new MessageAdapter(msgs, MessageBox.this);
             msgRecView.setAdapter(msgAdapter);
