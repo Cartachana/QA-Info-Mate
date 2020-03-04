@@ -2,23 +2,28 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingHorizontal="2dp"
     android:paddingVertical="2dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="4dp">
+    android:background="@drawable/recycler_view_bg"
+    android:padding="4dp"
+    android:layout_marginTop="5dp">
 
 
     <ImageView
         android:id="@+id/bookImage"
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="119dp"
+        android:layout_height="146dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_gravity="center"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,13 +32,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:padding="3dp"
         android:text="Title"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookImage" />
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toEndOf="@+id/bookImage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/author_booksale"
@@ -41,11 +48,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/title_book_sale"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:padding="3dp"
         android:text="Author"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toEndOf="@+id/bookImage"
         app:layout_constraintTop_toBottomOf="@+id/title_book_sale" />
 
     <TextView
@@ -54,11 +64,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/author_booksale"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:padding="3dp"
         android:text="Description"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toEndOf="@+id/bookImage"
         app:layout_constraintTop_toBottomOf="@+id/category_booksale" />
 
     <TextView
@@ -67,11 +80,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/desc_booksale"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:padding="3dp"
         android:text="Category"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toEndOf="@+id/bookImage"
         app:layout_constraintTop_toBottomOf="@+id/author_booksale" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
