@@ -36,6 +36,11 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
     public void onBindViewHolder(@NonNull Holder holder, int i) {
         holder.fromID.setText(msgs.get(i).getIDfrom());
         holder.bookTitle.setText(msgs.get(i).getBookTitle());
+        if(msgs.get(i).getRead()==false){
+            holder.mail.setImageResource(R.drawable.closed_mail);
+        }else{
+            holder.mail.setImageResource(R.drawable.opened_envelope);
+        }
         holder.time.setText(msgs.get(i).getDate());
             }
 
@@ -46,7 +51,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
 
     public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView fromID, bookTitle, time;
-        ImageView bookImg;
+        ImageView mail;
         MsgInterface listener;
 
     public Holder(@NonNull View itemView, MsgInterface _listener) {
@@ -54,7 +59,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         fromID = itemView.findViewById(R.id.tv_fromID_msgRec);
         bookTitle = itemView.findViewById(R.id.tv_booktitle_msgRec);
         time = itemView.findViewById(R.id.tv_time_msgRec);
-        bookImg = itemView.findViewById(R.id.iv_bookImg_msgRec);
+        mail = itemView.findViewById(R.id.iv_bookImg_msgRec);
         listener = _listener;
         itemView.setOnClickListener(this);
     }

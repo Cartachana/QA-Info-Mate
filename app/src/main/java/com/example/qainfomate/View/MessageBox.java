@@ -58,8 +58,7 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
             for (DataSnapshot dss : dataSnapshot.getChildren()) {
                 //FILTERS ONLY MESSAGES FOR THE CURRENT USER
                 if((dss.getValue(Message.class).getIDto()).equals(Session.LiveSession.user.getStuID())) {
-                    Message bfs = dss.getValue(Message.class);
-                    msgs.add(bfs);
+                    msgs.add(dss.getValue(Message.class));
                 }
             }
             msgAdapter = new MessageAdapter(msgs, MessageBox.this);

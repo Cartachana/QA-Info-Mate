@@ -54,6 +54,7 @@ public class MessageDetail extends AppCompatActivity {
         time.setText(message.getDate());
         msg.setText(message.getMessage());
         book.setText("Regarding: " + message.getBookTitle());
+        message.setRead(true);
 
         reply.setOnClickListener(new View.OnClickListener() {
             @Override

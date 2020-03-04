@@ -27,6 +27,7 @@ public class BookSale extends AppCompatActivity implements BookAdapter.Holder.re
     BookAdapter bookAdapter;
     private Button sell, messages;
     private ArrayList<Book_for_Sale> list = new ArrayList<>();
+    //need to replace with Query
     private DatabaseReference dbref;
 
     @Override
