@@ -7,9 +7,6 @@
     android:background="@drawable/bg_dashboard"
     tools:context=".View.MainActivity">
 
-
-
-
         <TextView
             android:id="@+id/tv_reg_main"
             android:layout_width="389dp"

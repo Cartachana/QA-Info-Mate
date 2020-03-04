@@ -1,4 +1,4 @@
-package com.example.qainfomate.Models;
+package com.example.qainfomate.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.squareup.picasso.Picasso;
 
@@ -40,7 +41,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
                 holder.title.setText("Title: " + list.get(i).getTitle());
                 holder.author.setText("Author: " + list.get(i).getAuthor());
                 holder.category.setText("Category: " + list.get(i).getCategory());
-                holder.description.setText("Description: " + list.get(i).getDescription());
+                holder.sellerID.setText("Seller ID: " + list.get(i).getStuId());
                 Picasso.get().load(list.get(i).getImageUrl()).fit().into(holder.bookimg);
             }
         }
@@ -55,7 +56,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
     }
 
     public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView title, author, description, category;
+        TextView title, author, sellerID, category;
         ImageView bookimg;
         recInterface listener;
 
@@ -63,7 +64,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
             super(itemView);
             title = itemView.findViewById(R.id.title_book_sale);
             author = itemView.findViewById(R.id.author_booksale);
-            description = itemView.findViewById(R.id.desc_booksale);
+            sellerID = itemView.findViewById(R.id.tv_sellerID_booksale);
             category = itemView.findViewById(R.id.category_booksale);
             bookimg = itemView.findViewById(R.id.bookImage);
             listener = _listener;

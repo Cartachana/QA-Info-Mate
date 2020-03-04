@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.qainfomate.Models.BookAdapter;
+import com.example.qainfomate.Adapters.BookAdapter;
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;

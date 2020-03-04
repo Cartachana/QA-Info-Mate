@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.qainfomate.Models.Message;
+import com.example.qainfomate.Adapters.MessageAdapter;
 import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;

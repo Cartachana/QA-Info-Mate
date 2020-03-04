@@ -1,4 +1,4 @@
-package com.example.qainfomate.View;
+package com.example.qainfomate.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.qainfomate.Models.BookAdapter;
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
