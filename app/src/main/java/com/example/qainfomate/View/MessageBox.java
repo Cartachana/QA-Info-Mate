@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.qainfomate.Models.Message;
@@ -25,11 +26,11 @@ import java.util.ArrayList;
 public class MessageBox extends AppCompatActivity implements MessageAdapter.Holder.MsgInterface {
 
     private RecyclerView msgRecView;
-    RecyclerView.LayoutManager manager;
-    MessageAdapter msgAdapter;
+    private RecyclerView.LayoutManager manager;
+    private MessageAdapter msgAdapter;
     private ImageView back;
-
     private ArrayList<Message> msgs = new ArrayList<>();
+    private ArrayList<String> keys = new ArrayList<>();
     private DatabaseReference dbref;
 
     @Override
@@ -50,7 +51,9 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
                 finish();
             }
         });
+
     }
+
 
     ValueEventListener listener = new ValueEventListener() {
         @Override
@@ -59,25 +62,25 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
                 //FILTERS ONLY MESSAGES FOR THE CURRENT USER
                 if((dss.getValue(Message.class).getIDto()).equals(Session.LiveSession.user.getStuID())) {
                     msgs.add(dss.getValue(Message.class));
+                    keys.add(dss.getKey());
                 }
             }
             msgAdapter = new MessageAdapter(msgs, MessageBox.this);
             msgRecView.setAdapter(msgAdapter);
-            
+
         }
 
         @Override
         public void onCancelled(@NonNull DatabaseError databaseError) {
-
         }
     };
-
 
 
     @Override
     public void onItemClick(int i) {
         Intent intent = new Intent(MessageBox.this, MessageDetail.class);
         intent.putExtra("MSG", msgs.get(i));
+        dbref.child(keys.get(i)).child("read").setValue(true);
         startActivity(intent);
     }
 }
