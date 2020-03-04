@@ -8,11 +8,15 @@
 
     <!-- Border color and its width is defined by stroke -->
     <stroke
-        android:width="5dp"
+        android:width="2dp"
         android:color="@color/border_blue"></stroke>
 
     <!-- The radius makes the corners rounded -->
     <corners android:radius="10dp"></corners>
     <!--represents the variation of color intensity in a direction represented by angle-->
-
+    <gradient
+        android:startColor="#20000000"
+        android:endColor="@android:color/transparent"
+        android:angle="270" >
+    </gradient>
     </shape>
