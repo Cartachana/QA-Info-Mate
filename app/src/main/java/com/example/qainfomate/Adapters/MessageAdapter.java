@@ -1,5 +1,6 @@
 package com.example.qainfomate.Adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,13 +63,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         mail = itemView.findViewById(R.id.iv_bookImg_msgRec);
         listener = _listener;
         itemView.setOnClickListener(this);
+
     }
 
         @Override
         public void onClick(View v) {listener.onItemClick(getAdapterPosition());}
 
         public interface MsgInterface{
-        public void onItemClick(int i);
+            public void onItemClick(int i);
     }
 
 }

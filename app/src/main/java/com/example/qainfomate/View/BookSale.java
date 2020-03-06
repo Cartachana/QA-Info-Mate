@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.qainfomate.Adapters.BookAdapter;
 import com.example.qainfomate.Models.Book_for_Sale;
+import com.example.qainfomate.Models.User;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -63,9 +64,11 @@ public class BookSale extends AppCompatActivity implements BookAdapter.Holder.re
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dss: dataSnapshot.getChildren()){
-                    Book_for_Sale bfs = dss.getValue(Book_for_Sale.class);
-                    list.add(bfs);
-                }
+                    if(dss.getValue(Book_for_Sale.class).getAvaiable()==true){
+                        Book_for_Sale bfs = dss.getValue(Book_for_Sale.class);
+                        list.add(bfs);
+                    }
+                                    }
                 bookAdapter = new BookAdapter(list, BookSale.this);
                 booksRecView.setAdapter(bookAdapter);
             }

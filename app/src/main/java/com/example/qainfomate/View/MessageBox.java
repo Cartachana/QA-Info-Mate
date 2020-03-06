@@ -2,6 +2,7 @@ package com.example.qainfomate.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,7 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.qainfomate.Adapters.SwipeToDeleteCallback;
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.Adapters.MessageAdapter;
 import com.example.qainfomate.Models.Session;
@@ -32,6 +35,8 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
     private ArrayList<Message> msgs = new ArrayList<>();
     private ArrayList<String> keys = new ArrayList<>();
     private DatabaseReference dbref;
+    Message mRecentlyDeletedItem;
+    int mRecentlyDeletedItemPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +72,8 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
             }
             msgAdapter = new MessageAdapter(msgs, MessageBox.this);
             msgRecView.setAdapter(msgAdapter);
+            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(msgAdapter));
+            itemTouchHelper.attachToRecyclerView(msgRecView);
 
         }
 
@@ -82,5 +89,11 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         intent.putExtra("MSG", msgs.get(i));
         dbref.child(keys.get(i)).child("read").setValue(true);
         startActivity(intent);
+    }
+    public void deleteItem(int i){
+        mRecentlyDeletedItem = msgs.get(i);
+        mRecentlyDeletedItemPosition = i;
+        msgs.remove(i);
+        Toast.makeText(MessageBox.this, "Item Deleted", Toast.LENGTH_LONG).show();
     }
 }

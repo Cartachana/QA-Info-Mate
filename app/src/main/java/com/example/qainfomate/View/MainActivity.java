@@ -3,6 +3,7 @@ package com.example.qainfomate.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth fbAuth;
     private Query dbref;
     private Intent i;
+    private static Context appContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +48,16 @@ public class MainActivity extends AppCompatActivity {
         please = findViewById(R.id.tv_please_main);
         fbAuth = FirebaseAuth.getInstance();
 
+        appContext = getApplicationContext();
         if(Session.LiveSession.user != null){
             i = new Intent(MainActivity.this, Dashboard.class);
             startActivity(i);
         }
 
+    }
+
+    public static Context getAppContext() {
+        return appContext;
     }
 
     @Override

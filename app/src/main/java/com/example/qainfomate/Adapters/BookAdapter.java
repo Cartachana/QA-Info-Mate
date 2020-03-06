@@ -37,13 +37,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
     public void onBindViewHolder(@NonNull Holder holder, int i) {
         //IF IT IS A BOOK FOR SALE USE THIS HOLDER
         if(list.get(i).getType().equals("BFS")) {
-            if (list.get(i).getAvaiable() == true) {
                 holder.title.setText("Title: " + list.get(i).getTitle());
                 holder.author.setText("Author: " + list.get(i).getAuthor());
                 holder.category.setText("Category: " + list.get(i).getCategory());
                 holder.sellerID.setText("Seller ID: " + list.get(i).getStuId());
                 Picasso.get().load(list.get(i).getImageUrl()).fit().into(holder.bookimg);
-            }
+
         }
         //IF IT IS A LIBRARY BOOK USE THIS ONE...ETC
 
