@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/pop_bg"
+
     tools:context=".View.SendMsg">
 
     <EditText
@@ -25,10 +26,10 @@
 
     <Button
         android:id="@+id/btn_send_sendMsg"
-        android:layout_width="69dp"
-        android:layout_height="38dp"
+        android:layout_width="118dp"
+        android:layout_height="29dp"
         android:layout_marginTop="20dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/roundbutton"
         android:text="Send"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
         android:text="TextView"
-        android:textColor="@color/white"
+        android:textColor="#B2B6B6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.352"
         app:layout_constraintStart_toStartOf="parent"

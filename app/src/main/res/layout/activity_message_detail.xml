@@ -9,10 +9,10 @@
 
     <Button
         android:id="@+id/btn_reply_msgDetail"
-        android:layout_width="69dp"
-        android:layout_height="38dp"
+        android:layout_width="146dp"
+        android:layout_height="28dp"
         android:layout_marginTop="20dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/roundbutton"
         android:text="Reply"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

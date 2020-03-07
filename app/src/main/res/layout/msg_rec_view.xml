@@ -4,18 +4,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="4dp">
+    android:background="@drawable/messages_forum_style"
+    android:padding="4dp"
+    android:layout_marginTop="5dp">
 
     <ImageView
         android:id="@+id/iv_bookImg_msgRec"
-        android:layout_width="65dp"
-        android:layout_height="61dp"
+        android:layout_width="25dp"
+        android:layout_height="29dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:alpha="75"
+        android:src="@drawable/closed_mail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/closed_mail" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_fromID_msgRec"
@@ -25,6 +28,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:text="From ID"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/iv_bookImg_msgRec"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,9 +36,10 @@
         android:id="@+id/tv_booktitle_msgRec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:text="Book Title"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/iv_bookImg_msgRec"
         app:layout_constraintTop_toBottomOf="@+id/tv_fromID_msgRec" />
 
@@ -44,6 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Time"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.346"
         app:layout_constraintStart_toEndOf="@+id/tv_fromID_msgRec"
