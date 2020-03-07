@@ -38,9 +38,9 @@ public class Post_Book2 extends AppCompatActivity {
         description = findViewById(R.id.et_desc_postbook2);
         author = findViewById(R.id.et_author_postbook2);
         post = findViewById(R.id.btn_post_postbook2);
-        //Bundle extras = getIntent().getExtras(); //to get extras from previous activity
-        //url = extras.getString("url");
-        //id = extras.getString("id");
+        Bundle extras = getIntent().getExtras(); //to get extras from previous activity
+        url = extras.getString("url");
+        id = extras.getString("id");
         spinner = findViewById(R.id.sp_category_postbook2);
         error = findViewById(R.id.tv_error_postbook2);
 

@@ -2,22 +2,20 @@ package com.example.qainfomate.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
-
 import com.example.qainfomate.Adapters.SwipeToDeleteCallback;
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.Adapters.MessageAdapter;
 import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
+import androidx.appcompat.widget.Toolbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,8 +33,9 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
     private ArrayList<Message> msgs = new ArrayList<>();
     private ArrayList<String> keys = new ArrayList<>();
     private DatabaseReference dbref;
-    Message mRecentlyDeletedItem;
-    int mRecentlyDeletedItemPosition;
+    Toolbar toolbar;
+    public static ConstraintLayout constraintLayout;
+    public static View view;
 
 
     @Override
@@ -50,6 +49,9 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         dbref = FirebaseDatabase.getInstance().getReference().child("Messages");
         dbref.addListenerForSingleValueEvent(listener);
         back = findViewById(R.id.iv_back_msgBox);
+        //toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        view = findViewById(R.id.coordinatorLayout);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,23 +61,12 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         });
 
     }
-    public void deleteAndRefresh(int i){
-        mRecentlyDeletedItem = msgs.get(i);
-        mRecentlyDeletedItemPosition = i;
-        dbref.child(keys.get(i)).removeValue();
-        msgs.remove(i);
-        keys.remove(i);
-        msgRecView.removeViewAt(i);
-        msgAdapter.notifyItemRemoved(i);
-        msgAdapter.notifyItemRangeChanged(i, msgs.size());
-        Intent intent = new Intent(MessageBox.this, MessageBox.class);
-        startActivity(intent);
-    }
 
 
     ValueEventListener listener = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            msgs.clear();
             for (DataSnapshot dss : dataSnapshot.getChildren()) {
                 //FILTERS ONLY MESSAGES FOR THE CURRENT USER
                 if((dss.getValue(Message.class).getIDto()).equals(Session.LiveSession.user.getStuID())) {
@@ -83,7 +74,7 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
                     keys.add(dss.getKey());
                 }
             }
-            msgAdapter = new MessageAdapter(msgs, MessageBox.this);
+            msgAdapter = new MessageAdapter(msgs, keys, MessageBox.this);
             msgRecView.setAdapter(msgAdapter);
             ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(msgAdapter));
             itemTouchHelper.attachToRecyclerView(msgRecView);
@@ -101,7 +92,9 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         Intent intent = new Intent(MessageBox.this, MessageDetail.class);
         intent.putExtra("MSG", msgs.get(i));
         dbref.child(keys.get(i)).child("read").setValue(true);
+        dbref.addListenerForSingleValueEvent(listener);
         startActivity(intent);
     }
+
 
 }

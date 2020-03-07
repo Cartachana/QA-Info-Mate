@@ -18,7 +18,7 @@ import com.example.qainfomate.View.MessageBox;
 
 public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
     private MessageAdapter mAdapter;
-    private MessageBox msBox;
+    MessageBox msBox;
     private Drawable icon;
     private final ColorDrawable background;
 
@@ -37,7 +37,7 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         int position = viewHolder.getAdapterPosition();
-        msBox.deleteAndRefresh(position);
+        mAdapter.deleteAndRefresh(position);
     }
 
     @Override

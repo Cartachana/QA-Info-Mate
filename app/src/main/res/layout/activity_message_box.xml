@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_dashboard"
+    android:id="@+id/coordinatorLayout"
     tools:context=".View.MessageBox">
 
     <TextView
@@ -50,5 +51,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/homeAsUpIndicator" />
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_msgs_msgbox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
