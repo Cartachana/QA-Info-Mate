@@ -38,6 +38,7 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
     Message mRecentlyDeletedItem;
     int mRecentlyDeletedItemPosition;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,18 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
             }
         });
 
+    }
+    public void deleteAndRefresh(int i){
+        mRecentlyDeletedItem = msgs.get(i);
+        mRecentlyDeletedItemPosition = i;
+        dbref.child(keys.get(i)).removeValue();
+        msgs.remove(i);
+        keys.remove(i);
+        msgRecView.removeViewAt(i);
+        msgAdapter.notifyItemRemoved(i);
+        msgAdapter.notifyItemRangeChanged(i, msgs.size());
+        Intent intent = new Intent(MessageBox.this, MessageBox.class);
+        startActivity(intent);
     }
 
 
@@ -90,10 +103,5 @@ public class MessageBox extends AppCompatActivity implements MessageAdapter.Hold
         dbref.child(keys.get(i)).child("read").setValue(true);
         startActivity(intent);
     }
-    public void deleteItem(int i){
-        mRecentlyDeletedItem = msgs.get(i);
-        mRecentlyDeletedItemPosition = i;
-        msgs.remove(i);
-        Toast.makeText(MessageBox.this, "Item Deleted", Toast.LENGTH_LONG).show();
-    }
+
 }

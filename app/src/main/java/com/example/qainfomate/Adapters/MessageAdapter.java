@@ -1,17 +1,19 @@
 package com.example.qainfomate.Adapters;
 
-import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.example.qainfomate.View.MessageBox;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.R;
+
 
 import java.util.ArrayList;
 
@@ -23,6 +25,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
     public MessageAdapter(ArrayList<Message> msgs, Holder.MsgInterface listener) {
         this.msgs = msgs;
         this.listener = listener;
+
     }
 
     @NonNull
@@ -55,6 +58,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         ImageView mail;
         MsgInterface listener;
 
+
     public Holder(@NonNull View itemView, MsgInterface _listener) {
         super(itemView);
         fromID = itemView.findViewById(R.id.tv_fromID_msgRec);
@@ -72,6 +76,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         public interface MsgInterface{
             public void onItemClick(int i);
     }
+
 
 }
 
