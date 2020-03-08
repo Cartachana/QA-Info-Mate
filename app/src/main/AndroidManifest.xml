@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".forum_activity"></activity>
+        <activity android:name=".Library"></activity>
+        <activity android:name=".LibraryMain" />
+        <activity android:name=".library_main_activity" />
+        <activity android:name=".forum_activity" />
         <activity
             android:name=".View.MessageDetail"
             android:theme="@style/AppTheme.PopMe" />
