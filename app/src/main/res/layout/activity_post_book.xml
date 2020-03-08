@@ -8,97 +8,133 @@
     tools:context=".View.Post_Book">
 
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.0" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1.0"
+        app:layout_constraintGuide_begin="20dp" />
+
+
     <TextView
         android:id="@+id/tv_user_postBook"
-        android:layout_width="62dp"
-        android:layout_height="27dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:clickable="true"
-        android:text="User"
         android:gravity="center_horizontal"
+        android:text="User"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintEnd_toStartOf="@+id/tv_title_postbook"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_logOut_postBook"
-        android:layout_width="60dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:clickable="true"
-        android:text="Log Out"
         android:gravity="center"
+        android:text="Log Out"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_next_postbook"
-        android:layout_width="139dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="141dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorPrimaryDark"
         android:text="Next"
         android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_progress_postBook" />
 
     <Button
         android:id="@+id/btn_upload_postbook"
-        android:layout_width="145dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="104dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/roundbutton"
         android:text="Upload"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_progress_postBook" />
 
     <Button
         android:id="@+id/btn_noimage_postBook"
-        android:layout_width="214dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="184dp"
+        android:layout_width="190dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/roundbutton"
-        android:text="Upload with no Image"
+        android:text="CONTINUE WITHOUT IMAGE"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/or" />
 
     <TextView
         android:id="@+id/hello2"
-        android:layout_width="347dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="40dp"
-        android:text="Please press the image below to\n upload your book image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="Please press the image below to\n upload your book image"
         android:textColor="#040404"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_postbook" />
+        app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
     <TextView
         android:id="@+id/or"
-        android:layout_width="44dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="OR"
         android:gravity="center"
+        android:text="OR"
         android:textColor="#040404"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,28 +148,23 @@
         android:layout_height="57dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
         android:clickable="false"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
         android:text="Post Book"
-        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_logOut_postBook"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_img_postBook"
-        android:layout_width="222dp"
-        android:layout_height="236dp"
+        android:layout_width="221dp"
+        android:layout_height="204dp"
         android:layout_marginTop="24dp"
         android:src="@android:drawable/ic_menu_upload"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,12 +176,24 @@
         android:id="@+id/tv_progress_postBook"
         android:layout_width="263dp"
         android:layout_height="26dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         android:textColor="@color/colorPrimaryDark"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+    <LinearLayout
+        android:layout_width="410dp"
+        android:layout_height="69dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_noimage_postBook"
+        app:layout_constraintVertical_bias="1.0"></LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
