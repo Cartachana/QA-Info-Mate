@@ -13,8 +13,6 @@
         android:layout_height="57dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="120dp"
-        android:layout_marginLeft="120dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="120dp"
         android:layout_marginRight="120dp"
@@ -26,8 +24,8 @@
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.983"
+        app:layout_constraintStart_toEndOf="@+id/tv_user_dashboard"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -36,7 +34,6 @@
         android:layout_height="29dp"
         android:clickable="true"
         android:text="Log Out"
-        android:textAlignment="center"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,10 +51,8 @@
         android:background="@drawable/round_corners"
         android:drawableBottom="@drawable/calendar_menu"
         android:text="Timetable"
-
-        android:textAlignment="center"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,9 +72,9 @@
         android:clickable="true"
         android:drawableBottom="@drawable/library_menu"
         android:text="Library"
-        android:textAlignment="center"
+
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,9 +95,9 @@
         android:clickable="true"
         android:drawableBottom="@drawable/forum_small"
         android:text="Forum"
-        android:textAlignment="center"
+
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,9 +118,9 @@
         android:clickable="true"
         android:drawableBottom="@drawable/help_menu"
         android:text="Help"
-        android:textAlignment="center"
+
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,9 +141,9 @@
         android:clickable="true"
         android:drawableBottom="@drawable/moodle_menu"
         android:text="Moodle"
-        android:textAlignment="center"
+
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -168,10 +163,9 @@
         android:background="@drawable/round_corners"
         android:clickable="true"
         android:drawableBottom="@drawable/market_menu"
-        android:text="Market"
-        android:textAlignment="center"
+        android:text="Books for sale"
         android:textColor="@android:color/white"
-        android:textSize="22sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -220,5 +214,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.189" />
+
+    <TextView
+        android:id="@+id/tv_user_dashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
+        android:clickable="true"
+        android:gravity="center_horizontal"
+        android:text="User"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@+id/tv_title_postbook"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
