@@ -8,10 +8,15 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,18 +28,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 public class Post_Book extends AppCompatActivity {
 
-    TextView user, logOut, progress;
-    ImageView imgBook;
-    Button next, upload, noimage;
-    Uri imageUri; // to save the Image URI in a global variable so we can use it in other methods
-    StorageReference sref; //to refer to our Firebase Storage Location
-    FirebaseAuth fbAuth;
+    private TextView user, logOut, progressText;
+    private ProgressBar mProgressBar;
+    private int mProgressStatus = 0;
+    private ImageView imgBook;
+    private Button next, upload, noimage;
+    private Uri imageUri; // to save the Image URI in a global variable so we can use it in other methods
+    private StorageReference sref; //to refer to our Firebase Storage Location
+    private FirebaseAuth fbAuth;
+    private Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +56,20 @@ public class Post_Book extends AppCompatActivity {
         next = findViewById(R.id.btn_next_postbook);
         upload = findViewById(R.id.btn_upload_postbook);
         sref = FirebaseStorage.getInstance().getReference("Books_for_Sale");
-        progress = findViewById(R.id.tv_progress_postBook);
+        mProgressBar = findViewById(R.id.pb_postBook);
+        progressText = findViewById(R.id.tv_progress_PostBook);
         fbAuth = FirebaseAuth.getInstance();
         user.setText(Session.LiveSession.user.getFname()); //displays the user currently logged in
         noimage = findViewById(R.id.btn_noimage_postBook);
 
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Post_Book.this, Post_Book2.class);
-                startActivity(i);
-            }
-        });
+        Animation animation = new AlphaAnimation(1, 0); // Change alpha from fully visible to invisible
+        animation.setDuration(500); // duration - half a second
+        animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
+        animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
+        animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
 
+
+//BUTTON LOGOUT PROGRAMMED HERE
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,6 +80,7 @@ public class Post_Book extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
 
         imgBook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +106,11 @@ public class Post_Book extends AppCompatActivity {
                             public void onSuccess(Uri uri) {
                                 final String url = uri.toString();
                                 final String id = book_id;
+                                progressText.setText("Upload Complete");
                                 upload.setVisibility(View.INVISIBLE);
                                 next.setVisibility(View.VISIBLE);
+                                next.startAnimation(animation);
+                            //BUTTON NEXT PROGRAMMED HERE TO TAKE US TO THE NEXT ACTIVITY
                                 next.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -116,7 +130,15 @@ public class Post_Book extends AppCompatActivity {
                             }
                         });
                     }
-                }); // progress listener
+                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                        double status = 100.0 * ((float) (taskSnapshot.getBytesTransferred()) / (float) (taskSnapshot.getTotalByteCount()));
+                        mProgressStatus = (int) status;
+                        mProgressBar.setProgress(mProgressStatus);
+                        progressText.setVisibility(View.VISIBLE);
+                    }
+                });
             }
         });
 
@@ -146,7 +168,7 @@ public class Post_Book extends AppCompatActivity {
         if(requestCode == 101 && resultCode == RESULT_OK && data.getData() != null){
             Picasso.get().load(data.getData()).fit().into(imgBook);
             imageUri = data.getData();
-
+            upload.setVisibility(View.VISIBLE);
         }
     }
 

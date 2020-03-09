@@ -41,43 +41,42 @@
 
     <Button
         android:id="@+id/btn_next_postbook"
-        android:layout_width="139dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/colorPrimaryDark"
+        android:layout_width="145dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/roundbutton"
         android:text="Next"
         android:textColor="@color/white"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/pb_postBook" />
 
     <Button
         android:id="@+id/btn_upload_postbook"
         android:layout_width="145dp"
         android:layout_height="35dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/roundbutton"
         android:text="Upload"
         android:textColor="@color/white"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/pb_postBook" />
 
     <Button
         android:id="@+id/btn_noimage_postBook"
         android:layout_width="214dp"
         android:layout_height="39dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/roundbutton"
         android:text="Upload with no Image"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/or" />
 
     <TextView
         android:id="@+id/hello2"
@@ -96,9 +95,9 @@
         android:id="@+id/or"
         android:layout_width="44dp"
         android:layout_height="25dp"
-        android:layout_marginTop="24dp"
-        android:text="OR"
+        android:layout_marginTop="15dp"
         android:gravity="center"
+        android:text="OR"
         android:textColor="#040404"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,8 +131,8 @@
 
     <ImageView
         android:id="@+id/iv_img_postBook"
-        android:layout_width="222dp"
-        android:layout_height="236dp"
+        android:layout_width="154dp"
+        android:layout_height="137dp"
         android:layout_marginTop="24dp"
         android:src="@android:drawable/ic_menu_upload"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,16 +140,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hello2" />
 
+    <ProgressBar
+        android:id="@+id/pb_postBook"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+
     <TextView
-        android:id="@+id/tv_progress_postBook"
-        android:layout_width="263dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
-        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/tv_progress_PostBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Image Uploading"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/pb_postBook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
