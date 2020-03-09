@@ -119,9 +119,9 @@
         android:text="CONTINUE WITHOUT IMAGE"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_img_postBook" />
+        app:layout_constraintTop_toBottomOf="@+id/or" />
 
     <TextView
         android:id="@+id/hello2"
