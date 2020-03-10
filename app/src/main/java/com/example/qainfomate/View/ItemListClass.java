@@ -247,24 +247,26 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
     @Override
     public void onItemClick(int i) {
         Intent intent;
-        if(item2==1) {
+        if(item2==2) {intent = new Intent(this, MyBookDetail.class);
+            intent.putExtra("BFS", (Parcelable) list.get(i));
+            intent.putExtra("KEY", keys.get(i));
+            startActivity(intent);
+
+        }else{
             switch (idbref) {
                 case "Books_for_Sale":
                     intent = new Intent(this, Book_for_sale_detail.class);
                     intent.putExtra("BFS", (Parcelable) list.get(i));
                     startActivity(intent);
+                    break;
                 case "Messages":
                     intent = new Intent(this, MessageDetail.class);
                     intent.putExtra("MSG", (Parcelable) list.get(i));
                     dbref.child(keys.get(i)).child("read").setValue(true);
                     dbref.addListenerForSingleValueEvent(listener);
                     startActivity(intent);
+                    break;
             }
-        }else{
-            intent = new Intent(this, MyBookDetail.class);
-            intent.putExtra("BFS", (Parcelable) list.get(i));
-            intent.putExtra("KEY", keys.get(i));
-            startActivity(intent);
         }
 
 
