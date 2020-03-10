@@ -3,10 +3,7 @@ package com.example.qainfomate.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-import java.lang.reflect.Array;
-
-public class Book_for_Sale extends Book implements Parcelable {
+public class Book_for_Sale extends Book implements GenericList, Parcelable {
     private String stuId;
     private Boolean isAvaiable;
 

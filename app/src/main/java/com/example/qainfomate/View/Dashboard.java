@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Dashboard extends AppCompatActivity {
 
     //
-    private TextView logOut, studentName;
+    private TextView logOut, studentName, user;
     private Button   timetable, library, forum, market, moodle, help;
     private Intent i;
     private FirebaseAuth fbAuth;
@@ -36,10 +36,11 @@ public class Dashboard extends AppCompatActivity {
         moodle=findViewById(R.id.btn_moodle_dashboard);
         help=findViewById(R.id.btn_help_dashboard);
         fbAuth = FirebaseAuth.getInstance();
+        user = findViewById(R.id.tv_user_dashboard);
 
 
 
-
+        user.setText(Session.LiveSession.user.getFname());
         studentName.setText(Session.LiveSession.user.getFname() + " " + Session.LiveSession.user.getSname()); //displays the user currently logged in
 
         // set an event on Log Out TextView where the user is logged out and redirected to the main Login activity
@@ -66,7 +67,10 @@ public class Dashboard extends AppCompatActivity {
         market.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(BookSale.class);
+                Intent i = new Intent(Dashboard.this, ItemListClass.class);
+                i.putExtra("ITEM", "Books_for_Sale");
+                i.putExtra("ITEM2", 1);
+                startActivity(i);
             }
         });
 

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.util.Date;
 
-public class Message implements Parcelable {
+public class Message implements Parcelable, GenericList {
     String IDfrom, IDto, bookTitle, message, date;
     Boolean isRead;
 

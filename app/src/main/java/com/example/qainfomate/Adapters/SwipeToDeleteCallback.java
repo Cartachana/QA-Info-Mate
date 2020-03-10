@@ -10,15 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
 import com.example.qainfomate.View.MainActivity;
-import com.example.qainfomate.View.MessageBox;
+
 
 public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
     private MessageAdapter mAdapter;
-    MessageBox msBox;
     private Drawable icon;
     private final ColorDrawable background;
 
@@ -65,7 +62,7 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
         int iconTop = itemView.getTop() + (itemView.getHeight() - icon.getIntrinsicHeight()) / 2;
         int iconBottom = iconTop + icon.getIntrinsicHeight();
 
-        if (dX > 0) { // Swiping to the right
+         if (dX > 0) { // Swiping to the right
             int iconLeft = itemView.getLeft() + iconMargin;
             int iconRight = itemView.getLeft() + iconMargin + icon.getIntrinsicWidth();
             icon.setBounds(iconLeft, iconTop, iconRight, iconBottom);

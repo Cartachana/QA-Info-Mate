@@ -3,6 +3,7 @@ package com.example.qainfomate.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 public class Post_Book2 extends AppCompatActivity {
 
     private Spinner spinner;
+    private ArrayAdapter<String> spinnerAdapter;
     private EditText title, description, author;
     private Button post;
     private TextView error;
@@ -43,20 +45,12 @@ public class Post_Book2 extends AppCompatActivity {
         id = extras.getString("id");
         spinner = findViewById(R.id.sp_category_postbook2);
         error = findViewById(R.id.tv_error_postbook2);
+        Resources res = getResources();
 
-        //Here I create an arraylist to send values to our Spinner (dropdown menu)
-        final ArrayList<String> categories = new ArrayList<>();
-        categories.add("Book Category");
-        categories.add("Programming");
-        categories.add("Management");
-        categories.add("Biology");
-        categories.add("Web Development");
-        categories.add("Networking");
-        categories.add("User Experience");
 
         //here we use an arrayadapter to send the values of the array to the spinner
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, categories);
+        spinnerAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, res.getStringArray(R.array.categories));
         spinner.setAdapter(spinnerAdapter);
 
 
@@ -73,7 +67,9 @@ public class Post_Book2 extends AppCompatActivity {
                             Session.LiveSession.user.getStuID(), true);
                     dbref.child(id).setValue(bookfs);
                     Toast.makeText(Post_Book2.this, "Book Successfully Posted", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(Post_Book2.this, BookSale.class);
+                    Intent i = new Intent(Post_Book2.this, ItemListClass.class);
+                    i.putExtra("ITEM", "Books_for_Sale");
+                    i.putExtra("ITEM2", 2);
                     startActivity(i);
                 }}
             });

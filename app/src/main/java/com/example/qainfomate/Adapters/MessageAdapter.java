@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.R;
-import com.example.qainfomate.View.MessageBox;
+import com.example.qainfomate.View.ItemListClass;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,14 +20,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
 
     ArrayList<Message> msgs;
     ArrayList<String> keys;
-    Holder holder;
     Holder.MsgInterface listener;
     private DatabaseReference dbref;
     Message mRecentlyDeletedItem;
     String recentkey;
     int mRecentlyDeletedItemPosition;
 
-        public MessageAdapter(ArrayList<Message> msgs,ArrayList<String> keys, Holder.MsgInterface listener) {
+        public MessageAdapter(ArrayList msgs,ArrayList<String> keys, Holder.MsgInterface listener) {
         this.msgs = msgs;
         this.listener = listener;
         this.keys = keys;
@@ -47,8 +46,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
 
     }
     public void showUndoSnackbar(int i) {
-        MessageBox.constraintLayout = MessageBox.view.findViewById(R.id.coordinatorLayout);
-        Snackbar snackbar = Snackbar.make(MessageBox.constraintLayout,"Message is Deleted", Snackbar.LENGTH_LONG);
+        ItemListClass.constraintLayout = ItemListClass.view.findViewById(R.id.coordinatorLayout);
+        Snackbar snackbar = Snackbar.make(ItemListClass.constraintLayout,"Message is Deleted", Snackbar.LENGTH_LONG);
         snackbar.setAction("UNDO", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,7 +55,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
                 keys.add(mRecentlyDeletedItemPosition, recentkey);
                 notifyItemInserted(mRecentlyDeletedItemPosition);
                 dbref.child(recentkey).setValue(mRecentlyDeletedItem);
-                Snackbar snackbar1 = Snackbar.make(MessageBox.constraintLayout, "Message is Restored", Snackbar.LENGTH_SHORT);
+                Snackbar snackbar1 = Snackbar.make(ItemListClass.constraintLayout, "Message is Restored", Snackbar.LENGTH_SHORT);
                 snackbar1.show();
                 notifyItemRangeChanged(0, msgs.size());
             }

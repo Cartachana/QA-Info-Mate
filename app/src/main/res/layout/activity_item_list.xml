@@ -2,14 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_books2"
-    tools:context=".View.BookSale">
+    tools:context=".View.ItemListClass">
 
     <Button
-        android:id="@+id/btn_sellBook_booksale"
-        android:layout_width="125dp"
+        android:id="@+id/btn_sellBook_itemList"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
@@ -17,16 +18,27 @@
         android:text="Sell Book"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
-        app:layout_constraintStart_toEndOf="@+id/btn_messages_booksale"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <Button
-        android:id="@+id/btn_messages_booksale"
-        android:layout_width="125dp"
+        android:id="@+id/btn_myBooks_itemList"
+        android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/roundbutton"
+        android:text="My Books"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <Button
+        android:id="@+id/btn_messages_itemList"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/roundbutton"
         android:text="Messages"
@@ -34,8 +46,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
+    <Button
+        android:id="@+id/btn_bookSale_itemList"
+        android:layout_width="150dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/roundbutton"
+        android:text="Books for Sale"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/btn_sellBook_itemList"
+        app:layout_constraintStart_toEndOf="@+id/btn_messages_itemList"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
     <TextView
-        android:id="@+id/tv_title_booksale"
+        android:id="@+id/tv_title_itemList"
         android:layout_width="224dp"
         android:layout_height="54dp"
         android:layout_alignParentEnd="true"
@@ -59,7 +85,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_books_booksale"
+        android:id="@+id/rv_books_itemList"
         android:layout_width="match_parent"
         android:layout_height="433dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
@@ -69,46 +95,46 @@
         app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
     <ImageView
-        android:id="@+id/iv_library_bottom_timetable"
+        android:id="@+id/iv_library_bottom_itemList"
         android:layout_width="54dp"
         android:layout_height="45dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.243"
+        app:layout_constraintHorizontal_bias="0.422"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.904"
         app:srcCompat="@drawable/library_small" />
 
     <ImageView
-        android:id="@+id/iv_forum_bottom_timetable"
-        android:layout_width="65dp"
-        android:layout_height="42dp"
+        android:id="@+id/iv_forum_bottom_itemList"
+        android:layout_width="53dp"
+        android:layout_height="39dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.978"
+        app:layout_constraintVertical_bias="0.791"
         app:srcCompat="@drawable/forum_small" />
 
     <ImageView
-        android:id="@+id/iv_market_bottom_timetable"
+        android:id="@+id/iv_timetable_bottom_itemList"
         android:layout_width="53dp"
         android:layout_height="41dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintHorizontal_bias="0.245"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.95"
-        app:srcCompat="@drawable/market_small" />
+        app:layout_constraintVertical_bias="0.826"
+        app:srcCompat="@drawable/calendar_small" />
 
     <ImageView
-        android:id="@+id/iv_moodle_bottom_timetable"
+        android:id="@+id/iv_moodle_bottom_itemList"
         android:layout_width="39dp"
         android:layout_height="42dp"
         android:clickable="true"
@@ -117,11 +143,11 @@
         app:layout_constraintHorizontal_bias="0.747"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.978"
+        app:layout_constraintVertical_bias="0.822"
         app:srcCompat="@drawable/moodle_small" />
 
     <ImageView
-        android:id="@+id/iv_help_bottom_timetable"
+        android:id="@+id/iv_help_bottom_itemList"
         android:layout_width="60dp"
         android:layout_height="49dp"
         android:clickable="true"
@@ -134,17 +160,39 @@
         app:srcCompat="@drawable/help_small" />
 
     <ImageView
-        android:id="@+id/iv_dashboard_bottom_timetable"
+        android:id="@+id/iv_dashboard_bottom_itemList"
         android:layout_width="47dp"
         android:layout_height="33dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.082"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.959"
+        app:layout_constraintVertical_bias="0.777"
         app:srcCompat="@drawable/dashboard_icon" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintBottom_toBottomOf="@+id/rv_books_itemList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2"
+        app:layout_constraintGuide_begin="20dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

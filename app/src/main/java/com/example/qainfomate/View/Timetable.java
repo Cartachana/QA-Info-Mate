@@ -124,13 +124,7 @@ public class Timetable extends AppCompatActivity {
                 navigateTo(Forum.class);
             }
         });
-        //navigate the user to the Market activity
-        market.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateTo(Market.class);
-            }
-        });
+
         //navigate user to the Help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +134,14 @@ public class Timetable extends AppCompatActivity {
         });
 
          */
+
+        //navigate the user to the Market activity
+        market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(ItemListClass.class, null);
+            }
+        });
 
         moodle.setOnClickListener(new View.OnClickListener() {
             @Override

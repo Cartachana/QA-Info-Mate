@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">QA Info mate</string>
+    <string-array name="categories">
+        <item>Book Category</item>
+        <item>Programming</item>
+        <item>Management</item>
+        <item>Biology</item>
+        <item>Web Development</item>
+        <item>Networking</item>
+        <item>User Experience</item>
+    </string-array>
 </resources>

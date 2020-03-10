@@ -18,6 +18,7 @@ public class Book_for_sale_detail extends AppCompatActivity {
     TextView title, author, cat, desc, sellerID;
     ImageView bookImg, back;
     Button msgSeller;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,8 @@ public class Book_for_sale_detail extends AppCompatActivity {
         bookImg = findViewById(R.id.iv_bookimg_bfsDetails);
         msgSeller = findViewById(R.id.btn_mssSeller_bfsDetail);
         back = findViewById(R.id.iv_back_bfs_detail);
-        Intent i = getIntent();
-        final Book_for_Sale bfs = i.getParcelableExtra("BFS");
+        Book_for_Sale bfs = getIntent().getParcelableExtra("BFS");
+        //final Book_for_Sale bfs = i.getParcelableExtra("BFS");
 
 
         title.setText("Title: " + bfs.getTitle());
@@ -46,14 +47,17 @@ public class Book_for_sale_detail extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                i = new Intent(Book_for_sale_detail.this, ItemListClass.class);
+                i.putExtra("ITEM", "Books_for_Sale");
+                i.putExtra("ITEM2", 1);
+                startActivity(i);
             }
         });
 
         msgSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Book_for_sale_detail.this, SendMsg.class);
+                i = new Intent(Book_for_sale_detail.this, SendMsg.class);
                 i.putExtra("BFS", bfs);
                 startActivity(i);
             }

@@ -5,22 +5,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
 
     ArrayList<Book_for_Sale> list;
     Holder.recInterface listener;
 
-    public BookAdapter(ArrayList<Book_for_Sale> list, Holder.recInterface _listener) {
+    public BookAdapter(ArrayList list, Holder.recInterface _listener) {
         this.list = list;
         listener = _listener;
     }
@@ -35,18 +34,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.Holder> {
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int i) {
-        //IF IT IS A BOOK FOR SALE USE THIS HOLDER
-        if(list.get(i).getType().equals("BFS")) {
                 holder.title.setText("Title: " + list.get(i).getTitle());
                 holder.author.setText("Author: " + list.get(i).getAuthor());
                 holder.category.setText("Category: " + list.get(i).getCategory());
                 holder.sellerID.setText("Seller ID: " + list.get(i).getStuId());
                 Picasso.get().load(list.get(i).getImageUrl()).fit().into(holder.bookimg);
-
-        }
-        //IF IT IS A LIBRARY BOOK USE THIS ONE...ETC
-
-
     }
 
     @Override

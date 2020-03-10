@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Library"></activity>
+        <activity android:name=".MyBookDetail"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity android:name=".Library" />
         <activity android:name=".LibraryMain" />
         <activity android:name=".library_main_activity" />
         <activity android:name=".forum_activity" />
@@ -17,16 +19,13 @@
             android:name=".View.MessageDetail"
             android:theme="@style/AppTheme.PopMe" />
         <activity
-            android:name=".View.MessageBox"
-            android:theme="@style/HiddenTitleTheme" />
-        <activity
             android:name=".View.SendMsg"
             android:theme="@style/AppTheme.PopMe" />
         <activity
             android:name=".View.Book_for_sale_detail"
             android:theme="@style/HiddenTitleTheme" />
         <activity
-            android:name=".View.BookSale"
+            android:name=".View.ItemListClass"
             android:theme="@style/HiddenTitleTheme" />
         <activity
             android:name=".View.Post_Book2"
