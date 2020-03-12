@@ -24,7 +24,6 @@ import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.Models.GenericList;
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.Models.Session;
-import com.example.qainfomate.MyBookDetail;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -68,6 +67,7 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
         myBooks = findViewById(R.id.btn_myBooks_itemList);
         booksforSale = findViewById(R.id.btn_bookSale_itemList);
         manager = new LinearLayoutManager(ItemListClass.this);
+        RecView.setLayoutManager(manager);
         dash = findViewById(R.id.iv_dashboard_bottom_itemList);
         timetable = findViewById(R.id.iv_timetable_bottom_itemList);
         forum = findViewById(R.id.iv_forum_bottom_itemList);
@@ -75,7 +75,7 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
         moodle = findViewById(R.id.iv_moodle_bottom_itemList);
         help = findViewById(R.id.iv_help_bottom_itemList);
         //RECYCLER VIEW COMPONENTS
-        RecView.setLayoutManager(manager);
+
 
         //Database Reference gets node name from last activity
         Extras = getIntent().getExtras();

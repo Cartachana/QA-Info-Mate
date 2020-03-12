@@ -3,10 +3,10 @@
     <string-array name="categories">
         <item>Book Category</item>
         <item>Programming</item>
-        <item>Management</item>
-        <item>Biology</item>
+        <item>Business</item>
+        <item>Economics</item>
         <item>Web Development</item>
-        <item>Networking</item>
+        <item>Mathematics</item>
         <item>User Experience</item>
     </string-array>
 </resources>

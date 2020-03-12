@@ -12,7 +12,7 @@ import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class Floor extends AppCompatActivity {
+public class Floors extends AppCompatActivity {
 
     private ImageView floor1img, back;
     private TextView logout, user, title;
@@ -23,13 +23,13 @@ public class Floor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_floor1);
+        setContentView(R.layout.activity_floors);
 
-        floor1img = findViewById(R.id.img_floor1_floor1);
-        logout = findViewById(R.id.tv_logOut_floor1);
-        user = findViewById(R.id.tv_user_floor1);
-        back = findViewById(R.id.iv_back_floor1);
-        title = findViewById(R.id.tv_title_floor);
+        floor1img = findViewById(R.id.img_floor_floors);
+        logout = findViewById(R.id.tv_logOut_floors);
+        user = findViewById(R.id.tv_user_floors);
+        back = findViewById(R.id.iv_back_floors);
+        title = findViewById(R.id.tv_title_floors);
         user.setText(Session.LiveSession.user.getFname());
         fbAuth = FirebaseAuth.getInstance();
 
@@ -63,7 +63,7 @@ public class Floor extends AppCompatActivity {
                 fbAuth.signOut();
                 //TEMPORARY INNER CLASS EMPTIED
                 Session.LiveSession.user = null;
-                Intent i = new Intent(Floor.this, MainActivity.class);
+                Intent i = new Intent(Floors.this, MainActivity.class);
                 startActivity(i);
 
             }

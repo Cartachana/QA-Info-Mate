@@ -9,11 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyBookDetail"
+        <activity android:name=".View.MyBookDetail"
             android:theme="@style/AppTheme.PopMe" />
-        <activity android:name=".Library" />
-        <activity android:name=".LibraryMain" />
-        <activity android:name=".library_main_activity" />
+        <activity android:name=".Library"
+            android:theme="@style/HiddenTitleTheme"/>
         <activity android:name=".forum_activity" />
         <activity
             android:name=".View.MessageDetail"
@@ -37,7 +36,7 @@
             android:name=".View.Splash"
             android:theme="@style/HiddenTitleTheme" />
         <activity
-            android:name=".View.Floor"
+            android:name=".View.Floors"
             android:theme="@style/HiddenTitleTheme" />
         <activity
             android:name=".View.Timetable"

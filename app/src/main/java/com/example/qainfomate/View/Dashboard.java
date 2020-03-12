@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.qainfomate.Library;
 import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
 import com.google.firebase.auth.FirebaseAuth;
@@ -74,7 +75,6 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        /*
         // direct the user to the Library activity
         library.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +82,8 @@ public class Dashboard extends AppCompatActivity {
                 navigateTo(Library.class);
             }
         });
+        /*
+
         //navigate the user to Forum
         forum.setOnClickListener(new View.OnClickListener() {
             @Override

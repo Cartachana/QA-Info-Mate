@@ -5,21 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_dashboard"
-    tools:context=".View.Floor">
+    tools:context=".View.Floors">
 
-    <ImageView
-        android:id="@+id/img_floor1_floor1"
-        android:layout_width="317dp"
+    <com.ortiz.touchview.TouchImageView
+        android:id="@+id/img_floor_floors"
+        android:layout_width="match_parent"
         android:layout_height="469dp"
+        android:src="@drawable/floor1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title_floor"
-        app:layout_constraintVertical_bias="0.562"
-        android:src="@drawable/floor1" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_floors"
+        app:layout_constraintVertical_bias="0.562" />
 
     <TextView
-        android:id="@+id/tv_title_floor"
+        android:id="@+id/tv_title_floors"
         android:layout_width="229dp"
         android:layout_height="39dp"
         android:layout_alignParentEnd="true"
@@ -31,7 +31,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="First Floor"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
@@ -40,13 +40,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_user_floor1"
+        android:id="@+id/tv_user_floors"
         android:layout_width="62dp"
         android:layout_height="27dp"
         android:layout_marginBottom="4dp"
         android:clickable="true"
         android:text="User"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,29 +56,29 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <TextView
-        android:id="@+id/tv_logOut_floor1"
+        android:id="@+id/tv_logOut_floors"
         android:layout_width="60dp"
         android:layout_height="29dp"
         android:clickable="true"
         android:text="Log Out"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.868"
-        app:layout_constraintStart_toEndOf="@+id/tv_title_floor"
+        app:layout_constraintStart_toEndOf="@+id/tv_title_floors"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.005" />
 
     <ImageView
-        android:id="@+id/iv_back_floor1"
+        android:id="@+id/iv_back_floors"
         android:layout_width="58dp"
         android:layout_height="43dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_user_floor1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_floors"
         app:srcCompat="?attr/homeAsUpIndicator" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

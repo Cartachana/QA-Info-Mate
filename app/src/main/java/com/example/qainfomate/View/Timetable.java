@@ -62,32 +62,32 @@ public class Timetable extends AppCompatActivity {
         G02_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-            navigateTo(Floor.class, "G02");
+            navigateTo(Floors.class, "G02");
             }
         });
         G02_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                navigateTo(Floor.class, "G02");
+                navigateTo(Floors.class, "G02");
             }
         });
         G02_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                navigateTo(Floor.class, "G02");
+                navigateTo(Floors.class, "G02");
             }
         });
         G02_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                navigateTo(Floor.class, "G02");
+                navigateTo(Floors.class, "G02");
             }
         });
         //navigate to Lower Ground floor map
         LG1_04.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Floor.class, "LG01");
+                navigateTo(Floors.class, "LG01");
             }
         });
 
@@ -96,7 +96,7 @@ public class Timetable extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                navigateTo(Floor.class, "F102");
+                navigateTo(Floors.class, "F102");
             }
         });
 

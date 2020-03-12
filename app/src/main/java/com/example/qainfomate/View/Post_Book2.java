@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.qainfomate.Models.Book_for_Sale;
+import com.example.qainfomate.Models.Library_Book;
 import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
 import com.google.firebase.database.DatabaseReference;
@@ -61,7 +62,7 @@ public class Post_Book2 extends AppCompatActivity {
                         error.setText("Please fill in all fields!!");
                         error.setVisibility(View.VISIBLE);
                     } else {
-                    dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
+                    dbref = FirebaseDatabase.getInstance().getReference("Library_Books");
                     Book_for_Sale bookfs = new Book_for_Sale(title.getText().toString(), author.getText().toString(),
                             description.getText().toString(), spinner.getSelectedItem().toString(), url, "BFS",
                             Session.LiveSession.user.getStuID(), true);
