@@ -48,29 +48,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_button_libBookDetail"
-            android:layout_width="83dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:tint="@color/colorPrimaryDark"
-            app:backgroundTint="@color/white"
-            app:srcCompat="@drawable/menu_icon" />
-
-        <TextView
-            android:id="@+id/tv_title_libBookDetail"
-            android:layout_width="261dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:text=""
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="23sp"
-            android:textStyle="bold" />
-
         <ImageButton
             android:id="@+id/iv_back_libBookDetail"
             android:layout_width="70dp"
