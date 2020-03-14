@@ -198,7 +198,7 @@
         android:layout_marginRight="45dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/round_corners"
-        android:text="Reserve Book"
+        android:text="Cancel Reservation"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintEnd_toEndOf="parent"

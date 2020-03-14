@@ -27,6 +27,7 @@ public class Library extends AppCompatActivity implements LibraryAdapter.Holder.
     private FloatingActionButton fab;
     private LibraryAdapter libAdapter;
     private ArrayList<Library_Book> list = new ArrayList<>();
+    private ArrayList<String> keys = new ArrayList<>();
     private DatabaseReference dbref;
 
     @Override
@@ -46,8 +47,10 @@ public class Library extends AppCompatActivity implements LibraryAdapter.Holder.
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
             list.clear();
+            keys.clear();
             for(DataSnapshot dss: dataSnapshot.getChildren()){
                 list.add(dss.getValue(Library_Book.class));
+                keys.add(dss.getKey());
             }
             libAdapter = new LibraryAdapter(list, Library.this);
             RecView.setAdapter(libAdapter);
@@ -63,6 +66,7 @@ public class Library extends AppCompatActivity implements LibraryAdapter.Holder.
     public void onItemClick(int i) {
         Intent in = new Intent(this, LibraryBookDetail.class);
         in.putExtra("LB", list.get(i));
+        in.putExtra("KEY", keys.get(i));
         startActivity(in);
     }
 }

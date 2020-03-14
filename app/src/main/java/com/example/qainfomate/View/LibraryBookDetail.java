@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.qainfomate.Adapters.ReviewAdapter;
 import com.example.qainfomate.Models.Library_Book;
 import com.example.qainfomate.Models.Review;
+import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,12 +32,13 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
     private ImageView bookImg, back;
     private TextView title, author, desc;
     private Button rev, reserve, cancel;
-    Intent intent;
-    RecyclerView.LayoutManager manager;
-    ArrayList<Review> list = new ArrayList<>();
-    Library_Book libbook;
-    ReviewAdapter adapter;
-    DatabaseReference dbref;
+    private Intent intent;
+    private RecyclerView.LayoutManager manager;
+    private ArrayList<Review> list = new ArrayList<>();
+    private Library_Book libbook;
+    private ReviewAdapter adapter;
+    private DatabaseReference revref, bkref;
+    private String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +59,23 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
 
         Bundle extra = getIntent().getExtras();
         libbook = extra.getParcelable("LB");
+        key = extra.getString("KEY");
+
+        if(libbook.getLoanedTo().equals("Available")){
+            reserve.setVisibility(View.VISIBLE);
+            cancel.setVisibility(View.INVISIBLE);
+        }else{
+            reserve.setVisibility(View.INVISIBLE);
+            cancel.setVisibility(View.VISIBLE);
+        }
 
         title.setText(libbook.getTitle());
         author.setText(libbook.getAuthor());
         desc.setText(libbook.getDescription());
         Picasso.get().load(libbook.getImageUrl()).fit().into(bookImg);
-        dbref = FirebaseDatabase.getInstance().getReference("Reviews");
-        dbref.addListenerForSingleValueEvent(listener);
+        revref = FirebaseDatabase.getInstance().getReference("Reviews");
+        bkref = FirebaseDatabase.getInstance().getReference("Library_Books");
+        revref.addListenerForSingleValueEvent(listener);
 
         rev.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +89,27 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
             @Override
             public void onClick(View v) {
                 intent = new Intent(LibraryBookDetail.this, Library.class);
+                intent.putExtra("LB", libbook);
                 startActivity(intent);
+            }
+        });
+        reserve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                libbook.setLoanedTo(Session.LiveSession.user.getStuID());
+                bkref.child(key).setValue(libbook);
+                reserve.setVisibility(View.INVISIBLE);
+                cancel.setVisibility(View.VISIBLE);
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                libbook.setLoanedTo("Available");
+                bkref.child(key).setValue(libbook);
+                reserve.setVisibility(View.VISIBLE);
+                cancel.setVisibility(View.INVISIBLE);
             }
         });
 
