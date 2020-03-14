@@ -1,14 +1,16 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class LibraryBookDetail extends AppCompatActivity {
+import com.example.qainfomate.R;
+
+public class forum_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library_book_detail);
+        setContentView(R.layout.activity_forum_activity);
     }
 }

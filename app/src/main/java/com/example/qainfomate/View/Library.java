@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.qainfomate.Adapters.LibraryAdapter;
@@ -60,6 +61,8 @@ public class Library extends AppCompatActivity implements LibraryAdapter.Holder.
 
     @Override
     public void onItemClick(int i) {
-        //Intent i = new Intent(this, )
+        Intent in = new Intent(this, LibraryBookDetail.class);
+        in.putExtra("LB", list.get(i));
+        startActivity(in);
     }
 }

@@ -9,15 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".post_review"></activity>
-        <activity android:name=".LibraryBookDetail" />
+        <activity android:name=".View.Post_review"
+            android:theme="@style/AppTheme.PopMe"/>
+        <activity android:name=".View.LibraryBookDetail"
+            android:theme="@style/HiddenTitleTheme"/>
         <activity
             android:name=".View.MyBookDetail"
             android:theme="@style/AppTheme.PopMe" />
         <activity
             android:name=".View.Library"
             android:theme="@style/HiddenTitleTheme" />
-        <activity android:name=".forum_activity" />
+        <activity android:name=".View.forum_activity" />
         <activity
             android:name=".View.MessageDetail"
             android:theme="@style/AppTheme.PopMe" />

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".post_review">
+    android:background="@drawable/pop_bg"
+    tools:context=".View.Post_review">
     <EditText
         android:id="@+id/et_review_postRev"
         android:layout_width="192dp"
