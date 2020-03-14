@@ -15,7 +15,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.qainfomate.Adapters.BookAdapter;
 import com.example.qainfomate.Adapters.MessageAdapter;
 import com.example.qainfomate.Adapters.MyBooksAdapter;

@@ -75,49 +75,51 @@ public class MainActivity extends AppCompatActivity {
 
                 else{
                     //IF NO FIELD IS EMPTY THE APP WILL ATTEMPT TO SIGN THE USER IN
-                fbAuth.signInWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
+                    fbAuth.signInWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
 
-                        //attempted STUDENT ID will be captured and compared with database
-                        ValueEventListener listener = new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                for(DataSnapshot dss:dataSnapshot.getChildren())
-                                {
-                                  Session.LiveSession.user = dss.getValue(User.class);
+                            //attempted STUDENT ID will be captured and compared with database
+                            ValueEventListener listener = new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot dss:dataSnapshot.getChildren())
+                                    {
+                                        if(fbAuth.getCurrentUser().getUid().matches(dss.getKey())) {
+                                            Session.LiveSession.user = dss.getValue(User.class);
+                                        }
+                                    }
+                                    if(Session.LiveSession.user != null)
+                                    {
+                                        Toast.makeText(MainActivity.this, Session.LiveSession.user.getFname() + " " +
+                                                "" + Session.LiveSession.user.getSname() + " " + "Logged in", Toast.LENGTH_LONG).show();
+                                        i = new Intent(MainActivity.this, Dashboard.class);
+                                        startActivity(i);
+                                        //if the ID does not match the email
+                                    } else{
+                                        please.setText("Wrong Student ID entered");
+                                        please.setVisibility(View.VISIBLE);
+                                        fbAuth.signOut();
+                                    }
                                 }
-                                if(Session.LiveSession.user != null)
-                                {
-                                    Toast.makeText(MainActivity.this, Session.LiveSession.user.getFname() + " " +
-                                            "" + Session.LiveSession.user.getSname() + " " + "Logged in", Toast.LENGTH_LONG).show();
-                                    i = new Intent(MainActivity.this, Dashboard.class);
-                                    startActivity(i);
-                            //if the ID does not match the email
-                                } else{
-                                    please.setText("Wrong Student ID entered");
-                                    please.setVisibility(View.VISIBLE);
-                                    fbAuth.signOut();
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
                                 }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        };
-                        //here the entered ID and the ID in the database will be compared using the "listener"
-                        dbref = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("stuID").equalTo(id.getText().toString());
-                        dbref.addListenerForSingleValueEvent(listener);
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        //TO CODE depending on the log in problem for now I will leave a toast of nonexistant user
-                        Toast.makeText(MainActivity.this, "Wrong Credentials.\nHave you registered?", Toast.LENGTH_LONG).show();
-                    }
-                });
-            }}
+                            };
+                            //here the entered ID and the ID in the database will be compared using the "listener"
+                            dbref = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("stuID").equalTo(id.getText().toString());
+                            dbref.addListenerForSingleValueEvent(listener);
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            //TO CODE depending on the log in problem for now I will leave a toast of nonexistant user
+                            Toast.makeText(MainActivity.this, "Wrong Credentials.\nHave you registered?", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }}
         });
 
 

@@ -67,7 +67,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_rec_view, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_recview_card, parent, false);
         Holder holder = new Holder(v, listener);
         return holder;
     }

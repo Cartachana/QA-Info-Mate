@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
 import com.example.qainfomate.Models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,8 +20,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Register extends AppCompatActivity {
 
@@ -30,6 +36,7 @@ public class Register extends AppCompatActivity {
     //Declare object of Firebase Auth
     private FirebaseAuth fbAuth;
     private DatabaseReference dbref;
+    private Query dbquery;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,35 +71,56 @@ public class Register extends AppCompatActivity {
                     check2 = confpass.getText().toString();
                     if (check1.equals(check2)) {
                         //Registering user if passwords match
-                        fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        ValueEventListener listener = new ValueEventListener() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                //logging in user in the background to get his details
-                                fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                if(dataSnapshot.exists()){
+                                    for(DataSnapshot dss:dataSnapshot.getChildren())
+                                    {
+                                        error.setText("Wrong Student ID entered");
+                                        error.setVisibility(View.VISIBLE);
+                                        fbAuth.signOut();
+                                    }
+                                }
+                                else{fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-
-                                        dbref = FirebaseDatabase.getInstance().getReference("_user_");
-                                        //Storing user's details in Realtime database
-                                        User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
-                                        dbref.child(fbAuth.getUid()).setValue(u);
-                                        fbAuth.signOut();
-                                        //directing to splash page
-                                        Intent i = new Intent(Register.this, Splash.class);
-                                        i.putExtra("name", u.getFname());
-                                        i.putExtra("surname", u.getSname());
-                                        startActivity(i);
+                                        //logging in user in the background to get his details
+                                        fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                            @Override
+                                            public void onSuccess(AuthResult authResult) {
+                                                dbref = FirebaseDatabase.getInstance().getReference("_user_");
+                                                //Storing user's details in Realtime database
+                                                User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
+                                                dbref.child(fbAuth.getUid()).setValue(u);
+                                                fbAuth.signOut();
+                                                //directing to splash page
+                                                Intent i = new Intent(Register.this, Splash.class);
+                                                i.putExtra("name", u.getFname());
+                                                i.putExtra("surname", u.getSname());
+                                                startActivity(i);
+                                            }
+                                        });
                                     }
+
+
+                                }).addOnFailureListener(e -> {
+                                    error.setText(e.toString());
+                                    error.setVisibility(View.VISIBLE);
+                                    //Toast.makeText(Register.this, e.toString(), Toast.LENGTH_LONG).show();
                                 });
+                                }
+
                             }
-                        }).addOnFailureListener(new OnFailureListener() {
+
                             @Override
-                            public void onFailure(@NonNull Exception e) {
-                                error.setText(e.toString());
-                                error.setVisibility(View.VISIBLE);
-                               //Toast.makeText(Register.this, e.toString(), Toast.LENGTH_LONG).show();
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
                             }
-                        });
+                        };
+                        dbquery = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("stuID").equalTo(stuID.getText().toString());
+                        dbquery.addListenerForSingleValueEvent(listener);
+
                     } else {
                         error.setText("Passwords do not Match!");
                         error.setVisibility(View.VISIBLE);
