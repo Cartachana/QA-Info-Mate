@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".View.Post_review"
             android:theme="@style/AppTheme.PopMe"/>
+
         <activity android:name=".View.LibraryBookDetail"
             android:theme="@style/HiddenTitleTheme"/>
         <activity
