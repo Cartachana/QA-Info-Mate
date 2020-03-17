@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.squareup.picasso.Picasso;
@@ -60,6 +61,7 @@ public class Book_for_sale_detail extends AppCompatActivity {
                 i = new Intent(Book_for_sale_detail.this, SendMsg.class);
                 i.putExtra("BFS", bfs);
                 startActivity(i);
+               // Animatoo.animateSlideRight(Book_for_sale_detail.this);
             }
         });
     }
