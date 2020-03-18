@@ -62,7 +62,7 @@ public class Post_Book2 extends AppCompatActivity {
                         error.setText("Please fill in all fields!!");
                         error.setVisibility(View.VISIBLE);
                     } else {
-                    dbref = FirebaseDatabase.getInstance().getReference("Library_Books");
+                    dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
                     Book_for_Sale bookfs = new Book_for_Sale(title.getText().toString(), author.getText().toString(),
                             description.getText().toString(), spinner.getSelectedItem().toString(), url, "BFS",
                             Session.LiveSession.user.getStuID(), true);

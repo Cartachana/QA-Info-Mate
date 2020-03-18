@@ -1,4 +1,4 @@
-package com.example.qainfomate.View;
+package com.example.qainfomate;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +20,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.View.MainActivity;
+import com.example.qainfomate.View.Post_Book;
+import com.example.qainfomate.View.Post_Book2;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,13 +35,13 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-public class Post_Book extends AppCompatActivity {
+public class Post_lib_Book extends AppCompatActivity {
 
-    private TextView user, logOut, progressText;
+    private TextView progressText;
     private ProgressBar mProgressBar;
     private int mProgressStatus = 0;
     private ImageView imgBook;
-    private Button next, upload, noimage;
+    private Button next, upload;
     private Uri imageUri; // to save the Image URI in a global variable so we can use it in other methods
     private StorageReference sref; //to refer to our Firebase Storage Location
     private FirebaseAuth fbAuth;
@@ -47,39 +49,22 @@ public class Post_Book extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_book);
+        setContentView(R.layout.activity_post_lib_book);
 
-        logOut = findViewById(R.id.tv_logOut_postBook);
-        user = findViewById(R.id.tv_user_postBook);
-        imgBook = findViewById(R.id.iv_img_postBook);
-        next = findViewById(R.id.btn_next_postbook);
-        upload = findViewById(R.id.btn_upload_postbook);
-        sref = FirebaseStorage.getInstance().getReference("Books_for_Sale");
+
+        imgBook = findViewById(R.id.iv_img_postLib);
+        next = findViewById(R.id.btn_next_postLib);
+        upload = findViewById(R.id.btn_upload_postLib);
+        sref = FirebaseStorage.getInstance().getReference("Library_Books");
         mProgressBar = findViewById(R.id.pb_postBook);
         progressText = findViewById(R.id.tv_progress_PostBook);
         fbAuth = FirebaseAuth.getInstance();
-        user.setText(Session.LiveSession.user.getFname()); //displays the user currently logged in
-        noimage = findViewById(R.id.btn_noimage_postBook);
 
         Animation animation = new AlphaAnimation(1, (float) .4); // Change alpha from fully visible to partially visible
         animation.setDuration(1000); // duration - half a second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
         animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
-
-
-//BUTTON LOGOUT PROGRAMMED HERE
-        logOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fbAuth.signOut();
-                //temporary inner class emptied
-                Session.LiveSession.user = null;
-                Intent i = new Intent(Post_Book.this, MainActivity.class);
-                startActivity(i);
-            }
-        });
-
 
         imgBook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +79,7 @@ public class Post_Book extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
+                final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Library_Books");
                 final String book_id = dbref.push().getKey();
                 final StorageReference reference = sref.child(book_id + "." + getExt(imageUri));
                 reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -109,11 +94,11 @@ public class Post_Book extends AppCompatActivity {
                                 upload.setVisibility(View.INVISIBLE);
                                 next.setVisibility(View.VISIBLE);
                                 next.startAnimation(animation);
-                            //BUTTON NEXT PROGRAMMED HERE TO TAKE US TO THE NEXT ACTIVITY
+                                //BUTTON NEXT PROGRAMMED HERE TO TAKE US TO THE NEXT ACTIVITY
                                 next.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
-                                        Intent i = new Intent(Post_Book.this, Post_Book2.class);
+                                        Intent i = new Intent(Post_lib_Book.this, Post_lib_Book2.class);
                                         i.putExtra("url", url);
                                         i.putExtra("id", id);
                                         startActivity(i);
@@ -124,7 +109,7 @@ public class Post_Book extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Post_Book.this, "IMAGE FAILED TO UPLOAD", Toast.LENGTH_LONG).show();
+                                Toast.makeText(Post_lib_Book.this, "IMAGE FAILED TO UPLOAD", Toast.LENGTH_LONG).show();
                                 reference.delete();
                             }
                         });
@@ -141,25 +126,6 @@ public class Post_Book extends AppCompatActivity {
             }
         });
 
-        noimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
-                final StorageReference reference = sref.child("book.png");
-                final String book_id = dbref.push().getKey();
-                reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        final String url = uri.toString();
-                                                        Intent i = new Intent(Post_Book.this, Post_Book2.class);
-                                i.putExtra("url", url);
-                                i.putExtra("id", book_id);
-                                startActivity(i);
-
-                    }
-                });
-            }
-        });
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -178,4 +144,5 @@ public class Post_Book extends AppCompatActivity {
         MimeTypeMap map = MimeTypeMap.getSingleton();
         return map.getExtensionFromMimeType(resolver.getType(_imageUri));
     }
-}
+    }
+

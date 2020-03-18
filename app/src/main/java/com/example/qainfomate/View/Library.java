@@ -106,6 +106,14 @@ public class Library extends AppCompatActivity implements LibraryAdapter.Holder.
             }
         });
 
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbref = FirebaseDatabase.getInstance().getReference().child("Library_Books");
+                dbref.addListenerForSingleValueEvent(listener);
+            }
+        });
+
         ux.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
