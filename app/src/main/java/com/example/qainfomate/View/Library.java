@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.qainfomate.Adapters.LibraryAdapter;
 import com.example.qainfomate.Models.Library_Book;
+import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -106,21 +107,79 @@ public class Library extends AppCompatActivity implements LibraryAdapter.Holder.
             }
         });
 
+
+        mine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leftMenu.setAnimation(animLeft);
+                leftMenu.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.VISIBLE);
+                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("loanedTo").equalTo(Session.LiveSession.user.getStuID());
+                dbQuery.addListenerForSingleValueEvent(listener);
+            }
+        });
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                leftMenu.setAnimation(animLeft);
+                leftMenu.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.VISIBLE);
                 dbref = FirebaseDatabase.getInstance().getReference().child("Library_Books");
                 dbref.addListenerForSingleValueEvent(listener);
             }
         });
-
+        programming.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leftMenu.setAnimation(animLeft);
+                leftMenu.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.VISIBLE);
+                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Programming");
+                dbQuery.addListenerForSingleValueEvent(listener);
+            }
+        });
+        business.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leftMenu.setAnimation(animLeft);
+                leftMenu.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.VISIBLE);
+                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Business");
+                dbQuery.addListenerForSingleValueEvent(listener);
+            }
+        });
+        economics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leftMenu.setAnimation(animLeft);
+                leftMenu.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.VISIBLE);
+                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Economics");
+                dbQuery.addListenerForSingleValueEvent(listener);
+            }
+        });
+        web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                leftMenu.setAnimation(animLeft);
+                leftMenu.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.VISIBLE);
+                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Web Development");
+                dbQuery.addListenerForSingleValueEvent(listener);
+            }
+        });
         ux.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                leftMenu.setAnimation(animLeft);
+                leftMenu.setVisibility(View.INVISIBLE);
+                fab.setVisibility(View.VISIBLE);
                 dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("User Experience");
                 dbQuery.addListenerForSingleValueEvent(listener);
             }
         });
+
+
     }
 
     ValueEventListener listener = new ValueEventListener() {

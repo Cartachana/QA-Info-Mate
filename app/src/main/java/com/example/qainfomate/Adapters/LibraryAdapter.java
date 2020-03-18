@@ -1,15 +1,18 @@
 package com.example.qainfomate.Adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.qainfomate.Models.Library_Book;
+import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.R;
 import com.squareup.picasso.Picasso;
 
@@ -38,6 +41,10 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.Holder> 
         holder.title.setText(list.get(i).getTitle());
         holder.author.setText(list.get(i).getAuthor());
         Picasso.get().load(list.get(i).getImageUrl()).fit().into(holder.bookimg);
+            //if the book is NOT Available and it is NOT loaned to current user, set background RED
+        if(!(list.get(i).getLoanedTo().equals("Available")) && !(list.get(i).getLoanedTo().equals(Session.LiveSession.user.getStuID()))){
+            holder.libcard.setBackgroundResource(R.drawable.bg_red);
+        }
     }
 
     @Override
@@ -49,12 +56,15 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.Holder> 
         TextView title, author;
         ImageView bookimg;
         recInterface listener;
+        RelativeLayout libcard;
+
         public Holder(@NonNull View itemView, recInterface _listener) {
             super(itemView);
             title = itemView.findViewById(R.id.tv_title_libcard);
             author = itemView.findViewById(R.id.tv_author_libcard);
             bookimg = itemView.findViewById(R.id.iv_bookImg_libcard);
             listener = _listener;
+            libcard = itemView.findViewById(R.id.lib_card_layout);
             itemView.setOnClickListener(this);
         }
 

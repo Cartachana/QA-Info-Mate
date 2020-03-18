@@ -139,7 +139,7 @@
         app:layout_constraintTop_toBottomOf="@+id/iv_bookImg_libBookDetail" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_rv_books_category"
+        android:id="@+id/rv_rv_books_libBookDetail"
         android:layout_width="410dp"
         android:layout_height="319dp"
         android:layout_marginTop="16dp"
@@ -161,7 +161,7 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <Button
-        android:id="@+id/btn_leaveRev_categBooks"
+        android:id="@+id/btn_leaveRev_libBookDetail"
         android:layout_width="126dp"
         android:layout_height="36dp"
         android:layout_marginStart="45dp"
@@ -170,13 +170,13 @@
         android:background="@drawable/round_corners"
         android:text="Leave a Review"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/btn_Reserve_categBooks"
+        app:layout_constraintEnd_toStartOf="@+id/btn_Reserve_libBookDetail"
         app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline35" />
 
     <Button
-        android:id="@+id/btn_Reserve_categBooks"
+        android:id="@+id/btn_Reserve_libBookDetail"
         android:layout_width="126dp"
         android:layout_height="36dp"
         android:layout_marginTop="36dp"
@@ -189,7 +189,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline35" />
 
     <Button
-        android:id="@+id/btn_cancel_categBooks"
+        android:id="@+id/btn_cancel_libBookDetail"
         android:layout_width="126dp"
         android:layout_height="36dp"
         android:layout_marginTop="36dp"
@@ -198,6 +198,19 @@
         android:background="@drawable/round_corners"
         android:text="Cancel Reservation"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline35" />
+
+    <TextView
+        android:id="@+id/tv_unv_libBookDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Book Currently Unavailable"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline35" />
 

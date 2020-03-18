@@ -30,7 +30,7 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
 
     private RecyclerView RecView;
     private ImageView bookImg, back;
-    private TextView title, author, desc;
+    private TextView title, author, desc, unv;
     private Button rev, reserve, cancel;
     private Intent intent;
     private RecyclerView.LayoutManager manager;
@@ -48,11 +48,12 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
         title = findViewById(R.id.tv_booktitle_libBookDetail);
         author = findViewById(R.id.tv_author_libBookDetail);
         desc = findViewById(R.id.tv_description_libBookDetail);
+        unv = findViewById(R.id.tv_unv_libBookDetail);
         back = findViewById(R.id.iv_back_libBookDetail);
-        rev = findViewById(R.id.btn_leaveRev_categBooks);
-        reserve = findViewById(R.id.btn_Reserve_categBooks);
-        cancel = findViewById(R.id.btn_cancel_categBooks);
-        RecView = findViewById(R.id.rv_rv_books_category);
+        rev = findViewById(R.id.btn_leaveRev_libBookDetail);
+        reserve = findViewById(R.id.btn_Reserve_libBookDetail);
+        cancel = findViewById(R.id.btn_cancel_libBookDetail);
+        RecView = findViewById(R.id.rv_rv_books_libBookDetail);
         bookImg = findViewById(R.id.iv_bookImg_libBookDetail);
         manager = new LinearLayoutManager(LibraryBookDetail.this);
         RecView.setLayoutManager(manager);
@@ -61,12 +62,20 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
         libbook = extra.getParcelable("LB");
         key = extra.getString("KEY");
 
+        //Book Avaiable, show button to reserve
         if(libbook.getLoanedTo().equals("Available")){
             reserve.setVisibility(View.VISIBLE);
             cancel.setVisibility(View.INVISIBLE);
-        }else{
+
+        //book reserved by user, show button to cancel reservation
+        }else if(libbook.getLoanedTo().equals(Session.LiveSession.user.getStuID())){
             reserve.setVisibility(View.INVISIBLE);
             cancel.setVisibility(View.VISIBLE);
+
+        }else{      //Book Reserved to Another Student
+            reserve.setVisibility(View.INVISIBLE);
+            cancel.setVisibility(View.INVISIBLE);
+            unv.setVisibility(View.VISIBLE);
         }
 
         title.setText(libbook.getTitle());

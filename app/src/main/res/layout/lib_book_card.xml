@@ -11,11 +11,11 @@
     android:clickable="true">
 
     <RelativeLayout
+        android:id="@+id/lib_card_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/pop_bg"
-        android:layout_gravity="center"
-        >
+        android:layout_gravity="center">
 
         <ImageView
             android:id="@+id/iv_bookImg_libcard"
