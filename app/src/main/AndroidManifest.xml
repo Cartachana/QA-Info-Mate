@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddForumComment"
-            android:theme="@style/AppTheme.PopMe"></activity>
+        <activity android:name=".Support2"></activity>
+        <activity
+            android:name=".AddForumComment"
+            android:theme="@style/AppTheme.PopMe" />
         <activity
             android:name=".View.TopicDetail"
             android:theme="@style/HiddenTitleTheme" />
