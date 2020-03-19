@@ -2,7 +2,6 @@ package com.example.qainfomate.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
@@ -13,7 +12,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.qainfomate.Adapters.LibraryAdapter;
 import com.example.qainfomate.Models.Library_Book;
 import com.example.qainfomate.Models.Session;
@@ -25,10 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
-import static com.example.qainfomate.View.ItemListClass.constraintLayout;
 
 public class Library extends AppCompatActivity implements LibraryAdapter.Holder.recInterface {
 

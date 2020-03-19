@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.example.qainfomate.Adapters.BookAdapter;
+import com.example.qainfomate.Adapters.ForumAdapter;
 import com.example.qainfomate.Adapters.MessageAdapter;
 import com.example.qainfomate.Adapters.MyBooksAdapter;
 import com.example.qainfomate.Adapters.SwipeToDeleteCallback;
@@ -23,6 +24,7 @@ import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.Models.GenericList;
 import com.example.qainfomate.Models.Message;
 import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Models.Topic;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,18 +34,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ItemListClass extends AppCompatActivity implements BookAdapter.Holder.recInterface, MessageAdapter.Holder.MsgInterface, MyBooksAdapter.Holder.recInterface {
+public class ItemListClass extends AppCompatActivity implements BookAdapter.Holder.recInterface, MessageAdapter.Holder.MsgInterface, MyBooksAdapter.Holder.recInterface, ForumAdapter.Holder.ForumInterface {
 
     private RecyclerView RecView;
-    private ImageView dash, timetable, forum, lib, moodle, help;
-    RecyclerView.LayoutManager manager;
-    BookAdapter bookAdapter;
-    MyBooksAdapter myBooksAdapter;
+    private ImageView dash, timetable, forum, lib, moodle, help, market;
+    private RecyclerView.LayoutManager manager;
+    private BookAdapter bookAdapter;
+    private MyBooksAdapter myBooksAdapter;
+    private ForumAdapter forumAdapter;
     private MessageAdapter msgAdapter;
     Bundle Extras;
     String idbref;
     int item2;
-    private Button sell, btnmsgs, myBooks, booksforSale;
+    private Button sell, btnmsgs, myBooks, booksforSale, topic;
     private TextView title;
     private ArrayList<GenericList> list = new ArrayList<>();
     private ArrayList<String> keys = new ArrayList<>();
@@ -65,11 +68,13 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
         btnmsgs = findViewById(R.id.btn_messages_itemList);
         myBooks = findViewById(R.id.btn_myBooks_itemList);
         booksforSale = findViewById(R.id.btn_bookSale_itemList);
+        topic = findViewById(R.id.btn_topic_itemList);
         manager = new LinearLayoutManager(ItemListClass.this);
         RecView.setLayoutManager(manager);
         dash = findViewById(R.id.iv_dashboard_bottom_itemList);
         timetable = findViewById(R.id.iv_timetable_bottom_itemList);
         forum = findViewById(R.id.iv_forum_bottom_itemList);
+        market = findViewById(R.id.iv_market_itemlist);
         lib = findViewById(R.id.iv_library_bottom_itemList);
         moodle = findViewById(R.id.iv_moodle_bottom_itemList);
         help = findViewById(R.id.iv_help_bottom_itemList);
@@ -123,6 +128,14 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
             }
         });
 
+        //navigate the user to the New Topic activity
+        topic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navigateTo(NewTopic.class);
+            }
+        });
+
         //navigate the user to the Dashboard activity
         dash.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,22 +152,36 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
             }
         });
 
-        /*
         // direct the user to the Library activity
-        library.setOnClickListener(new View.OnClickListener() {
+        lib.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navigateTo(Library.class);
             }
         });
+
+        //navigate the user to Market Activity
+        market.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ItemListClass.this, ItemListClass.class);
+                i.putExtra("ITEM", "Books_for_Sale");
+                i.putExtra("ITEM2", 1);
+                startActivity(i);
+            }
+        });
+
         //navigate the user to Forum
         forum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Forum.class);
+                Intent i = new Intent(ItemListClass.this, ItemListClass.class);
+                i.putExtra("ITEM", "Topics");
+                i.putExtra("ITEM2", 1);
+                startActivity(i);
             }
         });
-
+/*
         //navigate user to the Help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,6 +206,8 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear();
                 if(item2==2){
+                    forum.setVisibility(View.VISIBLE);
+                    market.setVisibility(View.INVISIBLE);
                     title.setText("My Books");
                     booksforSale.setVisibility(View.VISIBLE);
                     btnmsgs.setVisibility(View.VISIBLE);
@@ -197,6 +226,8 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
 
                     switch (idbref) {
                         case "Books_for_Sale":
+                            forum.setVisibility(View.VISIBLE);
+                            market.setVisibility(View.INVISIBLE);
                             title.setText("Books for Sale");
                             booksforSale.setVisibility(View.INVISIBLE);
                             btnmsgs.setVisibility(View.VISIBLE);
@@ -212,12 +243,14 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                             RecView.setAdapter(bookAdapter);
                             break;
                         case "Messages":
+                            forum.setVisibility(View.VISIBLE);
+                            market.setVisibility(View.INVISIBLE);
+                            title.setText("Messages");
+                            booksforSale.setVisibility(View.VISIBLE);
+                            myBooks.setVisibility(View.VISIBLE);
+                            sell.setVisibility(View.INVISIBLE);
+                            btnmsgs.setVisibility(View.INVISIBLE);
                             for (DataSnapshot dss : dataSnapshot.getChildren()) {
-                                title.setText("Messages");
-                                booksforSale.setVisibility(View.VISIBLE);
-                                myBooks.setVisibility(View.VISIBLE);
-                                sell.setVisibility(View.INVISIBLE);
-                                btnmsgs.setVisibility(View.INVISIBLE);
                                 //FILTERS ONLY MESSAGES FOR THE CURRENT USER
                                 if ((dss.getValue(Message.class).getIDto()).equals(Session.LiveSession.user.getStuID())) {
                                     list.add(dss.getValue(Message.class));
@@ -229,6 +262,20 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                             ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(msgAdapter));
                             itemTouchHelper.attachToRecyclerView(RecView);
                             break;
+                        case "Topics":
+                            forum.setVisibility(View.INVISIBLE);
+                            market.setVisibility(View.VISIBLE);
+                            for (DataSnapshot dss : dataSnapshot.getChildren()) {
+                                title.setText("Forum");
+                                booksforSale.setVisibility(View.INVISIBLE);
+                                myBooks.setVisibility(View.INVISIBLE);
+                                sell.setVisibility(View.INVISIBLE);
+                                btnmsgs.setVisibility(View.INVISIBLE);
+                                list.add(dss.getValue(Topic.class));
+                                keys.add(dss.getKey());
+                            }
+                            forumAdapter = new ForumAdapter(list, ItemListClass.this);
+                            RecView.setAdapter(forumAdapter);
 
                     }
                 }
@@ -263,6 +310,12 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                     intent.putExtra("MSG", (Parcelable) list.get(i));
                     dbref.child(keys.get(i)).child("read").setValue(true);
                     dbref.addListenerForSingleValueEvent(listener);
+                    startActivity(intent);
+                    break;
+               case "Topics":
+                    intent = new Intent(this, TopicDetail.class);
+                    intent.putExtra("TP", (Parcelable) list.get(i));
+                    intent.putExtra("KEY", keys.get(i));
                     startActivity(intent);
                     break;
             }

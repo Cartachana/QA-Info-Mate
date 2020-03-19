@@ -56,9 +56,12 @@ public class SendMsg extends Activity {
         dbref = FirebaseDatabase.getInstance().getReference().child("Messages");
 
         Intent i = getIntent();
+        //if sending message to book seller
         final Book_for_Sale bfs = i.getParcelableExtra("BFS");
-        final Message mess = i.getParcelableExtra("MSG");
         if(bfs!=null){msgTo.setText("Message to: " + bfs.getStuId());}
+
+        //if replying to message
+        final Message mess = i.getParcelableExtra("MSG");
         if(mess!=null){
             msgTo.setText(("Message to: " + mess.getIDfrom()));
 
@@ -72,9 +75,11 @@ public class SendMsg extends Activity {
                 }else{
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm", Locale.getDefault());
                     String time = sdf.format(new Date());
+                    //if sending message to book seller
                     if(bfs!=null){Message message = new Message(Session.LiveSession.user.getStuID(), bfs.getStuId(),
                             bfs.getTitle(), msg.getText().toString(), time, false);
                     dbref.push().setValue(message);}
+                    //if replying to message
                     if(mess!=null){
                         Message message = new Message(Session.LiveSession.user.getStuID(), mess.getIDfrom(),
                                 mess.getBookTitle(), msg.getText().toString(), time, false);

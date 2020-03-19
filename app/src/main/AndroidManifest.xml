@@ -9,8 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Post_lib_Book2"></activity>
-        <activity android:name=".Post_lib_Book" />
+        <activity android:name=".AddForumComment"
+            android:theme="@style/AppTheme.PopMe"></activity>
+        <activity
+            android:name=".View.TopicDetail"
+            android:theme="@style/HiddenTitleTheme" />
+        <activity
+            android:name=".View.NewTopic"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".View.Post_lib_Book2"
+            android:theme="@style/HiddenTitleTheme" />
+        <activity
+            android:name=".View.Post_lib_Book"
+            android:theme="@style/HiddenTitleTheme" />
         <activity
             android:name=".View.Post_review"
             android:theme="@style/AppTheme.PopMe" />
@@ -23,7 +35,6 @@
         <activity
             android:name=".View.Library"
             android:theme="@style/HiddenTitleTheme" />
-        <activity android:name=".View.forum_activity" />
         <activity
             android:name=".View.MessageDetail"
             android:theme="@style/AppTheme.PopMe" />

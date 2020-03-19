@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,7 +8,6 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -20,10 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.qainfomate.Models.Session;
-import com.example.qainfomate.View.MainActivity;
-import com.example.qainfomate.View.Post_Book;
-import com.example.qainfomate.View.Post_Book2;
+import com.example.qainfomate.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,8 +52,8 @@ public class Post_lib_Book extends AppCompatActivity {
         next = findViewById(R.id.btn_next_postLib);
         upload = findViewById(R.id.btn_upload_postLib);
         sref = FirebaseStorage.getInstance().getReference("Library_Books");
-        mProgressBar = findViewById(R.id.pb_postBook);
-        progressText = findViewById(R.id.tv_progress_PostBook);
+        mProgressBar = findViewById(R.id.pb_postLib);
+        progressText = findViewById(R.id.tv_progress_PostLib);
         fbAuth = FirebaseAuth.getInstance();
 
         Animation animation = new AlphaAnimation(1, (float) .4); // Change alpha from fully visible to partially visible

@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.qainfomate.Post_lib_Book;
 import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
 import com.google.firebase.auth.FirebaseAuth;
@@ -89,16 +88,20 @@ public class Dashboard extends AppCompatActivity {
                 navigateTo(Library.class);
             }
         });
-        /*
+
 
         //navigate the user to Forum
         forum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Forum.class);
+                Intent i = new Intent(Dashboard.this, ItemListClass.class);
+                i.putExtra("ITEM", "Topics");
+                i.putExtra("ITEM2", 1);
+                startActivity(i);
             }
         });
 
+        /*
         //navigate user to the Help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,15 +116,11 @@ public class Dashboard extends AppCompatActivity {
         moodle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToMoodle();
+                i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
+                startActivity(i);
             }
         });
 
-    }
-
-    public void navigateToMoodle() {
-        i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
-        startActivity(i);
     }
 
     public void navigateTo(Class goTo){

@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,12 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.Models.Library_Book;
-import com.example.qainfomate.Models.Session;
-import com.example.qainfomate.View.Dashboard;
-import com.example.qainfomate.View.ItemListClass;
-import com.example.qainfomate.View.Post_Book2;
+import com.example.qainfomate.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

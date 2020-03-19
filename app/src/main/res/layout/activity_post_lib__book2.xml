@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_dashboard"
-    tools:context=".Post_lib_Book2">
+    tools:context=".View.Post_lib_Book2">
 
     <TextView
         android:id="@+id/tv_error_postlibbook2"
