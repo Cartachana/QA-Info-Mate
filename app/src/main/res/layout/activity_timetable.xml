@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/tv_title_timetable"
-        android:layout_width="160dp"
-        android:layout_height="47dp"
+        android:layout_width="144dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="120dp"
@@ -25,15 +25,15 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_logOut_timetable"
-        android:layout_width="60dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:text="Log Out"
         android:textAlignment="center"
@@ -47,8 +47,8 @@
 
     <TextView
         android:id="@+id/tv_user_timetable"
-        android:layout_width="62dp"
-        android:layout_height="27dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:clickable="true"
         android:text="User"
@@ -65,13 +65,13 @@
         android:id="@+id/tv_pageTitle_timetable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:text="BsC Computing Technologies\n2019/2020 Group A"
         android:textColor="#040404"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title_timetable" />
 
@@ -734,7 +734,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="    To view the location of your class room please press on the\n  room you are interested in\n     Your timetable is recurring every week for the entire semester,\n  excepting for Bank Holidays and breaks, to view the dates"
+        android:text="    To view the location of your class room please press on the room you are interested in\n     Your timetable is recurring every week for the entire semester, excepting for Bank Holidays and breaks"
         android:textColor="#040404"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -742,88 +742,75 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
-    <TextView
-        android:id="@+id/tv_press_floor_maps_timetable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:text="  please press here"
-        android:textColor="#040404"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <ImageView
         android:id="@+id/iv_library_bottom_timetable"
-        android:layout_width="54dp"
-        android:layout_height="45dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.886"
-        app:srcCompat="@drawable/library_small" />
+        app:layout_constraintVertical_bias="0.865"
+        app:srcCompat="@drawable/library_icon" />
 
     <ImageView
         android:id="@+id/iv_forum_bottom_timetable"
-        android:layout_width="65dp"
-        android:layout_height="42dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.858"
-        app:srcCompat="@drawable/forum_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/forum" />
 
     <ImageView
         android:id="@+id/iv_market_bottom_timetable"
         android:layout_width="53dp"
-        android:layout_height="41dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.865"
-        app:srcCompat="@drawable/market_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/market" />
 
     <ImageView
         android:id="@+id/iv_moodle_bottom_timetable"
-        android:layout_width="39dp"
-        android:layout_height="42dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.759"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.87"
-        app:srcCompat="@drawable/moodle_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/moodle" />
 
     <ImageView
         android:id="@+id/iv_help_bottom_timetable"
-        android:layout_width="60dp"
-        android:layout_height="49dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.895"
-        app:srcCompat="@drawable/help_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/support" />
 
     <ImageView
         android:id="@+id/iv_dashboard_bottom_timetable"
-        android:layout_width="47dp"
-        android:layout_height="33dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -831,7 +818,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintVertical_bias="0.865"
-        app:srcCompat="@drawable/dashboard_icon" />
+        app:srcCompat="@drawable/home" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

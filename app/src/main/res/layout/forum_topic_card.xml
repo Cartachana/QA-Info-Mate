@@ -9,7 +9,7 @@
     android:layout_marginHorizontal="5dp"
     android:padding="10dp"
     android:elevation="3dp"
-    android:background="@drawable/messages_forum_style"
+    android:background="@drawable/forum_style"
     app:contentPadding="4dp">
 
     <TextView
