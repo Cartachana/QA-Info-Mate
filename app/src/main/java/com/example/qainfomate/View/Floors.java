@@ -15,7 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Floors extends AppCompatActivity {
 
     private ImageView floor1img, back;
-    private TextView logout, user, title;
+    private TextView logout, user, title, loc;
     private FirebaseAuth fbAuth;
     private Bundle extras;
     private String extra;
@@ -30,6 +30,7 @@ public class Floors extends AppCompatActivity {
         user = findViewById(R.id.tv_user_floors);
         back = findViewById(R.id.iv_back_floors);
         title = findViewById(R.id.tv_title_floors);
+        loc = findViewById(R.id.tv_lib_location);
         user.setText(Session.LiveSession.user.getFname());
         fbAuth = FirebaseAuth.getInstance();
 
@@ -38,20 +39,28 @@ public class Floors extends AppCompatActivity {
 
         switch(extra){
             case "F102":
+                loc.setVisibility(View.INVISIBLE);
                 floor1img.setImageResource(R.drawable.floor1);
                 title.setText("First Floor");
                 title.setTextSize(34);
                 break;
             case "G02":
+                loc.setVisibility(View.INVISIBLE);
                 floor1img.setImageResource(R.drawable.groundfloor);
                 title.setText("Ground Floor");
                 title.setTextSize(34);
                 break;
             case "LG01":
+                loc.setVisibility(View.INVISIBLE);
                 floor1img.setImageResource(R.drawable.lowerground1);
                 title.setText("Lower Ground Floor");
                 title.setTextSize(24);
                 break;
+            case "Library":
+                loc.setVisibility(View.VISIBLE);
+                floor1img.setImageResource(R.drawable.library);
+                title.setText("Library");
+                title.setTextSize(34);
             default:
                 break;
         }

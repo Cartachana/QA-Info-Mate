@@ -101,16 +101,15 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        /*
+
         //navigate user to the Help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Help.class);
+                navigateTo(Support.class);
             }
         });
 
-         */
 
         //direct the user to an external browser to the Roehampton Moodle page
         moodle.setOnClickListener(new View.OnClickListener() {

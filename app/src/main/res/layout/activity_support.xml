@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_dashboard"
-    tools:context=".Support">
+    tools:context=".View.Support">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline36"
@@ -53,7 +53,7 @@
         android:layout_height="46dp"
         android:layout_marginBottom="20dp"
         android:text="Support"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
         android:textSize="30sp"
@@ -94,11 +94,9 @@
 
     <TextView
         android:id="@+id/tv_greetingMessage_support"
-        android:layout_width="303dp"
-        android:layout_height="56dp"
-        android:text=" Our team of specialists are here to help you
-in any student life related  queries.
- Please do not hesitate to contact us "
+        android:layout_width="300dp"
+        android:layout_height="82dp"
+        android:text=" Our team of specialists are here to help you in any student life related  queries.  Please do not hesitate to contact us. Kindly tap on one of the sections below."
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/guideline38"
         app:layout_constraintEnd_toEndOf="parent"

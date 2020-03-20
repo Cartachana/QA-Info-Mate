@@ -109,19 +109,22 @@ public class Timetable extends AppCompatActivity {
             }
         });
 
-        /*
-        // direct the user to the Library activity
+
+       //direct the user to the Library activity
         library.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Library.class);
+                navigateTo(Library.class, null);
             }
         });
         //navigate the user to Forum
         forum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Forum.class);
+                Intent i = new Intent(Timetable.this, ItemListClass.class);
+                i.putExtra("ITEM", "Topics");
+                i.putExtra("ITEM2", 1);
+                startActivity(i);
             }
         });
 
@@ -129,11 +132,9 @@ public class Timetable extends AppCompatActivity {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Help.class);
+                navigateTo(Support.class, null);
             }
         });
-
-         */
 
         //navigate the user to the Market activity
         market.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +147,8 @@ public class Timetable extends AppCompatActivity {
         moodle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToMoodle();
+                i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
+                startActivity(i);
             }
         });
 
@@ -155,11 +157,6 @@ public class Timetable extends AppCompatActivity {
     public void navigateTo(Class goTo, String floor){
         i = new Intent(this, goTo);
         i.putExtra("floor", floor);
-        startActivity(i);
-    }
-
-    public void navigateToMoodle() {
-        i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
         startActivity(i);
     }
 
