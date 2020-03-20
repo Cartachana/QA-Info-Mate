@@ -181,16 +181,15 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                 startActivity(i);
             }
         });
-/*
+
         //navigate user to the Help activity
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(Help.class);
+                navigateTo(Support.class);
             }
         });
 
-         */
 
         //direct the user to an external browser to the Roehampton Moodle page
         moodle.setOnClickListener(new View.OnClickListener() {

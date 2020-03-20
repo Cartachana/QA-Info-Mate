@@ -77,7 +77,7 @@ public class Register extends AppCompatActivity {
                                 if(dataSnapshot.exists()){
                                     for(DataSnapshot dss:dataSnapshot.getChildren())
                                     {
-                                        error.setText("Wrong Student ID entered");
+                                        error.setText("That Student ID is already in use");
                                         error.setVisibility(View.VISIBLE);
                                         fbAuth.signOut();
                                     }

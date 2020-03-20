@@ -8,11 +8,4 @@ public class Session {
 
     }
 
-    /*public static class Notifications extends ViewModel
-    {
-        private MutableLiveData<List<Message>> msgs = new MutableLiveData<>();
-        public MutableLiveData<List<Message>> getData(){
-            return msgs;
-        }
-    }*/
 }
