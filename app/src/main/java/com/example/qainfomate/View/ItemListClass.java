@@ -207,6 +207,7 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                 list.clear();
                 if(item2==2){
                     forum.setVisibility(View.VISIBLE);
+                    topic.setVisibility(View.INVISIBLE);
                     market.setVisibility(View.INVISIBLE);
                     title.setText("My Books");
                     booksforSale.setVisibility(View.VISIBLE);
