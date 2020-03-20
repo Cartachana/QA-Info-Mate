@@ -135,76 +135,76 @@
 
     <ImageView
         android:id="@+id/iv_dashboard_bottom_support2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline43"
-        app:srcCompat="@drawable/dashboard_icon" />
-
-    <ImageView
-        android:id="@+id/iv_timetable_bottom_support2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@+id/iv_dashboard_bottom_support2"
-        app:layout_constraintTop_toTopOf="@+id/guideline43"
-        app:srcCompat="@drawable/calendar_small" />
-
-    <ImageView
-        android:id="@+id/iv_library_bottom_support2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="12dp"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@+id/iv_timetable_bottom_support2"
-        app:layout_constraintTop_toTopOf="@+id/guideline43"
-        app:srcCompat="@drawable/library_small" />
-
-    <ImageView
-        android:id="@+id/iv_forum_bottom_support2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        app:layout_constraintStart_toEndOf="@+id/iv_market_bottom_support2"
-        app:layout_constraintTop_toTopOf="@+id/guideline43"
-        app:srcCompat="@drawable/forum_menu" />
-
-    <ImageView
-        android:id="@+id/iv_market_bottom_support2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:clickable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline43"
+        app:srcCompat="@drawable/home" />
+
+    <ImageView
+        android:id="@+id/iv_timetable_bottom_support2"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@+id/iv_dashboard_bottom_support2"
+        app:layout_constraintTop_toTopOf="@+id/guideline43"
+        app:srcCompat="@drawable/calendar" />
+
+    <ImageView
+        android:id="@+id/iv_library_bottom_support2"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@+id/iv_timetable_bottom_support2"
+        app:layout_constraintTop_toTopOf="@+id/guideline43"
+        app:srcCompat="@drawable/library_icon" />
+
+    <ImageView
+        android:id="@+id/iv_forum_bottom_support2"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        app:layout_constraintStart_toEndOf="@+id/iv_market_bottom_support2"
+        app:layout_constraintTop_toTopOf="@+id/guideline43"
+        app:srcCompat="@drawable/forum" />
+
+    <ImageView
+        android:id="@+id/iv_market_bottom_support2"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@+id/iv_library_bottom_support2"
         app:layout_constraintTop_toTopOf="@+id/guideline43"
-        app:srcCompat="@drawable/market_small" />
+        app:srcCompat="@drawable/market" />
 
     <ImageView
         android:id="@+id/iv_moodle_bottom_support2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/iv_forum_bottom_support2"
         app:layout_constraintTop_toTopOf="@+id/guideline43"
-        app:srcCompat="@drawable/moodle_small" />
+        app:srcCompat="@drawable/moodle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

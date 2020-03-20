@@ -757,73 +757,73 @@
 
     <ImageView
         android:id="@+id/iv_library_bottom_timetable"
-        android:layout_width="54dp"
-        android:layout_height="45dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.886"
-        app:srcCompat="@drawable/library_small" />
+        app:layout_constraintVertical_bias="0.865"
+        app:srcCompat="@drawable/library_icon" />
 
     <ImageView
         android:id="@+id/iv_forum_bottom_timetable"
-        android:layout_width="65dp"
-        android:layout_height="42dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.858"
-        app:srcCompat="@drawable/forum_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/forum" />
 
     <ImageView
         android:id="@+id/iv_market_bottom_timetable"
         android:layout_width="53dp"
-        android:layout_height="41dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.62"
+        app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.865"
-        app:srcCompat="@drawable/market_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/market" />
 
     <ImageView
         android:id="@+id/iv_moodle_bottom_timetable"
-        android:layout_width="39dp"
-        android:layout_height="42dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.759"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.87"
-        app:srcCompat="@drawable/moodle_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/moodle" />
 
     <ImageView
         android:id="@+id/iv_help_bottom_timetable"
-        android:layout_width="60dp"
-        android:layout_height="49dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.895"
-        app:srcCompat="@drawable/help_small" />
+        app:layout_constraintVertical_bias="0.863"
+        app:srcCompat="@drawable/support" />
 
     <ImageView
         android:id="@+id/iv_dashboard_bottom_timetable"
-        android:layout_width="47dp"
-        android:layout_height="33dp"
+        android:layout_width="53dp"
+        android:layout_height="35dp"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -831,7 +831,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintVertical_bias="0.865"
-        app:srcCompat="@drawable/dashboard_icon" />
+        app:srcCompat="@drawable/home" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
