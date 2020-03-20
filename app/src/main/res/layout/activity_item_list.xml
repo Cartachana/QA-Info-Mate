@@ -11,7 +11,7 @@
     <Button
         android:id="@+id/btn_sellBook_itemList"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/roundbutton"
@@ -23,7 +23,7 @@
     <Button
         android:id="@+id/btn_myBooks_itemList"
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="30dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -35,8 +35,8 @@
 
     <Button
         android:id="@+id/btn_messages_itemList"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_width="99dp"
+        android:layout_height="30dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
@@ -48,11 +48,13 @@
 
     <Button
         android:id="@+id/btn_bookSale_itemList"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
+        android:layout_width="139dp"
+        android:layout_height="30dp"
         android:layout_marginStart="3dp"
         android:layout_marginLeft="3dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
         android:background="@drawable/roundbutton"
         android:text="Books for Sale"
         android:textColor="@color/white"
@@ -97,15 +99,14 @@
 
     <Button
         android:id="@+id/btn_topic_itemList"
-        android:layout_width="wrap_content"
+        android:layout_width="132dp"
         android:layout_height="35dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginLeft="144dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/roundbutton"
         android:gravity="center"
         android:text="Start New Topic"
         android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rv_books_itemList" />
 
@@ -142,7 +143,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintHorizontal_bias="0.243"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         app:layout_constraintVertical_bias="0.788"
