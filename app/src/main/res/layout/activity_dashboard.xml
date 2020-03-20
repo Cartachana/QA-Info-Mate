@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/tv_title_dashboard"
-        android:layout_width="170dp"
-        android:layout_height="57dp"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="4dp"
@@ -21,14 +21,15 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_logOut_dashboard"
-        android:layout_width="60dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:text="Log Out"
         android:textColor="@android:color/white"
