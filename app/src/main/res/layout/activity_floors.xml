@@ -29,9 +29,9 @@
         android:layout_marginTop="16dp"
         android:clickable="false"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="First Floor"
         android:gravity="center"
+        android:inputType="textPersonName"
+        android:text=" Floors"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#F8F8F8"
         android:textColorLink="#E91E63"
@@ -60,15 +60,15 @@
         android:layout_width="60dp"
         android:layout_height="29dp"
         android:clickable="true"
-        android:text="Log Out"
         android:gravity="center"
+        android:text="Log Out"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.868"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toEndOf="@+id/tv_title_floors"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005" />
+        app:layout_constraintVertical_bias="0.022" />
 
     <ImageView
         android:id="@+id/iv_back_floors"

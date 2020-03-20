@@ -3,6 +3,7 @@ package com.example.qainfomate.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -65,11 +66,13 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 //HERE THE APP WILL NOT THE USER LEAVE EMPTY FIELDS and will notify the user to fill
                 if(id.getText().toString().isEmpty()||email.getText().toString().isEmpty()||pass.getText().toString().isEmpty()) {
                     Toast.makeText(MainActivity.this, "Please fill in all fields!", Toast.LENGTH_LONG).show();
+                    please.setText("Please fill in all Fields!");
                     please.setVisibility(View.VISIBLE);
                 }
 
@@ -78,13 +81,12 @@ public class MainActivity extends AppCompatActivity {
                     fbAuth.signInWithEmailAndPassword(email.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-
-                            //attempted STUDENT ID will be captured and compared with database
                             ValueEventListener listener = new ValueEventListener() {
                                 @Override
+                                //the listener will get every record with the same ID as the ID entered
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                     for(DataSnapshot dss:dataSnapshot.getChildren())
-                                    {
+                                    {//but will only get the one with the same primary key as the UID in the Authentication
                                         if(fbAuth.getCurrentUser().getUid().matches(dss.getKey())) {
                                             Session.LiveSession.user = dss.getValue(User.class);
                                         }
@@ -102,21 +104,21 @@ public class MainActivity extends AppCompatActivity {
                                         fbAuth.signOut();
                                     }
                                 }
-
                                 @Override
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
-
                                 }
                             };
-                            //here the entered ID and the ID in the database will be compared using the "listener"
+                            //our database query will get all users stuID in the databse that are equal to the ID entered
                             dbref = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("stuID").equalTo(id.getText().toString());
                             dbref.addListenerForSingleValueEvent(listener);
                         }
+                        //if sign in fails, text is shown to user saying credentials were not recognized and asking if he registered
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            //TO CODE depending on the log in problem for now I will leave a toast of nonexistant user
                             Toast.makeText(MainActivity.this, "Wrong Credentials.\nHave you registered?", Toast.LENGTH_LONG).show();
+                            please.setText("Wrong Student ID entered");
+                            please.setVisibility(View.VISIBLE);
                         }
                     });
                 }}

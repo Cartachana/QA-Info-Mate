@@ -227,6 +227,7 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                     switch (idbref) {
                         case "Books_for_Sale":
                             forum.setVisibility(View.VISIBLE);
+                            topic.setVisibility(View.INVISIBLE);
                             market.setVisibility(View.INVISIBLE);
                             title.setText("Books for Sale");
                             booksforSale.setVisibility(View.INVISIBLE);
@@ -243,6 +244,7 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                             RecView.setAdapter(bookAdapter);
                             break;
                         case "Messages":
+                            topic.setVisibility(View.INVISIBLE);
                             forum.setVisibility(View.VISIBLE);
                             market.setVisibility(View.INVISIBLE);
                             title.setText("Messages");
@@ -263,6 +265,11 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                             itemTouchHelper.attachToRecyclerView(RecView);
                             break;
                         case "Topics":
+                            topic.setVisibility(View.VISIBLE);
+                            booksforSale.setVisibility(View.INVISIBLE);
+                            myBooks.setVisibility(View.INVISIBLE);
+                            sell.setVisibility(View.INVISIBLE);
+                            btnmsgs.setVisibility(View.INVISIBLE);
                             forum.setVisibility(View.INVISIBLE);
                             market.setVisibility(View.VISIBLE);
                             for (DataSnapshot dss : dataSnapshot.getChildren()) {

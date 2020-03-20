@@ -1,4 +1,4 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.qainfomate.Models.Session;
 import com.example.qainfomate.Models.Thread;
 import com.example.qainfomate.Models.Topic;
-import com.example.qainfomate.View.TopicDetail;
+import com.example.qainfomate.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Support2"></activity>
         <activity
-            android:name=".AddForumComment"
+            android:name=".View.AddForumComment"
             android:theme="@style/AppTheme.PopMe" />
         <activity
             android:name=".View.TopicDetail"
