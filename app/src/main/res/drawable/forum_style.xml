@@ -10,7 +10,7 @@
         android:angle="45"
 
         android:endColor="#fff"
-        android:startColor="#1EF9C5"
+        android:startColor="#00AD81"
         android:type="linear" />
 
     <!--If your shape requires only one solid color-->
