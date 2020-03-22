@@ -16,16 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/sp_cat_mybookdetail"
-        android:layout_width="244dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_desc_mybookdetails" />
-
     <EditText
         android:id="@+id/et_title_mybookdetails"
         android:layout_width="183dp"
@@ -42,11 +32,11 @@
         android:id="@+id/cb_available_mybookdetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:text="Available"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_cat_mybookdetail" />
+        app:layout_constraintTop_toBottomOf="@+id/et_desc_mybookdetails" />
 
     <EditText
         android:id="@+id/et_author_mybookdetails"
@@ -91,8 +81,8 @@
         android:id="@+id/btn_delete_mybookdetail"
         android:layout_width="100dp"
         android:layout_height="28dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginLeft="23dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/roundbutton"
         android:text="Delete"

@@ -32,7 +32,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.Holder> {
     @Override //gets size of list of items co tell the adapter how many cards are needed
     public void onBindViewHolder(@NonNull Holder holder, int i) {
         holder.fromId.setText("by: " + threads.get(i).getFromID());
-        holder.comment.setText("Message " + threads.get(i).getMessage());
+        holder.comment.setText("Message: " + threads.get(i).getMessage());
         holder.date.setText("On " + threads.get(i).getDate());
     }
 

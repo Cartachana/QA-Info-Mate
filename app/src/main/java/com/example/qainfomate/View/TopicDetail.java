@@ -67,24 +67,18 @@ public class TopicDetail extends AppCompatActivity {
         date.setText("On: " + topic.getDate());
         desc.setText(topic.getDesc());
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(TopicDetail.this, ItemListClass.class);
-                i.putExtra("ITEM", "Topics");
-                i.putExtra("ITEM2", 1);
-                startActivity(i);
-            }
+        back.setOnClickListener(v -> {
+            Intent i1 = new Intent(TopicDetail.this, ItemListClass.class);
+            i1.putExtra("ITEM", "Topics");
+            i1.putExtra("ITEM2", 1);
+            startActivity(i1);
         });
 
-        post.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(TopicDetail.this, AddForumComment.class);
-                i.putExtra("TP", topic);
-                i.putExtra("KEY", tpkey);
-                startActivity(i);
-            }
+        post.setOnClickListener(v -> {
+            Intent i12 = new Intent(TopicDetail.this, AddForumComment.class);
+            i12.putExtra("TP", topic);
+            i12.putExtra("KEY", tpkey);
+            startActivity(i12);
         });
     }
 

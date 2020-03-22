@@ -68,29 +68,24 @@ public class SendMsg extends Activity {
 
         }
 
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(msg.getText().toString().isEmpty()){
-                    error.setVisibility(View.VISIBLE);
-                }else{
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm", Locale.getDefault());
-                    String time = sdf.format(new Date());
-                    //if sending message to book seller
-                    if(bfs!=null){Message message = new Message(Session.LiveSession.user.getStuID(), bfs.getStuId(),
-                            bfs.getTitle(), msg.getText().toString(), time, false);
-                    dbref.push().setValue(message);}
-                    //if replying to message
-                    if(mess!=null){
-                        Message message = new Message(Session.LiveSession.user.getStuID(), mess.getIDfrom(),
-                                mess.getBookTitle(), msg.getText().toString(), time, false);
-                        dbref.push().setValue(message);
-                    }
-                    Toast.makeText(SendMsg.this, "Message Sent", Toast.LENGTH_LONG).show();
-                    finish();
-
+        send.setOnClickListener(v -> {
+            if(msg.getText().toString().isEmpty()){
+                error.setVisibility(View.VISIBLE);
+            }else{
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm", Locale.getDefault());
+                String time = sdf.format(new Date());
+                //if sending message to book seller
+                if(bfs!=null){Message message = new Message(Session.LiveSession.user.getStuID(), bfs.getStuId(),
+                        bfs.getTitle(), msg.getText().toString(), time, false);
+                dbref.push().setValue(message);}
+                //if replying to message
+                else if(mess!=null){
+                    Message message = new Message(Session.LiveSession.user.getStuID(), mess.getIDfrom(),
+                            mess.getBookTitle(), msg.getText().toString(), time, false);
+                    dbref.push().setValue(message);
                 }
-
+                Toast.makeText(SendMsg.this, "Message Sent", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
     }

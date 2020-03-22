@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.qainfomate.Models.Session;
@@ -27,6 +28,7 @@ import java.util.Locale;
 public class AddForumComment extends AppCompatActivity {
 
     private EditText comment;
+    TextView error;
     private Button publish;
     private DatabaseReference dbref;
     private String tpkey;
@@ -61,12 +63,13 @@ public class AddForumComment extends AppCompatActivity {
         comment = findViewById(R.id.et_comment_newCom);
         publish = findViewById(R.id.btn_publish_newCom);
         dbref = FirebaseDatabase.getInstance().getReference().child("Threads");
+        error = findViewById(R.id.tv_error_newCom);
 
         publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(comment.getText().toString().isEmpty()) {
-                    comment.setTextColor(Color.parseColor("#FF1B00"));
+                    error.setVisibility(View.VISIBLE);
                 }else{
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm", Locale.getDefault());
                     String time = sdf.format(new Date());

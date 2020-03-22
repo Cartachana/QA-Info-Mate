@@ -29,11 +29,12 @@ public class MyBookDetail extends AppCompatActivity {
     private ImageView bookImg;
     private TextView error;
     private EditText title, author, desc;
-    private Spinner spinner;
     private CheckBox available;
     private Button update, delete;
-    public ArrayAdapter<String> spinnerAdapter;
     private DatabaseReference dbref;
+    private Book_for_Sale bfs;
+    private String key;
+    private Boolean isAvailable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,35 +66,32 @@ public class MyBookDetail extends AppCompatActivity {
         available = findViewById(R.id.cb_available_mybookdetails);
         error = findViewById(R.id.tv_error_mybookdetails);
 
-        spinner = findViewById(R.id.sp_cat_mybookdetail);
-        spinnerAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_dropdown_item, res.getStringArray(R.array.categories));
-        spinner.setAdapter(spinnerAdapter);
         dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
 
-        Intent i = getIntent();
-        Book_for_Sale bfs = i.getParcelableExtra("BFS");
-        String key = i.getStringExtra("KEY");
+        Bundle extra = getIntent().getExtras();
+        bfs = extra.getParcelable("BFS");
+        key = extra.getString("KEY");
+        isAvailable = extra.getBoolean("isAvailable");
+
         Picasso.get().load(bfs.getImageUrl()).fit().into(bookImg);
         title.setText(bfs.getTitle());
         author.setText(bfs.getAuthor());
         desc.setText(bfs.getDescription());
-        if(bfs.getAvaiable()){
+
+        if(isAvailable){
             available.setChecked(true);
         }
-
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (title.getText().toString().isEmpty() || desc.getText().toString().isEmpty() || author.getText().toString().isEmpty() || spinner.getSelectedItemId() == 0) {
+                if (title.getText().toString().isEmpty() || desc.getText().toString().isEmpty() || author.getText().toString().isEmpty()) {
                     error.setText("Please fill in all fields!!");
                     error.setVisibility(View.VISIBLE);
                 } else {
                    bfs.setTitle(title.getText().toString());
                    bfs.setAuthor(author.getText().toString());
                    bfs.setDescription(desc.getText().toString());
-                   bfs.setCategory(spinner.getSelectedItem().toString());
                    bfs.setAvaiable(available.isChecked());
                    dbref.child(key).setValue(bfs);
                     Toast.makeText(MyBookDetail.this, "Book Successfully Updated", Toast.LENGTH_LONG).show();

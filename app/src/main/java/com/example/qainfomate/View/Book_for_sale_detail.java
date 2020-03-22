@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.R;
 import com.squareup.picasso.Picasso;
@@ -35,8 +33,6 @@ public class Book_for_sale_detail extends AppCompatActivity {
         msgSeller = findViewById(R.id.btn_mssSeller_bfsDetail);
         back = findViewById(R.id.iv_back_bfs_detail);
         Book_for_Sale bfs = getIntent().getParcelableExtra("BFS");
-        //final Book_for_Sale bfs = i.getParcelableExtra("BFS");
-
 
         title.setText("Title: " + bfs.getTitle());
         author.setText("Author: " + bfs.getAuthor());
@@ -45,24 +41,18 @@ public class Book_for_sale_detail extends AppCompatActivity {
         sellerID.setText("Seller ID: " + bfs.getStuId());
         Picasso.get().load(bfs.getImageUrl()).fit().into(bookImg);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Book_for_sale_detail.this, ItemListClass.class);
-                i.putExtra("ITEM", "Books_for_Sale");
-                i.putExtra("ITEM2", 1);
-                startActivity(i);
-            }
+        back.setOnClickListener(v -> {
+            i = new Intent(Book_for_sale_detail.this, ItemListClass.class);
+            i.putExtra("ITEM", "Books_for_Sale");
+            i.putExtra("ITEM2", 1);
+            startActivity(i);
         });
 
-        msgSeller.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Book_for_sale_detail.this, SendMsg.class);
-                i.putExtra("BFS", bfs);
-                startActivity(i);
-               // Animatoo.animateSlideRight(Book_for_sale_detail.this);
-            }
+        msgSeller.setOnClickListener(v -> {
+            i = new Intent(Book_for_sale_detail.this, SendMsg.class);
+            i.putExtra("BFS", bfs);
+            startActivity(i);
+           // Animatoo.animateSlideRight(Book_for_sale_detail.this);
         });
     }
 }
