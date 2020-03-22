@@ -66,13 +66,15 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
         if(libbook.getLoanedTo().equals("Available")){
             reserve.setVisibility(View.VISIBLE);
             cancel.setVisibility(View.INVISIBLE);
+            unv.setVisibility(View.INVISIBLE);
 
         //book reserved by user, show button to cancel reservation
         }else if(libbook.getLoanedTo().equals(Session.LiveSession.user.getStuID())){
             reserve.setVisibility(View.INVISIBLE);
             cancel.setVisibility(View.VISIBLE);
+            unv.setVisibility(View.INVISIBLE);
 
-        }else{      //Book Reserved to Another Student
+        }else{      //Book Reserved to Another Student show book unavailable text
             reserve.setVisibility(View.INVISIBLE);
             cancel.setVisibility(View.INVISIBLE);
             unv.setVisibility(View.VISIBLE);
@@ -82,44 +84,35 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
         author.setText(libbook.getAuthor());
         desc.setText(libbook.getDescription());
         Picasso.get().load(libbook.getImageUrl()).fit().into(bookImg);
-        revref = FirebaseDatabase.getInstance().getReference("Reviews");
         bkref = FirebaseDatabase.getInstance().getReference("Library_Books");
+        revref = FirebaseDatabase.getInstance().getReference("Reviews");
         revref.addListenerForSingleValueEvent(listener);
 
-        rev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(LibraryBookDetail.this, Post_review.class);
-                intent.putExtra("LB", libbook);
-                startActivity(intent);
-            }
-        });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(LibraryBookDetail.this, Library.class);
-                intent.putExtra("LB", libbook);
-                startActivity(intent);
-            }
-        });
-        reserve.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                libbook.setLoanedTo(Session.LiveSession.user.getStuID());
-                bkref.child(key).setValue(libbook);
-                reserve.setVisibility(View.INVISIBLE);
-                cancel.setVisibility(View.VISIBLE);
-            }
-        });
 
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                libbook.setLoanedTo("Available");
-                bkref.child(key).setValue(libbook);
-                reserve.setVisibility(View.VISIBLE);
-                cancel.setVisibility(View.INVISIBLE);
-            }
+        //button to take user to Post Review activity
+        rev.setOnClickListener(v -> {
+            intent = new Intent(LibraryBookDetail.this, Post_review.class);
+            intent.putExtra("LB", libbook);
+            startActivity(intent);
+        });
+        //button(image) to take user back to Library
+        back.setOnClickListener(v -> {
+            intent = new Intent(LibraryBookDetail.this, Library.class);
+            startActivity(intent);
+        });
+        //button to reserve book
+        reserve.setOnClickListener(v -> {
+            libbook.setLoanedTo(Session.LiveSession.user.getStuID());
+            bkref.child(key).setValue(libbook);
+            reserve.setVisibility(View.INVISIBLE);
+            cancel.setVisibility(View.VISIBLE);
+        });
+        //button to cancel reservation
+        cancel.setOnClickListener(v -> {
+            libbook.setLoanedTo("Available");
+            bkref.child(key).setValue(libbook);
+            reserve.setVisibility(View.VISIBLE);
+            cancel.setVisibility(View.INVISIBLE);
         });
 
     }

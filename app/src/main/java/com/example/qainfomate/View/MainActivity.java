@@ -49,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
         please = findViewById(R.id.tv_please_main);
         fbAuth = FirebaseAuth.getInstance();
 
+        //getting Application Context to use in another activity
         appContext = getApplicationContext();
+
+        // if user in Static Class is not null app jumps to Dashboard
         if(Session.LiveSession.user != null){
             i = new Intent(MainActivity.this, Dashboard.class);
             startActivity(i);
@@ -125,12 +128,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(MainActivity.this, Register.class);
-                startActivity(i);
-            }
+        register.setOnClickListener(v -> {
+            i = new Intent(MainActivity.this, Register.class);
+            startActivity(i);
         });
     }
 }

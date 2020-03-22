@@ -88,11 +88,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_books_itemList"
-        android:layout_width="413dp"
-        android:layout_height="382dp"
+        android:layout_width="389dp"
+        android:layout_height="425dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.272"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline21" />
 

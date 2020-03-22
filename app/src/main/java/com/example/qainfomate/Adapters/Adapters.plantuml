@@ -1,0 +1,322 @@
+@startuml
+
+title __ADAPTERS's Class Diagram__\n
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.BookAdapter {
+          ~ list : ArrayList<Book_for_Sale>
+          + BookAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onCreateViewHolder()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.BookAdapter.Holder {
+          ~ author : TextView
+          ~ bookimg : ImageView
+          ~ category : TextView
+          ~ sellerID : TextView
+          ~ title : TextView
+          + Holder()
+          + onClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      interface com.example.qainfomate.Adapters.BookAdapter.Holder.recInterface {
+          {abstract} + onItemClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.ForumAdapter {
+          ~ topics : ArrayList<Topic>
+          + ForumAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onCreateViewHolder()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.ForumAdapter.Holder {
+          - date : TextView
+          - fromId : TextView
+          - subject : TextView
+          + Holder()
+          + onClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      interface com.example.qainfomate.Adapters.ForumAdapter.Holder.ForumInterface {
+          {abstract} + onItemClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.LibraryAdapter {
+          ~ list : ArrayList<Library_Book>
+          + LibraryAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onCreateViewHolder()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.LibraryAdapter.Holder {
+          ~ author : TextView
+          ~ bookimg : ImageView
+          ~ libcard : RelativeLayout
+          ~ title : TextView
+          + Holder()
+          + onClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      interface com.example.qainfomate.Adapters.LibraryAdapter.Holder.recInterface {
+          {abstract} + onItemClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.MessageAdapter {
+          ~ keys : ArrayList<String>
+          ~ mRecentlyDeletedItemPosition : int
+          ~ msgs : ArrayList<Message>
+          ~ recentkey : String
+          - dbref : DatabaseReference
+          + MessageAdapter()
+          + deleteAndRefresh()
+          + getItemCount()
+          + onBindViewHolder()
+          + onCreateViewHolder()
+          + showUndoSnackbar()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.MessageAdapter.Holder {
+          ~ bookTitle : TextView
+          ~ fromID : TextView
+          ~ mail : ImageView
+          ~ time : TextView
+          + Holder()
+          + onClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      interface com.example.qainfomate.Adapters.MessageAdapter.Holder.MsgInterface {
+          {abstract} + onItemClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.MyBooksAdapter {
+          ~ list : ArrayList<Book_for_Sale>
+          + MyBooksAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onCreateViewHolder()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.MyBooksAdapter.Holder {
+          ~ author : TextView
+          ~ bookimg : ImageView
+          ~ category : TextView
+          ~ isAvailable : TextView
+          ~ title : TextView
+          + Holder()
+          + onClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      interface com.example.qainfomate.Adapters.MyBooksAdapter.Holder.recInterface {
+          {abstract} + onItemClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.ReviewAdapter {
+          - list : ArrayList<Review>
+          + ReviewAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onCreateViewHolder()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.ReviewAdapter.Holder {
+          ~ review : TextView
+          ~ stuId : TextView
+          + Holder()
+          + onClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      interface com.example.qainfomate.Adapters.ReviewAdapter.Holder.recInterface {
+          {abstract} + onItemClick()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.SwipeToDeleteCallback {
+          - background : ColorDrawable
+          - icon : Drawable
+          + SwipeToDeleteCallback()
+          + onChildDraw()
+          + onMove()
+          + onSwiped()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.TopicAdapter {
+          ~ threads : ArrayList<Thread>
+          + TopicAdapter()
+          + getItemCount()
+          + onBindViewHolder()
+          + onCreateViewHolder()
+      }
+    }
+  }
+  
+
+  namespace com.example.qainfomate {
+    namespace Adapters {
+      class com.example.qainfomate.Adapters.TopicAdapter.Holder {
+          ~ comment : TextView
+          ~ date : TextView
+          ~ fromId : TextView
+          + Holder()
+      }
+    }
+  }
+  
+
+  com.example.qainfomate.Adapters.BookAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.qainfomate.Adapters.BookAdapter o-- com.example.qainfomate.Adapters.BookAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.BookAdapter +-down- com.example.qainfomate.Adapters.BookAdapter.Holder
+  com.example.qainfomate.Adapters.BookAdapter.Holder .up.|> android.view.View.OnClickListener
+  com.example.qainfomate.Adapters.BookAdapter.Holder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.example.qainfomate.Adapters.BookAdapter.Holder o-- com.example.qainfomate.Adapters.BookAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.BookAdapter.Holder +-down- com.example.qainfomate.Adapters.BookAdapter.Holder.recInterface
+  com.example.qainfomate.Adapters.ForumAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.qainfomate.Adapters.ForumAdapter o-- com.example.qainfomate.Adapters.ForumAdapter.Holder.ForumInterface : listener
+  com.example.qainfomate.Adapters.ForumAdapter +-down- com.example.qainfomate.Adapters.ForumAdapter.Holder
+  com.example.qainfomate.Adapters.ForumAdapter.Holder .up.|> android.view.View.OnClickListener
+  com.example.qainfomate.Adapters.ForumAdapter.Holder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.example.qainfomate.Adapters.ForumAdapter.Holder o-- com.example.qainfomate.Adapters.ForumAdapter.Holder.ForumInterface : listener
+  com.example.qainfomate.Adapters.ForumAdapter.Holder +-down- com.example.qainfomate.Adapters.ForumAdapter.Holder.ForumInterface
+  com.example.qainfomate.Adapters.LibraryAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.qainfomate.Adapters.LibraryAdapter o-- com.example.qainfomate.Adapters.LibraryAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.LibraryAdapter +-down- com.example.qainfomate.Adapters.LibraryAdapter.Holder
+  com.example.qainfomate.Adapters.LibraryAdapter.Holder .up.|> android.view.View.OnClickListener
+  com.example.qainfomate.Adapters.LibraryAdapter.Holder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.example.qainfomate.Adapters.LibraryAdapter.Holder o-- com.example.qainfomate.Adapters.LibraryAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.LibraryAdapter.Holder +-down- com.example.qainfomate.Adapters.LibraryAdapter.Holder.recInterface
+  com.example.qainfomate.Adapters.MessageAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.qainfomate.Adapters.MessageAdapter o-- com.example.qainfomate.Adapters.MessageAdapter.Holder.MsgInterface : listener
+  com.example.qainfomate.Adapters.MessageAdapter o-- com.example.qainfomate.Models.Message : mRecentlyDeletedItem
+  com.example.qainfomate.Adapters.MessageAdapter +-down- com.example.qainfomate.Adapters.MessageAdapter.Holder
+  com.example.qainfomate.Adapters.MessageAdapter.Holder .up.|> android.view.View.OnClickListener
+  com.example.qainfomate.Adapters.MessageAdapter.Holder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.example.qainfomate.Adapters.MessageAdapter.Holder o-- com.example.qainfomate.Adapters.MessageAdapter.Holder.MsgInterface : listener
+  com.example.qainfomate.Adapters.MessageAdapter.Holder +-down- com.example.qainfomate.Adapters.MessageAdapter.Holder.MsgInterface
+  com.example.qainfomate.Adapters.MyBooksAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.qainfomate.Adapters.MyBooksAdapter o-- com.example.qainfomate.Adapters.MyBooksAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.MyBooksAdapter +-down- com.example.qainfomate.Adapters.MyBooksAdapter.Holder
+  com.example.qainfomate.Adapters.MyBooksAdapter.Holder .up.|> android.view.View.OnClickListener
+  com.example.qainfomate.Adapters.MyBooksAdapter.Holder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.example.qainfomate.Adapters.MyBooksAdapter.Holder o-- com.example.qainfomate.Adapters.MyBooksAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.MyBooksAdapter.Holder +-down- com.example.qainfomate.Adapters.MyBooksAdapter.Holder.recInterface
+  com.example.qainfomate.Adapters.ReviewAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.qainfomate.Adapters.ReviewAdapter o-- com.example.qainfomate.Adapters.ReviewAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.ReviewAdapter +-down- com.example.qainfomate.Adapters.ReviewAdapter.Holder
+  com.example.qainfomate.Adapters.ReviewAdapter.Holder .up.|> android.view.View.OnClickListener
+  com.example.qainfomate.Adapters.ReviewAdapter.Holder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+  com.example.qainfomate.Adapters.ReviewAdapter.Holder o-- com.example.qainfomate.Adapters.ReviewAdapter.Holder.recInterface : listener
+  com.example.qainfomate.Adapters.ReviewAdapter.Holder +-down- com.example.qainfomate.Adapters.ReviewAdapter.Holder.recInterface
+  com.example.qainfomate.Adapters.SwipeToDeleteCallback -up-|> androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback
+  com.example.qainfomate.Adapters.SwipeToDeleteCallback o-- com.example.qainfomate.Adapters.MessageAdapter : mAdapter
+  com.example.qainfomate.Adapters.TopicAdapter -up-|> androidx.recyclerview.widget.RecyclerView.Adapter
+  com.example.qainfomate.Adapters.TopicAdapter +-down- com.example.qainfomate.Adapters.TopicAdapter.Holder
+  com.example.qainfomate.Adapters.TopicAdapter.Holder -up-|> androidx.recyclerview.widget.RecyclerView.ViewHolder
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

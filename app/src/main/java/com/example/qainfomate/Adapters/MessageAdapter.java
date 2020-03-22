@@ -67,6 +67,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //on creation of view, our item card is inflated into the holder
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.msg_recview_card, parent, false);
         Holder holder = new Holder(v, listener);
         return holder;
@@ -74,8 +75,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int i) {
+        //at each item card gets the required values from our list and set's the holder's attributes with them
         holder.fromID.setText(msgs.get(i).getIDfrom());
         holder.bookTitle.setText(msgs.get(i).getBookTitle());
+        //sets different image if the image is read or not
         if(msgs.get(i).getRead()==false){
             holder.mail.setImageResource(R.drawable.closed_mail);
         }else{
@@ -84,12 +87,13 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         holder.time.setText(msgs.get(i).getDate());
             }
 
-    @Override
+    @Override //gets size of list of items co tell the adapter how many cards are needed
     public int getItemCount() {
         return msgs.size();
     }
 
         public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
+            //creating java counterparts of the item card
         TextView fromID, bookTitle, time;
         ImageView mail;
         MsgInterface listener;
@@ -98,6 +102,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
 
             public Holder(@NonNull View itemView, MsgInterface _listener) {
                 super(itemView);
+                //our holder will link our java counterparts with the xml elements
                 fromID = itemView.findViewById(R.id.tv_fromID_msgRec);
                 bookTitle = itemView.findViewById(R.id.tv_booktitle_msgRec);
                 time = itemView.findViewById(R.id.tv_time_msgRec);
@@ -107,10 +112,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
             }
 
 
-        @Override
+        @Override //gets the adapter position where the user taps
         public void onClick(View v) {listener.onItemClick(getAdapterPosition());}
 
         public interface MsgInterface{
+            /*interface to be implemented by activity class to tell adapter what to do on item click
+            and that same class will be  passed to the adapter constructor as a listener interface for the item touch*/
             public void onItemClick(int i);
     }
 

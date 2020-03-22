@@ -28,10 +28,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="10dp"
-        android:gravity="center_horizontal"
         android:inputType="textMultiLine"
         android:text="Main Subject"
-        android:textAlignment="center"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_fromID_forum_topic_rec_view" />

@@ -23,15 +23,16 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.Holder> {
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //on creation of view, our item card is inflated into the holder
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.forum_topic_card, parent, false);
         Holder holder = new Holder(v);
         return holder;
     }
 
-    @Override
+    @Override //gets size of list of items co tell the adapter how many cards are needed
     public void onBindViewHolder(@NonNull Holder holder, int i) {
         holder.fromId.setText("by: " + threads.get(i).getFromID());
-        holder.comment.setText("Subject: " + threads.get(i).getMessage());
+        holder.comment.setText("Message " + threads.get(i).getMessage());
         holder.date.setText("On " + threads.get(i).getDate());
     }
 
@@ -40,11 +41,12 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.Holder> {
 
 
     public static class Holder extends RecyclerView.ViewHolder {
-
+        //creating java counterparts of the item card
         TextView fromId, date, comment;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
+            //our holder will link our java counterparts with the xml elements
             fromId = itemView.findViewById(R.id.tv_fromID_forum_topic_rec_view);
             date = itemView.findViewById(R.id.tv_date_forum);
             comment = itemView.findViewById(R.id.tv_main_subject_forum_topic_rec_view);

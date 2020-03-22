@@ -283,11 +283,8 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
                             }
                             forumAdapter = new ForumAdapter(list, ItemListClass.this);
                             RecView.setAdapter(forumAdapter);
-
                     }
                 }
-
-
             }
 
             @Override
@@ -295,7 +292,6 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
 
             }
         };
-
 
     @Override
     public void onItemClick(int i) {
@@ -339,7 +335,4 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
         i = new Intent(this, goTo);
         startActivity(i);
     }
-
-
-
 }

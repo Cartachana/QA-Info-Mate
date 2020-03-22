@@ -26,7 +26,7 @@ import java.util.Locale;
 
 public class SendMsg extends Activity {
 
-    private TextView msgTo;
+    private TextView msgTo, error;
     private EditText msg;
     private Button send;
     private DatabaseReference dbref;
@@ -51,6 +51,7 @@ public class SendMsg extends Activity {
     //Until here
 
         msgTo = findViewById(R.id.tv_msgTo_sendMsg);
+        error = findViewById(R.id.tv_error_sendMsg);
         msg = findViewById(R.id.et_message_sendMsg);
         send = findViewById(R.id.btn_send_sendMsg);
         dbref = FirebaseDatabase.getInstance().getReference().child("Messages");
@@ -71,7 +72,7 @@ public class SendMsg extends Activity {
             @Override
             public void onClick(View v) {
                 if(msg.getText().toString().isEmpty()){
-                    msg.setTextColor(Color.parseColor("#FF1B00"));
+                    error.setVisibility(View.VISIBLE);
                 }else{
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm", Locale.getDefault());
                     String time = sdf.format(new Date());

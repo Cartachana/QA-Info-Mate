@@ -1,7 +1,7 @@
 package com.example.qainfomate.Models;
 
 public class User {
-    private String stuID, fname, sname, email, password;
+    private String stuID, fname, sname;
 
     public User(String stuID, String fname, String sname) {
         this.stuID = stuID;

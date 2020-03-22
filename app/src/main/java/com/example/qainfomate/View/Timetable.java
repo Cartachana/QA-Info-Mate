@@ -13,6 +13,8 @@ import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.sql.Time;
+
 
 public class Timetable extends AppCompatActivity {
 
@@ -140,7 +142,10 @@ public class Timetable extends AppCompatActivity {
         market.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateTo(ItemListClass.class, null);
+                i = new Intent(Timetable.this, ItemListClass.class);
+                i.putExtra("ITEM", "Books_for_Sale");
+                i.putExtra("ITEM2", 1);
+                startActivity(i);
             }
         });
 

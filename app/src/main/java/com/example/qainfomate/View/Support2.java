@@ -13,7 +13,7 @@ import com.example.qainfomate.R;
 
 public class Support2 extends AppCompatActivity {
     private TextView title, email, phoneno, floor;
-    private ImageView dash, timetable, library, market, forum, moodle;
+    private ImageView dash, timetable, library, market, forum, moodle, back;
     private String extra;
     private Bundle extras;
     Intent i;
@@ -33,6 +33,7 @@ public class Support2 extends AppCompatActivity {
         market = findViewById(R.id.iv_market_bottom_support2);
         forum = findViewById(R.id.iv_forum_bottom_support2);
         moodle = findViewById(R.id.iv_moodle_bottom_support2);
+        back = findViewById(R.id.iv_back_Support2);
 
         extras = getIntent().getExtras();
         extra = extras.getString("DEP");
@@ -127,6 +128,11 @@ public class Support2 extends AppCompatActivity {
             default:
                 break;
         }
+
+        //navigate user back to Support actvt
+        back.setOnClickListener(v -> {
+            navigateTo(Support.class, null);
+        });
 
         //navigate user to the Help activity
         dash.setOnClickListener(v -> navigateTo(Dashboard.class, null));

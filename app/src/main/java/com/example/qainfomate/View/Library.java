@@ -28,17 +28,19 @@ import java.util.ArrayList;
 
 public class Library extends AppCompatActivity implements LibraryAdapter.Holder.recInterface {
 
+    private ImageView closeMenu, back;
+    private TextView mine, all, programming, business, economics, web, maths, ux, backDash;
+    private FloatingActionButton fab;
+
     private RecyclerView RecView;
     private LinearLayout leftMenu;
-    private Animation animLeft, animRight;
     private RecyclerView.LayoutManager manager;
-    private FloatingActionButton fab;
     private LibraryAdapter libAdapter;
     private ArrayList<Library_Book> list = new ArrayList<>();
     private ArrayList<String> keys = new ArrayList<>();
+
+    private Animation animLeft, animRight;
     private DatabaseReference dbref;
-    private ImageView closeMenu, back;
-    private TextView mine, all, programming, business, economics, web, maths, ux, backDash;
     private Intent i;
     private Query dbQuery;
 
@@ -57,125 +59,106 @@ public class Library extends AppCompatActivity implements LibraryAdapter.Holder.
         maths = findViewById(R.id.tv_maths_library);
         ux = findViewById(R.id.tv_UX_library);
         backDash = findViewById(R.id.tv_back_library);
+        fab = findViewById(R.id.floating_button_library);
 
         RecView = findViewById(R.id.rv_rv_library);
         manager = new GridLayoutManager(this, 3);
+        RecView.setLayoutManager(manager);
+
         leftMenu = findViewById(R.id.left_menu);
         animLeft = AnimationUtils.loadAnimation(this, R.anim.animleft);
         animRight = AnimationUtils.loadAnimation(this, R.anim.animright);
         closeMenu = findViewById(R.id.iv_closeMenu_library);
 
-        RecView.setLayoutManager(manager);
-        fab = findViewById(R.id.floating_button_library);
         dbref = FirebaseDatabase.getInstance().getReference().child("Library_Books");
         dbref.addListenerForSingleValueEvent(listener);
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setVisibility(View.VISIBLE);
-                leftMenu.setAnimation(animRight);
-                fab.setVisibility(View.GONE);
-            }
+        //opens left slider menu with animation
+        fab.setOnClickListener(v -> {
+            leftMenu.setVisibility(View.VISIBLE);
+            leftMenu.setAnimation(animRight);
+            fab.setVisibility(View.GONE);
         });
 
-        closeMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-            }
+        //closes left slider menu with animation
+        closeMenu.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Library.this, Dashboard.class);
-                startActivity(i);
-            }
+        //takes user back to dashboard
+        back.setOnClickListener(v -> {
+            i = new Intent(Library.this, Dashboard.class);
+            startActivity(i);
         });
-        backDash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Library.this, Dashboard.class);
-                startActivity(i);
-            }
+        backDash.setOnClickListener(v -> {
+            i = new Intent(Library.this, Dashboard.class);
+            startActivity(i);
         });
 
 
-        mine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("loanedTo").equalTo(Session.LiveSession.user.getStuID());
-                dbQuery.addListenerForSingleValueEvent(listener);
-            }
-        });
-        all.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-                dbref = FirebaseDatabase.getInstance().getReference().child("Library_Books");
-                dbref.addListenerForSingleValueEvent(listener);
-            }
-        });
-        programming.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Programming");
-                dbQuery.addListenerForSingleValueEvent(listener);
-            }
-        });
-        business.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Business");
-                dbQuery.addListenerForSingleValueEvent(listener);
-            }
-        });
-        economics.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Economics");
-                dbQuery.addListenerForSingleValueEvent(listener);
-            }
-        });
-        web.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Web Development");
-                dbQuery.addListenerForSingleValueEvent(listener);
-            }
-        });
-        ux.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                leftMenu.setAnimation(animLeft);
-                leftMenu.setVisibility(View.INVISIBLE);
-                fab.setVisibility(View.VISIBLE);
-                dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("User Experience");
-                dbQuery.addListenerForSingleValueEvent(listener);
-            }
-        });
 
-
+        //BOOK CATEGORIES filters books being shown depending on user's
+        // touch changing the Db query and attaching the listener to it every time
+        programming.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Programming");
+            dbQuery.addListenerForSingleValueEvent(listener);
+        });
+        business.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Business");
+            dbQuery.addListenerForSingleValueEvent(listener);
+        });
+        economics.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Economics");
+            dbQuery.addListenerForSingleValueEvent(listener);
+        });
+        web.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Web Development");
+            dbQuery.addListenerForSingleValueEvent(listener);
+        });
+        maths.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("Mathematics");
+            dbQuery.addListenerForSingleValueEvent(listener);
+        });
+        ux.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("category").equalTo("User Experience");
+            dbQuery.addListenerForSingleValueEvent(listener);
+        });
+        //shows logged user his book reservations
+        mine.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbQuery = FirebaseDatabase.getInstance().getReference().child("Library_Books").orderByChild("loanedTo").equalTo(Session.LiveSession.user.getStuID());
+            dbQuery.addListenerForSingleValueEvent(listener);
+        });
+        //shows all books in the library
+        all.setOnClickListener(v -> {
+            leftMenu.setAnimation(animLeft);
+            leftMenu.setVisibility(View.INVISIBLE);
+            fab.setVisibility(View.VISIBLE);
+            dbref = FirebaseDatabase.getInstance().getReference().child("Library_Books");
+            dbref.addListenerForSingleValueEvent(listener);
+        });
     }
 
     ValueEventListener listener = new ValueEventListener() {

@@ -54,82 +54,66 @@ public class Register extends AppCompatActivity {
         btnReg = findViewById(R.id.btn_register);
         error = findViewById(R.id.tv_error_register);
 
-    }
+        btnReg.setOnClickListener(v -> {//first we check if there is any field empty
+            if(stuID.getText().toString().isEmpty()||fn.getText().toString().isEmpty()||
+                    sn.getText().toString().isEmpty()||em.getText().toString().isEmpty()||
+                    pass.getText().toString().isEmpty()||confpass.getText().toString().isEmpty()) {
+                error.setText("Please fill in all fields!!");
+                error.setVisibility(View.VISIBLE);
+            }else{//if no field is empty we proceed to check if the passwords match
+                check1 = pass.getText().toString();
+                check2 = confpass.getText().toString();
+                if (check1.equals(check2)) {
+        //if passwords match we query the database to get us all entries with the same Student ID as the one entered
+                    dbquery = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("stuID")
+                            .equalTo(stuID.getText().toString());
+                    dbquery.addListenerForSingleValueEvent(listener);
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        btnReg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(stuID.getText().toString().isEmpty()||fn.getText().toString().isEmpty()||sn.getText().toString().isEmpty()||em.getText().toString().isEmpty()||pass.getText().toString().isEmpty()||confpass.getText().toString().isEmpty()) {
-                    error.setText("Please fill in all fields!!");
+                } else { // if the passwords do not match
+                    error.setText("Passwords do not Match!");
                     error.setVisibility(View.VISIBLE);
-                }else{
-                    check1 = pass.getText().toString();
-                    check2 = confpass.getText().toString();
-                    if (check1.equals(check2)) {
-                        //Registering user if passwords match
-                        ValueEventListener listener = new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.exists()){
-                                    for(DataSnapshot dss:dataSnapshot.getChildren())
-                                    {
-                                        error.setText("That Student ID is already in use");
-                                        error.setVisibility(View.VISIBLE);
-                                        fbAuth.signOut();
-                                    }
-                                }
-                                else{fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                    @Override
-                                    public void onSuccess(AuthResult authResult) {
-                                        //logging in user in the background to get his details
-                                        fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                            @Override
-                                            public void onSuccess(AuthResult authResult) {
-                                                dbref = FirebaseDatabase.getInstance().getReference("_user_");
-                                                //Storing user's details in Realtime database
-                                                User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
-                                                dbref.child(fbAuth.getUid()).setValue(u);
-                                                fbAuth.signOut();
-                                                //directing to splash page
-                                                Intent i = new Intent(Register.this, Splash.class);
-                                                i.putExtra("name", u.getFname());
-                                                i.putExtra("surname", u.getSname());
-                                                startActivity(i);
-                                            }
-                                        });
-                                    }
-
-
-                                }).addOnFailureListener(e -> {
-                                    error.setText(e.toString());
-                                    error.setVisibility(View.VISIBLE);
-                                    //Toast.makeText(Register.this, e.toString(), Toast.LENGTH_LONG).show();
-                                });
-                                }
-
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        };
-                        dbquery = FirebaseDatabase.getInstance().getReference("_user_").orderByChild("stuID").equalTo(stuID.getText().toString());
-                        dbquery.addListenerForSingleValueEvent(listener);
-
-                    } else {
-                        error.setText("Passwords do not Match!");
-                        error.setVisibility(View.VISIBLE);
-                    }
-
                 }
             }
         });
     }
+
+    ValueEventListener listener = new ValueEventListener() {
+        @Override
+        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            if(dataSnapshot.exists()){
+                for(DataSnapshot dss:dataSnapshot.getChildren())
+                { // if the listener find a user with the same ID as the one typed, error message is shown
+                    error.setText("That Student ID is already in use");
+                    error.setVisibility(View.VISIBLE);
+                }
+            }// if ID is unique the user is created on the Firebase Authentication
+            else{fbAuth.createUserWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(authResult -> {
+                //logging in user in the background to store his Name and ID on the Firebase Database
+                fbAuth.signInWithEmailAndPassword(em.getText().toString(), pass.getText().toString()).addOnSuccessListener(authResult1 -> {
+                    dbref = FirebaseDatabase.getInstance().getReference("_user_");
+                    //Storing user's details in Realtime database with the UID from Auth as Primary Key
+                    User u = new User(stuID.getText().toString(), fn.getText().toString(), sn.getText().toString());
+                    dbref.child(fbAuth.getUid()).setValue(u);
+                    fbAuth.signOut();
+                    //directing to splash page
+                    Intent i = new Intent(Register.this, Splash.class);
+                    i.putExtra("name", u.getFname());
+                    i.putExtra("surname", u.getSname());
+                    startActivity(i);
+                });
+            }).addOnFailureListener(e -> {
+                error.setText(e.toString());
+                error.setVisibility(View.VISIBLE);
+            });
+            }
+        }
+
+        @Override
+        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+        }
+    };
+
 
 }
 

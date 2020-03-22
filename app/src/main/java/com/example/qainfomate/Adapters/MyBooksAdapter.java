@@ -28,6 +28,7 @@ public class MyBooksAdapter extends RecyclerView.Adapter<MyBooksAdapter.Holder> 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //on creation of view, our item card is inflated into the holder
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.mybooks_recview_card, parent, false);
         Holder holder = new Holder(v, listener);
         return holder;
@@ -35,6 +36,7 @@ public class MyBooksAdapter extends RecyclerView.Adapter<MyBooksAdapter.Holder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyBooksAdapter.Holder holder, int i) {
+        //at each item card gets the required values from our list and set's the holder's attributes with them
         holder.title.setText("Title: " + list.get(i).getTitle());
         holder.author.setText("Author: " + list.get(i).getAuthor());
         holder.category.setText("Category: " + list.get(i).getCategory());
@@ -44,16 +46,18 @@ public class MyBooksAdapter extends RecyclerView.Adapter<MyBooksAdapter.Holder> 
         Picasso.get().load(list.get(i).getImageUrl()).fit().into(holder.bookimg);
     }
 
-    @Override
+    @Override //gets size of list of items co tell the adapter how many cards are needed
     public int getItemCount() {return list.size();}
 
     public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener{
+        //creating java counterparts of the item card
         TextView title, author, isAvailable, category;
         ImageView bookimg;
         recInterface listener;
 
         public Holder(@NonNull View itemView, recInterface _listener) {
             super(itemView);
+            //our holder will link our java counterparts with the xml elements
             title = itemView.findViewById(R.id.tv_title_mybooks);
             author = itemView.findViewById(R.id.tv_author_mybooks);
             isAvailable = itemView.findViewById(R.id.tv_isavaiable_mybooks);
@@ -63,9 +67,12 @@ public class MyBooksAdapter extends RecyclerView.Adapter<MyBooksAdapter.Holder> 
             itemView.setOnClickListener(this);
         }
 
-        @Override
+        @Override //gets the adapter position where the user taps
         public void onClick(View v) {listener.onItemClick(getAdapterPosition());}
+
         public interface recInterface{
+            /*interface to be implemented by activity class to tell adapter what to do on item click
+            and that same class will be  passed to the adapter constructor as a listener interface for the item touch*/
             void onItemClick(int i);
         }
     }
