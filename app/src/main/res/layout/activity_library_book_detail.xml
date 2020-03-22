@@ -50,8 +50,8 @@
 
         <ImageButton
             android:id="@+id/iv_back_libBookDetail"
-            android:layout_width="70dp"
-            android:layout_height="65dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_gravity="center_vertical"
             app:backgroundTint="#00ad81"
             app:srcCompat="@drawable/back_icon" />
