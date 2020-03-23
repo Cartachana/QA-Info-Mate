@@ -62,7 +62,7 @@ public class Post_Book extends AppCompatActivity {
         noimage = findViewById(R.id.btn_noimage_postBook);
 
         Animation animation = new AlphaAnimation(1, (float) .4); // Change alpha from fully visible to partially visible
-        animation.setDuration(1000); // duration - half a second
+        animation.setDuration(1000); // duration - 1 second
         animation.setInterpolator(new LinearInterpolator()); // do not alter animation rate
         animation.setRepeatCount(Animation.INFINITE); // Repeat animation infinitely
         animation.setRepeatMode(Animation.REVERSE); // Reverse animation at the end so the button will fade back in
@@ -80,7 +80,6 @@ public class Post_Book extends AppCompatActivity {
             }
         });
 
-
         imgBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,39 +96,31 @@ public class Post_Book extends AppCompatActivity {
                 final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
                 final String book_id = dbref.push().getKey();
                 final StorageReference reference = sref.child(book_id + "." + getExt(imageUri));
-                reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                reference.putFile(imageUri).addOnSuccessListener(taskSnapshot ->
+                        reference.getDownloadUrl().addOnSuccessListener(uri -> {
+                    final String url = uri.toString();
+                    final String id = book_id;
+                    progressText.setText("Upload Complete");
+                    upload.setVisibility(View.INVISIBLE);
+                    next.setVisibility(View.VISIBLE);
+                    next.startAnimation(animation);
+                //BUTTON NEXT PROGRAMMED HERE TO TAKE US TO THE NEXT ACTIVITY
+                    next.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v1) {
+                            Intent i = new Intent(Post_Book.this, Post_Book2.class);
+                            i.putExtra("url", url);
+                            i.putExtra("id", id);
+                            startActivity(i);
+                        }
+                    });
+                }).addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                final String url = uri.toString();
-                                final String id = book_id;
-                                progressText.setText("Upload Complete");
-                                upload.setVisibility(View.INVISIBLE);
-                                next.setVisibility(View.VISIBLE);
-                                next.startAnimation(animation);
-                            //BUTTON NEXT PROGRAMMED HERE TO TAKE US TO THE NEXT ACTIVITY
-                                next.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        Intent i = new Intent(Post_Book.this, Post_Book2.class);
-                                        i.putExtra("url", url);
-                                        i.putExtra("id", id);
-                                        startActivity(i);
-                                    }
-                                });
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(Post_Book.this, "IMAGE FAILED TO UPLOAD", Toast.LENGTH_LONG).show();
-                                reference.delete();
-                            }
-                        });
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(Post_Book.this, "IMAGE FAILED TO UPLOAD", Toast.LENGTH_LONG).show();
+                        reference.delete();
                     }
-                }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                })).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
                         double status = 100.0 * ((float) (taskSnapshot.getBytesTransferred()) / (float) (taskSnapshot.getTotalByteCount()));
@@ -155,7 +146,6 @@ public class Post_Book extends AppCompatActivity {
                                 i.putExtra("url", url);
                                 i.putExtra("id", book_id);
                                 startActivity(i);
-
                     }
                 });
             }
@@ -170,8 +160,6 @@ public class Post_Book extends AppCompatActivity {
             upload.setVisibility(View.VISIBLE);
         }
     }
-
-
 
     private String getExt(Uri _imageUri){ //Returns file extension
         ContentResolver resolver = getContentResolver();

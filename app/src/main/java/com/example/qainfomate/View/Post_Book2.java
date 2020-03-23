@@ -55,25 +55,22 @@ public class Post_Book2 extends AppCompatActivity {
         spinner.setAdapter(spinnerAdapter);
 
 
-            post.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (title.getText().toString().isEmpty() || description.getText().toString().isEmpty() || author.getText().toString().isEmpty() || spinner.getSelectedItemId() == 0) {
-                        error.setText("Please fill in all fields!!");
-                        error.setVisibility(View.VISIBLE);
-                    } else {
-                    dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
-                    Book_for_Sale bookfs = new Book_for_Sale(title.getText().toString(), author.getText().toString(),
-                            description.getText().toString(), spinner.getSelectedItem().toString(), url, "BFS",
-                            Session.LiveSession.user.getStuID(), true);
-                    dbref.child(id).setValue(bookfs);
-                    Toast.makeText(Post_Book2.this, "Book Successfully Posted", Toast.LENGTH_LONG).show();
-                    Intent i = new Intent(Post_Book2.this, ItemListClass.class);
-                    i.putExtra("ITEM", "Books_for_Sale");
-                    i.putExtra("ITEM2", 2);
-                    startActivity(i);
-                }}
-            });
+            post.setOnClickListener(v -> {
+                if (title.getText().toString().isEmpty() || description.getText().toString().isEmpty() || author.getText().toString().isEmpty() || spinner.getSelectedItemId() == 0) {
+                    error.setText("Please fill in all fields!!");
+                    error.setVisibility(View.VISIBLE);
+                } else {
+                dbref = FirebaseDatabase.getInstance().getReference("Books_for_Sale");
+                Book_for_Sale bookfs = new Book_for_Sale(title.getText().toString(), author.getText().toString(),
+                        description.getText().toString(), spinner.getSelectedItem().toString(), url, "BFS",
+                        Session.LiveSession.user.getStuID(), true);
+                dbref.child(id).setValue(bookfs);
+                Toast.makeText(Post_Book2.this, "Book Successfully Posted", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Post_Book2.this, ItemListClass.class);
+                i.putExtra("ITEM", "Books_for_Sale");
+                i.putExtra("ITEM2", 2);
+                startActivity(i);
+            }});
 
     }
 }

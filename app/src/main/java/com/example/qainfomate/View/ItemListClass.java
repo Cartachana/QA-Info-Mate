@@ -38,23 +38,28 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
 
     private RecyclerView RecView;
     private ImageView dash, timetable, forum, lib, moodle, help, market;
+    private Button sell, btnmsgs, myBooks, booksforSale, topic;
+    private TextView title;
+
     private RecyclerView.LayoutManager manager;
     private BookAdapter bookAdapter;
     private MyBooksAdapter myBooksAdapter;
     private ForumAdapter forumAdapter;
     private MessageAdapter msgAdapter;
-    Bundle Extras;
+
+    private Bundle Extras;
+    private Intent i;
     private String idbref;
     private Integer item2;
-    private Button sell, btnmsgs, myBooks, booksforSale, topic;
-    private TextView title;
+    private DatabaseReference dbref;
+
     private ArrayList<GenericList> list = new ArrayList<>();
     private ArrayList<String> keys = new ArrayList<>();
     private ArrayList<Boolean> available = new ArrayList<>();
-    private DatabaseReference dbref;
+
     public static ConstraintLayout constraintLayout;
     public static View view;
-    private Intent i;
+
     Toolbar toolbar;
 
     @Override

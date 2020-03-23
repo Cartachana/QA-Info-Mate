@@ -47,18 +47,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
     }
     public void showUndoSnackbar(int i) {
         ItemListClass.constraintLayout = ItemListClass.view.findViewById(R.id.coordinatorLayout);
-        Snackbar snackbar = Snackbar.make(ItemListClass.constraintLayout,"Message is Deleted", Snackbar.LENGTH_LONG);
-        snackbar.setAction("UNDO", new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                msgs.add(mRecentlyDeletedItemPosition, mRecentlyDeletedItem);
-                keys.add(mRecentlyDeletedItemPosition, recentkey);
-                notifyItemInserted(mRecentlyDeletedItemPosition);
-                dbref.child(recentkey).setValue(mRecentlyDeletedItem);
-                Snackbar snackbar1 = Snackbar.make(ItemListClass.constraintLayout, "Message is Restored", Snackbar.LENGTH_SHORT);
-                snackbar1.show();
-                notifyItemRangeChanged(0, msgs.size());
-            }
+        Snackbar snackbar = Snackbar.make(ItemListClass.constraintLayout,"Message is Deleted",
+                Snackbar.LENGTH_LONG).setDuration(5000);
+        snackbar.setAction("UNDO", v -> {
+            msgs.add(mRecentlyDeletedItemPosition, mRecentlyDeletedItem);
+            keys.add(mRecentlyDeletedItemPosition, recentkey);
+            notifyItemInserted(mRecentlyDeletedItemPosition);
+            dbref.child(recentkey).setValue(mRecentlyDeletedItem);
+            Snackbar snackbar1 = Snackbar.make(ItemListClass.constraintLayout,
+                    "Message is Restored", Snackbar.LENGTH_SHORT);
+            snackbar1.show();
+            notifyItemRangeChanged(0, msgs.size());
         });
         snackbar.show();
     }
@@ -118,7 +117,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
         public interface MsgInterface{
             /*interface to be implemented by activity class to tell adapter what to do on item click
             and that same class will be  passed to the adapter constructor as a listener interface for the item touch*/
-            public void onItemClick(int i);
+            void onItemClick(int i);
     }
 
 
