@@ -31,6 +31,9 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.Holder> {
 
     @Override //gets size of list of items co tell the adapter how many cards are needed
     public void onBindViewHolder(@NonNull Holder holder, int i) {
+        holder.rep.setVisibility(View.INVISIBLE);
+        holder.reps.setVisibility(View.INVISIBLE);
+
         holder.fromId.setText("by: " + threads.get(i).getFromID());
         holder.comment.setText("Message: " + threads.get(i).getMessage());
         holder.date.setText("On " + threads.get(i).getDate());
@@ -42,7 +45,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.Holder> {
 
     public static class Holder extends RecyclerView.ViewHolder {
         //creating java counterparts of the item card
-        TextView fromId, date, comment;
+        TextView fromId, date, comment, rep, reps;
 
         public Holder(@NonNull View itemView) {
             super(itemView);
@@ -50,6 +53,8 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.Holder> {
             fromId = itemView.findViewById(R.id.tv_fromID_forum_topic_rec_view);
             date = itemView.findViewById(R.id.tv_date_forum);
             comment = itemView.findViewById(R.id.tv_main_subject_forum_topic_rec_view);
+            rep = itemView.findViewById(R.id.tv_numReplies_forumCard);
+            reps = itemView.findViewById(R.id.tv_numReplies);
         }
     }
 }

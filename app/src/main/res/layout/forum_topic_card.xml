@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:layout_marginHorizontal="5dp"
-    android:padding="10dp"
+    android:padding="8dp"
     android:elevation="3dp"
     android:background="@drawable/forum_style"
     app:contentPadding="4dp">
@@ -16,10 +16,35 @@
         android:id="@+id/tv_fromID_forum_topic_rec_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:text="From ID"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_numReplies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="3dp"
+        android:text="Replies:"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fromID_forum_topic_rec_view" />
+
+    <TextView
+        android:id="@+id/tv_numReplies_forumCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="TextView"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/tv_numReplies"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date_forum" />
 
     <TextView
         android:id="@+id/tv_main_subject_forum_topic_rec_view"
@@ -27,12 +52,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
         android:inputType="textMultiLine"
         android:text="Main Subject"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fromID_forum_topic_rec_view" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_numReplies" />
 
     <TextView
         android:id="@+id/tv_date_forum"
@@ -41,6 +68,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
         android:text="date"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/tv_fromID_forum_topic_rec_view"
         app:layout_constraintTop_toTopOf="parent" />
 

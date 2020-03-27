@@ -66,7 +66,7 @@ public class NewTopic extends AppCompatActivity {
                     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy_HH:mm", Locale.getDefault());
                     String time = sdf.format(new Date());
                     topic = new Topic(Session.LiveSession.user.getStuID(),
-                            subject.getText().toString(), desc.getText().toString(), time);
+                            subject.getText().toString(), desc.getText().toString(), time, 0);
                     dbref.push().setValue(topic);
 
                     Toast.makeText(NewTopic.this, "New Topic Published", Toast.LENGTH_LONG).show();

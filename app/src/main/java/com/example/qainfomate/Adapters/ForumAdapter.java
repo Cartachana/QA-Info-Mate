@@ -33,9 +33,10 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.Holder>{
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int i) {
         //at each item card gets the required values from our list and set's the holder's attributes with them
-        holder.fromId.setText("Published by: " + topics.get(i).getStuId());
+        holder.fromId.setText("by: " + topics.get(i).getStuId());
         holder.subject.setText("Subject: " + topics.get(i).getSubject());
         holder.date.setText("On " + topics.get(i).getDate());
+        holder.replies.setText(topics.get(i).getThreads().toString());
     }
 
     @Override //gets size of list of items co tell the adapter how many cards are needed
@@ -44,7 +45,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.Holder>{
     public static class Holder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         //creating java counterparts of the item card
-        private TextView fromId, subject, date;
+        private TextView fromId, subject, date, replies;
         ForumInterface listener;
 
         public Holder(@NonNull View itemView, ForumInterface _listener) {
@@ -53,6 +54,7 @@ public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.Holder>{
             fromId = itemView.findViewById(R.id.tv_fromID_forum_topic_rec_view);
             subject = itemView.findViewById(R.id.tv_main_subject_forum_topic_rec_view);
             date = itemView.findViewById(R.id.tv_date_forum);
+            replies = itemView.findViewById(R.id.tv_numReplies_forumCard);
             listener = _listener;
             itemView.setOnClickListener(this);
         }

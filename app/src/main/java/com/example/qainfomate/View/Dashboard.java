@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.WebViewer;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity {
@@ -115,7 +116,8 @@ public class Dashboard extends AppCompatActivity {
         moodle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
+                i = new Intent(Dashboard.this, WebViewer.class);
+                i.putExtra("site", "Moodle");
                 startActivity(i);
             }
         });

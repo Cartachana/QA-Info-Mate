@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.qainfomate.R;
+import com.example.qainfomate.WebViewer;
 
 public class Support2 extends AppCompatActivity {
     private TextView title, email, phoneno, floor;
@@ -107,8 +108,10 @@ public class Support2 extends AppCompatActivity {
                 floor.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://qainternships.com/"));
+                        i = new Intent(Support2.this, WebViewer.class);
+                        i.putExtra("site", extra);
                         startActivity(i);
+
                     }
                 });
                 break;
@@ -120,7 +123,8 @@ public class Support2 extends AppCompatActivity {
                 floor.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.qa.com/careers/"));
+                        i = new Intent(Support2.this, WebViewer.class);
+                        i.putExtra("site", extra);
                         startActivity(i);
                     }
                 });

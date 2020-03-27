@@ -5,15 +5,17 @@ import android.os.Parcelable;
 
 public class Topic implements GenericList, Parcelable {
     String stuId, subject, desc, date;
+    Integer threads;
 
     public Topic() {
     }
 
-    public Topic(String stuId, String subject, String desc, String date) {
+    public Topic(String stuId, String subject, String desc, String date, Integer threads) {
         this.stuId = stuId;
         this.subject = subject;
         this.desc = desc;
         this.date = date;
+        this.threads = threads;
     }
 
     protected Topic(Parcel in) {
@@ -21,6 +23,7 @@ public class Topic implements GenericList, Parcelable {
         subject = in.readString();
         desc = in.readString();
         date = in.readString();
+        threads = in.readInt();
     }
 
     public static final Creator<Topic> CREATOR = new Creator<Topic>() {
@@ -67,6 +70,14 @@ public class Topic implements GenericList, Parcelable {
         this.date = date;
     }
 
+    public Integer getThreads() {
+        return threads;
+    }
+
+    public void setThreads(Integer threads) {
+        this.threads = threads;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -78,5 +89,6 @@ public class Topic implements GenericList, Parcelable {
         dest.writeString(subject);
         dest.writeString(desc);
         dest.writeString(date);
+        dest.writeInt(threads);
     }
 }

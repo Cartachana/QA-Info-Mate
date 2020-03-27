@@ -30,7 +30,7 @@ public class AddForumComment extends AppCompatActivity {
     private EditText comment;
     TextView error;
     private Button publish;
-    private DatabaseReference dbref;
+    private DatabaseReference dbref, topics;
     private String tpkey;
     private Thread thread;
     private Topic topic;
@@ -62,7 +62,9 @@ public class AddForumComment extends AppCompatActivity {
 
         comment = findViewById(R.id.et_comment_newCom);
         publish = findViewById(R.id.btn_publish_newCom);
+
         dbref = FirebaseDatabase.getInstance().getReference().child("Threads");
+        topics = FirebaseDatabase.getInstance().getReference().child("Topics");
         error = findViewById(R.id.tv_error_newCom);
 
         publish.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +77,9 @@ public class AddForumComment extends AppCompatActivity {
                     String time = sdf.format(new Date());
                     thread = new Thread(tpkey, Session.LiveSession.user.getStuID(), time, comment.getText().toString());
                     dbref.push().setValue(thread);
+                    int threads = topic.getThreads();
+                    topic.setThreads(threads+1);
+                    topics.child(tpkey).setValue(topic);
                     Toast.makeText(AddForumComment.this, "Comment Added", Toast.LENGTH_LONG).show();
                     Intent i = new Intent(AddForumComment.this, TopicDetail.class);
                     i.putExtra("TP", topic);

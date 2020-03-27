@@ -31,12 +31,10 @@ public class TopicDetail extends AppCompatActivity {
     private ImageView back;
     private Topic topic;
     private String tpkey;
-    private EditText comment;
     private Button post;
     private RecyclerView recView;
     private RecyclerView.LayoutManager manager;
     private DatabaseReference dbref;
-    private Thread thread;
     private ArrayList<Thread> threads = new ArrayList<>();
     private TopicAdapter adapter;
 

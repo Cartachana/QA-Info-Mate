@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.qainfomate">
+<uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -9,10 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Support"
+        <activity android:name=".WebViewer"
             android:theme="@style/HiddenTitleTheme"/>
-        <activity android:name=".View.Support2"
-            android:theme="@style/HiddenTitleTheme"/>
+        <activity
+            android:name=".View.Support"
+            android:theme="@style/HiddenTitleTheme" />
+        <activity
+            android:name=".View.Support2"
+            android:theme="@style/HiddenTitleTheme" />
         <activity
             android:name=".View.AddForumComment"
             android:theme="@style/AppTheme.PopMe" />
