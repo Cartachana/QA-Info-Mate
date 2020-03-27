@@ -3,9 +3,7 @@ package com.example.qainfomate.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -77,23 +75,18 @@ public class Support extends AppCompatActivity {
         });
 
         //navigate the user to Forum
-        forum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Support.this, ItemListClass.class);
-                i.putExtra("ITEM", "Topics");
-                i.putExtra("ITEM2", 1);
-                startActivity(i);
-            }
+        forum.setOnClickListener(v -> {
+            Intent i = new Intent(Support.this, ItemListClass.class);
+            i.putExtra("ITEM", "Topics");
+            i.putExtra("ITEM2", 1);
+            startActivity(i);
         });
 
         //direct the user to an external browser to the Roehampton Moodle page
-        moodle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
-                startActivity(i);
-            }
+        moodle.setOnClickListener(v -> {
+            i = new Intent(Support.this, WebViewer.class);
+            i.putExtra("site", "Moodle");
+            startActivity(i);
         });
 
     }

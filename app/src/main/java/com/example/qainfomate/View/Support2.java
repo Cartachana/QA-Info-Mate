@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.qainfomate.R;
-import com.example.qainfomate.WebViewer;
 
 public class Support2 extends AppCompatActivity {
     private TextView title, email, phoneno, floor;
@@ -156,23 +155,18 @@ public class Support2 extends AppCompatActivity {
         });
 
         //navigate the user to Forum
-        forum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Support2.this, ItemListClass.class);
-                i.putExtra("ITEM", "Topics");
-                i.putExtra("ITEM2", 1);
-                startActivity(i);
-            }
+        forum.setOnClickListener(v -> {
+            Intent i = new Intent(Support2.this, ItemListClass.class);
+            i.putExtra("ITEM", "Topics");
+            i.putExtra("ITEM2", 1);
+            startActivity(i);
         });
 
         //direct the user to an external browser to the Roehampton Moodle page
-        moodle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
-                startActivity(i);
-            }
+        moodle.setOnClickListener(v -> {
+            i = new Intent(Support2.this, WebViewer.class);
+            i.putExtra("site", "Moodle");
+            startActivity(i);
         });
     }
 

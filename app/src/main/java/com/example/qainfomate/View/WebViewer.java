@@ -1,18 +1,23 @@
-package com.example.qainfomate;
+package com.example.qainfomate.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.qainfomate.R;
+
+import java.sql.Time;
 
 public class WebViewer extends AppCompatActivity {
 
     private WebView wv;
     private TextView title;
+    private ImageView dashboard, library, forum, market, timebtale, help;
     private Intent i;
     private final String moodle_url = "https://partnerships.moodle.roehampton.ac.uk";
     private final String careers_url = "https://www.qa.com/careers/";
@@ -31,6 +36,13 @@ public class WebViewer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_viwer);
+
+        dashboard = findViewById(R.id.iv_dashboard_bottom_web);
+        library = findViewById(R.id.iv_library_bottom_web);
+        forum = findViewById(R.id.iv_forum_bottom_web);
+        market = findViewById(R.id.iv_market_bottom_web);
+        timebtale = findViewById(R.id.iv_timetable_bottom_web);
+        help = findViewById(R.id.iv_help_bottom_web);
 
         wv = findViewById(R.id.web);
         wv.setWebViewClient(new WebViewClient());
@@ -58,6 +70,37 @@ public class WebViewer extends AppCompatActivity {
                 break;
         }
 
+        // direct the user to Dashboard
+        dashboard.setOnClickListener(v -> navigateTo(Dashboard.class));
 
+        //directs user to timetable activity
+        timebtale.setOnClickListener(v -> navigateTo(Timetable.class));
+
+        //direct the user to the Library activity
+        library.setOnClickListener(v -> navigateTo(Library.class));
+
+        //navigate the user to Forum
+        forum.setOnClickListener(v -> {
+            Intent i = new Intent(WebViewer.this, ItemListClass.class);
+            i.putExtra("ITEM", "Topics");
+            i.putExtra("ITEM2", 1);
+            startActivity(i);
+        });
+
+        //navigate user to the Help activity
+        help.setOnClickListener(v -> navigateTo(Support.class));
+
+        //navigate the user to the Market activity
+        market.setOnClickListener(v -> {
+            i = new Intent(WebViewer.this, ItemListClass.class);
+            i.putExtra("ITEM", "Books_for_Sale");
+            i.putExtra("ITEM2", 1);
+            startActivity(i);
+        });
+
+    }
+    public void navigateTo(Class goTo){
+        i = new Intent(this, goTo);
+        startActivity(i);
     }
 }

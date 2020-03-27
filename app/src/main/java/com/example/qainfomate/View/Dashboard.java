@@ -3,7 +3,6 @@ package com.example.qainfomate.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
-import com.example.qainfomate.WebViewer;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Dashboard extends AppCompatActivity {

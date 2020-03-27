@@ -3,7 +3,6 @@ package com.example.qainfomate.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,8 +11,6 @@ import android.widget.TextView;
 import com.example.qainfomate.R;
 import com.example.qainfomate.Models.Session;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.sql.Time;
 
 
 public class Timetable extends AppCompatActivity {
@@ -61,100 +58,46 @@ public class Timetable extends AppCompatActivity {
         });
 
         //navigate user to Ground floor map
-        G02_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-            navigateTo(Floors.class, "G02");
-            }
-        });
-        G02_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                navigateTo(Floors.class, "G02");
-            }
-        });
-        G02_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                navigateTo(Floors.class, "G02");
-            }
-        });
-        G02_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                navigateTo(Floors.class, "G02");
-            }
-        });
+        G02_1.setOnClickListener(v -> navigateTo(Floors.class, "G02"));
+        G02_2.setOnClickListener(v -> navigateTo(Floors.class, "G02"));
+        G02_3.setOnClickListener(v -> navigateTo(Floors.class, "G02"));
+        G02_4.setOnClickListener(v -> navigateTo(Floors.class, "G02"));
         //navigate to Lower Ground floor map
-        LG1_04.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateTo(Floors.class, "LG01");
-            }
-        });
+        LG1_04.setOnClickListener(v -> navigateTo(Floors.class, "LG01"));
 
         //navigate user to Floor 1 map
-        F102.setOnClickListener(new View.OnClickListener() {     
-
-            @Override
-            public void onClick(View v) {
-                navigateTo(Floors.class, "F102");
-            }
-        });
+        F102.setOnClickListener(v -> navigateTo(Floors.class, "F102"));
 
 
         // direct the user to Dashboard
-        dashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateTo(Dashboard.class, "0");
-            }
-        });
+        dashboard.setOnClickListener(v -> navigateTo(Dashboard.class, "0"));
 
 
        //direct the user to the Library activity
-        library.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateTo(Library.class, null);
-            }
-        });
+        library.setOnClickListener(v -> navigateTo(Library.class, null));
         //navigate the user to Forum
-        forum.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Timetable.this, ItemListClass.class);
-                i.putExtra("ITEM", "Topics");
-                i.putExtra("ITEM2", 1);
-                startActivity(i);
-            }
+        forum.setOnClickListener(v -> {
+            Intent i = new Intent(Timetable.this, ItemListClass.class);
+            i.putExtra("ITEM", "Topics");
+            i.putExtra("ITEM2", 1);
+            startActivity(i);
         });
 
         //navigate user to the Help activity
-        help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navigateTo(Support.class, null);
-            }
-        });
+        help.setOnClickListener(v -> navigateTo(Support.class, null));
 
         //navigate the user to the Market activity
-        market.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Timetable.this, ItemListClass.class);
-                i.putExtra("ITEM", "Books_for_Sale");
-                i.putExtra("ITEM2", 1);
-                startActivity(i);
-            }
+        market.setOnClickListener(v -> {
+            i = new Intent(Timetable.this, ItemListClass.class);
+            i.putExtra("ITEM", "Books_for_Sale");
+            i.putExtra("ITEM2", 1);
+            startActivity(i);
         });
 
-        moodle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://partnerships.moodle.roehampton.ac.uk"));
-                startActivity(i);
-            }
+        moodle.setOnClickListener(v -> {
+            i = new Intent(Timetable.this, WebViewer.class);
+            i.putExtra("site", "Moodle");
+            startActivity(i);
         });
 
     }

@@ -156,7 +156,14 @@ public class ItemListClass extends AppCompatActivity implements BookAdapter.Hold
 
 
         //direct the user to an external browser to the Roehampton Moodle page
-        moodle.setOnClickListener(v -> navigateToMoodle());}
+        moodle.setOnClickListener(v -> {
+            i = new Intent(ItemListClass.this, WebViewer.class);
+            i.putExtra("site", "Moodle");
+            startActivity(i);
+        });
+
+
+    }
 
         ValueEventListener listener = new ValueEventListener() {
             @Override
