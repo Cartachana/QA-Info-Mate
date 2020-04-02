@@ -3,8 +3,6 @@ package com.example.qainfomate.Models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-
 public class Message implements Parcelable, GenericList {
     String IDfrom, IDto, bookTitle, message, date;
     Boolean isRead;

@@ -44,74 +44,46 @@ public class Support2 extends AppCompatActivity {
                 email.setText("student.finance.support@qa.ac.uk");
                 phoneno.setText("+44-2076568450");
                 floor.setText("Press here to see our location on campus");
-                floor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        navigateTo(Floors.class, "G02");
-                    }
-                });
+                floor.setOnClickListener(v -> navigateTo(Floors.class, "G02"));
                 break;
             case("StudentServices"):
                 title.setText("Services");
                 email.setText("student.services@qa.ac.uk");
                 phoneno.setText("+44-2076 568 460");
                 floor.setText("Press here to see our location on campus");
-                floor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        navigateTo(Floors.class, "G02");
-                    }
-                });
+                floor.setOnClickListener(v -> navigateTo(Floors.class, "G02"));
                 break;
             case("Welfare"):
                 title.setText("Student Welfare");
                 email.setText("student.welfare@qa.ac.uk");
                 phoneno.setText("+44-2076 568 420");
                 floor.setText("Press here to see our location on campus");
-                floor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        navigateTo(Floors.class, "F102");
-                    }
-                });
+                floor.setOnClickListener(v -> navigateTo(Floors.class, "F102"));
                 break;
             case("ACE"):
                 title.setText("ACE Team");
                 email.setText("ace.team.support@qa.ac.uk");
                 phoneno.setText("+44-2076 568 446");
                 floor.setText("Press here to see our location on campus");
-                floor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        navigateTo(Floors.class, "LG01");
-                    }
-                });
+                floor.setOnClickListener(v -> navigateTo(Floors.class, "LG01"));
                 break;
             case("Library"):
                 title.setText("Library");
                 email.setText("london.library@qa.ac.uk");
                 phoneno.setText("+44-2076 568 448");
                 floor.setText("Press here to see where we are");
-                floor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        navigateTo(Floors.class, "Library");
-                    }
-                });
+                floor.setOnClickListener(v -> navigateTo(Floors.class, "Library"));
                 break;
             case("Internships"):
                 title.setText("Internships");
                 email.setText("admin@qainternships.com");
                 phoneno.setText("+44-7720 291 896");
                 floor.setText("Find us here");
-                floor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        i = new Intent(Support2.this, WebViewer.class);
-                        i.putExtra("site", extra);
-                        startActivity(i);
+                floor.setOnClickListener(v -> {
+                    i = new Intent(Support2.this, WebViewer.class);
+                    i.putExtra("site", extra);
+                    startActivity(i);
 
-                    }
                 });
                 break;
             case("Careers"):
@@ -119,13 +91,10 @@ public class Support2 extends AppCompatActivity {
                 email.setText("yourcareers@qa.ac.uk");
                 phoneno.setText("+44-207 656 8458");
                 floor.setText("Find us here");
-                floor.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        i = new Intent(Support2.this, WebViewer.class);
-                        i.putExtra("site", extra);
-                        startActivity(i);
-                    }
+                floor.setOnClickListener(v -> {
+                    i = new Intent(Support2.this, WebViewer.class);
+                    i.putExtra("site", extra);
+                    startActivity(i);
                 });
                 break;
             default:
