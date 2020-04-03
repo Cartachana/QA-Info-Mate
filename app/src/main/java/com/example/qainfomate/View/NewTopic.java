@@ -3,7 +3,6 @@ package com.example.qainfomate.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -13,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.example.qainfomate.Models.Topic;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DatabaseReference;

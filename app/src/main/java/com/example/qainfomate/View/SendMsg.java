@@ -2,7 +2,6 @@ package com.example.qainfomate.View;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -15,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.Models.Message;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

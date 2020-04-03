@@ -8,7 +8,6 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -21,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.qainfomate.R;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;

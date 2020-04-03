@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.example.qainfomate.R;
 import com.google.firebase.auth.FirebaseAuth;
 

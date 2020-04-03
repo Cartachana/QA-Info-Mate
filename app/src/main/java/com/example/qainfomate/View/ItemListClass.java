@@ -23,7 +23,7 @@ import com.example.qainfomate.Adapters.SwipeToDeleteCallback;
 import com.example.qainfomate.Models.Book_for_Sale;
 import com.example.qainfomate.Models.GenericList;
 import com.example.qainfomate.Models.Message;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.example.qainfomate.Models.Topic;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DataSnapshot;

@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.qainfomate.Adapters.LibraryAdapter;
 import com.example.qainfomate.Models.Library_Book;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.example.qainfomate.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;

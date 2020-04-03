@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import com.example.qainfomate.Models.Library_Book;
 import com.example.qainfomate.Models.Review;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.example.qainfomate.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

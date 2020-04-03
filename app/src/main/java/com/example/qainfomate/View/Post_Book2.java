@@ -14,13 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.qainfomate.Models.Book_for_Sale;
-import com.example.qainfomate.Models.Library_Book;
 import com.example.qainfomate.R;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class Post_Book2 extends AppCompatActivity {
 

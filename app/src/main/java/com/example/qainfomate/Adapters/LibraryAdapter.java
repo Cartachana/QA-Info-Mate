@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.qainfomate.Models.Library_Book;
-import com.example.qainfomate.Models.Session;
+import com.example.qainfomate.Application.Session;
 import com.example.qainfomate.R;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
@@ -40,8 +40,10 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.Holder> 
         holder.author.setText(list.get(i).getAuthor());
         Picasso.get().load(list.get(i).getImageUrl()).fit().into(holder.bookimg);
             //if the book is NOT Available and it is NOT loaned to current user, set background RED
-        if(!(list.get(i).getLoanedTo().equals("Available")) && !(list.get(i).getLoanedTo().equals(Session.LiveSession.user.getStuID()))){
-            holder.libcard.setBackgroundResource(R.drawable.bg_red);
+        if(!(list.get(i).getLoanedTo().equals("Available"))){
+            if(!(list.get(i).getLoanedTo().equals(Session.LiveSession.user.getStuID()))){
+                holder.libcard.setBackgroundResource(R.drawable.bg_red);
+            }
         }
     }
 
