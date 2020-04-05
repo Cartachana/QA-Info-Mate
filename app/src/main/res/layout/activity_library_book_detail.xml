@@ -27,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="245dp" />
+        app:layout_constraintGuide_begin="332dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline34"
@@ -67,27 +67,25 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline33"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintTop_toTopOf="@+id/guideline33" />
 
     <TextView
         android:id="@+id/tv_description_libBookDetail"
-        android:layout_width="246dp"
-        android:layout_height="84dp"
+        android:layout_width="396dp"
+        android:layout_height="80dp"
         android:layout_below="@+id/tv_author_libBookDetail"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="32dp"
         android:inputType="textMultiLine"
         android:text="Description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/iv_bookImg_libBookDetail"
-        app:layout_constraintTop_toBottomOf="@+id/tv_author_libBookDetail" />
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ISBN_libBookDetail" />
 
     <TextView
         android:id="@+id/tv_author_libBookDetail"
@@ -107,6 +105,40 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_booktitle_libBookDetail" />
 
     <TextView
+        android:id="@+id/tv_edition_libBookDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_booktitle_libBookDetail"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:text="Edition"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/iv_bookImg_libBookDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_author_libBookDetail" />
+
+    <TextView
+        android:id="@+id/tv_ISBN_libBookDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_booktitle_libBookDetail"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:text="ISBN"
+        android:textAlignment="center"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/iv_bookImg_libBookDetail"
+        app:layout_constraintTop_toBottomOf="@+id/tv_edition_libBookDetail" />
+
+    <TextView
         android:id="@+id/tv_booktitle_libBookDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -115,7 +147,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:gravity="center_horizontal"
         android:inputType="textMultiLine"
         android:text="Title of the book"
@@ -131,25 +163,24 @@
         android:layout_alignParentRight="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
         android:inputType="textMultiLine"
         android:text="Reviews:"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_bookImg_libBookDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_description_libBookDetail" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_rv_books_libBookDetail"
-        android:layout_width="410dp"
-        android:layout_height="319dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="403dp"
+        android:layout_height="252dp"
         android:paddingRight="15dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline35"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline35"

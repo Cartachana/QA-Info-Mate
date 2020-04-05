@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public abstract class Book implements Parcelable {
-    public String title, author, description, category, imageUrl, type;
+    private String title, author, description, category, imageUrl, type;
 
     public Book(String title, String author, String description, String category, String imageUrl, String type) {
         this.title = title;

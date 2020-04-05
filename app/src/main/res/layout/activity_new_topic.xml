@@ -39,14 +39,13 @@
         android:id="@+id/btn_publish_newTopic"
         android:layout_width="118dp"
         android:layout_height="29dp"
-        android:layout_marginTop="44dp"
         android:background="@drawable/roundbutton"
         android:text="Publish"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline30" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_error_newTopic" />
 
     <EditText
         android:id="@+id/et_subject_newTopic"
@@ -80,16 +79,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_begin="565dp"
         app:layout_constraintGuide_percent="0.7" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.82"
-        app:layout_constraintGuide_begin="20dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

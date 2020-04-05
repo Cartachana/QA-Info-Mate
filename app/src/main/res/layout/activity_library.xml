@@ -191,7 +191,7 @@
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:src="@drawable/back_icon"
-                android:tint="#009688" />
+                android:tint="@color/white" />
 
             <TextView
                 android:id="@+id/tv_back_library"

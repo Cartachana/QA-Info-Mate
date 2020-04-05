@@ -30,7 +30,7 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
 
     private RecyclerView RecView;
     private ImageView bookImg, back;
-    private TextView title, author, desc, unv;
+    private TextView title, author,edition, isbn, desc, unv;
     private Button rev, reserve, cancel;
     private Intent intent;
     private RecyclerView.LayoutManager manager;
@@ -47,6 +47,8 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
 
         title = findViewById(R.id.tv_booktitle_libBookDetail);
         author = findViewById(R.id.tv_author_libBookDetail);
+        edition = findViewById(R.id.tv_edition_libBookDetail);
+        isbn = findViewById(R.id.tv_ISBN_libBookDetail);
         desc = findViewById(R.id.tv_description_libBookDetail);
         unv = findViewById(R.id.tv_unv_libBookDetail);
         back = findViewById(R.id.iv_back_libBookDetail);
@@ -82,6 +84,8 @@ public class LibraryBookDetail extends AppCompatActivity implements ReviewAdapte
 
         title.setText(libbook.getTitle());
         author.setText(libbook.getAuthor());
+        edition.setText(libbook.getEdition());
+        isbn.setText("ISBN: " + libbook.getISBN());
         desc.setText(libbook.getDescription());
         Picasso.get().load(libbook.getImageUrl()).fit().into(bookImg);
         bkref = FirebaseDatabase.getInstance().getReference("Library_Books");

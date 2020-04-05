@@ -8,7 +8,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.qainfomate.R;
 
 import java.sql.Time;
@@ -19,10 +18,14 @@ public class WebViewer extends AppCompatActivity {
     private TextView title;
     private ImageView dashboard, library, forum, market, timebtale, help;
     private Intent i;
-    private final String moodle_url = "https://partnerships.moodle.roehampton.ac.uk";
-    private final String careers_url = "https://www.qa.com/careers/";
-    private final String internships_url = "https://qainternships.com/";
+    private String moodle_url;
+    private String careers_url;
+    private String internships_url;
 
+    /*Here we override the onBackPressed function of the phone to,
+    if possible to go back to last webpage visited,
+    otherwise used would be taken to last activity visited which
+    would mean poor User Experience*/
     @Override
     public void onBackPressed() {
         if(wv.canGoBack()){
@@ -37,6 +40,7 @@ public class WebViewer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_viwer);
 
+        title = findViewById(R.id.tv_title_web);
         dashboard = findViewById(R.id.iv_dashboard_bottom_web);
         library = findViewById(R.id.iv_library_bottom_web);
         forum = findViewById(R.id.iv_forum_bottom_web);
@@ -44,15 +48,20 @@ public class WebViewer extends AppCompatActivity {
         timebtale = findViewById(R.id.iv_timetable_bottom_web);
         help = findViewById(R.id.iv_help_bottom_web);
 
+        //initializing our webview
         wv = findViewById(R.id.web);
         wv.setWebViewClient(new WebViewClient());
-        title = findViewById(R.id.tv_title_web);
-
-        i = getIntent();
-        String site = i.getStringExtra("site");
-
         WebSettings settings = wv.getSettings();
         settings.setJavaScriptEnabled(true);
+
+
+        moodle_url = "https://partnerships.moodle.roehampton.ac.uk";
+        careers_url = "https://www.qa.com/careers/";
+        internships_url = "https://qainternships.com/";
+
+        //receiving which site should be loaded from last activity
+        i = getIntent();
+        String site = i.getStringExtra("site");
         switch (site){
             case "Moodle":
                 title.setText(site);
