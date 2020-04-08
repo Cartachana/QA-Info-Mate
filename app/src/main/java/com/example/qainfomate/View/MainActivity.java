@@ -29,8 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 public class MainActivity extends AppCompatActivity {
 
     private EditText id, email, pass;
-    private Button btnLogin, register;
-    private TextView please, reset;
+    private Button btnLogin;
+    private TextView please, reset, SignUp;
     private FirebaseAuth fbAuth;
     private Query dbref;
     private Intent i;
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         email = findViewById(R.id.et_email_main);
         pass = findViewById(R.id.et_pass_main);
         btnLogin = findViewById(R.id.btn_Login_main);
-        register = findViewById(R.id.btn_reg_main);
+        SignUp = findViewById(R.id.tv_SignUp_main);
         reset = findViewById(R.id.tv_reset_main);
         please = findViewById(R.id.tv_please_main);
         fbAuth = FirebaseAuth.getInstance();
@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                     });
         });
 
-        register.setOnClickListener(v -> {
+        SignUp.setOnClickListener(v -> {
             i = new Intent(MainActivity.this, Register.class);
             startActivity(i);
         });
