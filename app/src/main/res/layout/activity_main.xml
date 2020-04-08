@@ -8,15 +8,14 @@
     tools:context=".View.MainActivity">
 
         <TextView
-            android:id="@+id/tv_reg_main"
+            android:id="@+id/tv_reset_main"
             android:layout_width="389dp"
             android:layout_height="24dp"
-            android:layout_marginTop="8dp"
             android:clickable="true"
             android:ems="10"
             android:gravity="center"
             android:inputType="textPersonName"
-            android:text="Not registered?Tap here to create an account"
+            android:text="Forgot your password?"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,13 +49,25 @@
             android:id="@+id/btn_Login_main"
             android:layout_width="89dp"
             android:layout_height="37dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/roundbutton"
             android:text="Login"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline7" />
+            app:layout_constraintTop_toBottomOf="@+id/et_pass_main" />
+
+        <Button
+            android:id="@+id/btn_reg_main"
+            android:layout_width="159dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/roundbutton"
+            android:text="Create an Account"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_reset_main" />
 
         <EditText
             android:id="@+id/et_pass_main"
@@ -99,7 +110,7 @@
             android:id="@+id/tv_please_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="Please fill in all fields"
             android:textColor="@android:color/holo_red_dark"
             android:visibility="invisible"
@@ -121,7 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_begin="180dp"
             app:layout_constraintGuide_percent="0.32" />
 
         <androidx.constraintlayout.widget.Guideline
