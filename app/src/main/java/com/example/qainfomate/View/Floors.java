@@ -66,25 +66,16 @@ public class Floors extends AppCompatActivity {
         }
 
         // set an event on Log Out TextView where the user is logged out and redirected to the main Login activity
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fbAuth.signOut();
-                //TEMPORARY INNER CLASS EMPTIED
-                Session.LiveSession.user = null;
-                Intent i = new Intent(Floors.this, MainActivity.class);
-                startActivity(i);
-
-            }
+        logout.setOnClickListener(v -> {
+            fbAuth.signOut();
+            //TEMPORARY INNER CLASS EMPTIED
+            Session.LiveSession.user = null;
+            Intent i = new Intent(Floors.this, MainActivity.class);
+            startActivity(i);
 
         });
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              finish();
-            }
-        });
+        back.setOnClickListener(v -> finish());
     }
 
 
